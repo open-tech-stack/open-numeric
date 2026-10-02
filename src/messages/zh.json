@@ -1,0 +1,955 @@
+{
+  "topBar": {
+    "promo": " 新品：AI 培训课程上线"
+  },
+  "nav": {
+    "home": "首页",
+    "services": "服务",
+    "portfolio": "作品集",
+    "blog": "博客",
+    "contact": "联系我们",
+    "quote": "获取报价",
+    "theme": "主题",
+    "language": "语言"
+  },
+  "services": {
+    "development": "开发",
+    "design": "设计",
+    "training": "培训",
+    "maintenance": "维护",
+    "shop": "商店"
+  },
+
+  "servicesSection": {
+    "badge": "我们的专长",
+    "title": "我们",
+    "titleHighlight": "做什么",
+    "subtitle": "满足您所有需求的完整数字服务。",
+    "learnMore": "了解更多",
+    "viewAll": "查看所有服务",
+    "items": {
+      "development": {
+        "title": "开发",
+        "description": "为您的企业构建移动应用、定制软件、API 和 Web 服务。"
+      },
+      "design": {
+        "title": "设计",
+        "description": "为您客户打造视觉识别、用户界面和难忘的数字体验。"
+      },
+      "training": {
+        "title": "培训",
+        "description": "量身定制的培训模块，掌握数字工具和技术。"
+      },
+      "maintenance": {
+        "title": "维护",
+        "description": "为您 IT 设备提供技术支持、维修和配置。"
+      }
+    }
+  },
+  "team": {
+    "badge": "我们的团队",
+    "title": "热情的",
+    "titleHighlight": "专家",
+    "subtitle": "认识让您的项目焕发生机的专家。",
+    "members": {
+      "ceo": {
+        "name": "Nestor COMPAORE",
+        "role": "CEO 兼首席开发",
+        "bio": "全栈开发专家，拥有 4 年构建复杂解决方案的经验。"
+      },
+      "designer": {
+        "name": "Sophie Martin",
+        "role": "UX/UI 设计师",
+        "bio": "界面设计和用户体验专家，热衷于直观设计。"
+      },
+      "trainer": {
+        "name": "Thomas Leroy",
+        "role": "培训经理",
+        "bio": "认证培训师，教学方式适合各个级别。"
+      },
+      "support": {
+        "name": "Camille Petit",
+        "role": "技术支持经理",
+        "bio": "保证客户支持的质量和响应速度。"
+      }
+    }
+  },
+  "clients": {
+    "badge": "我们的合作伙伴",
+    "title": "他们信任",
+    "titleHighlight": "我们",
+    "subtitle": "选择我们进行数字项目的创新企业。"
+  },
+  "testimonials": {
+    "badge": "客户评价",
+    "title": "我们的",
+    "titleHighlight": "客户怎么说",
+    "subtitle": "了解我们合作伙伴的反馈。",
+    "items": {
+      "t1": {
+        "quote": "Open Numeric 通过定制应用改变了我们的在线形象，使我们的销售额提升了 40%。",
+        "author": "Jean Lambert",
+        "company": "CEO, TechCorp"
+      },
+      "t2": {
+        "quote": "他们的设计团队打造了完美体现我们价值观并吸引目标客户的视觉识别。",
+        "author": "Marie Dubois",
+        "company": "市场总监, Innovate"
+      },
+      "t3": {
+        "quote": "培训完全符合我们的需求，帮助我们的团队提高了生产力。",
+        "author": "Pierre Garnier",
+        "company": "人力资源总监, DigitalSphere"
+      }
+    }
+  },
+  "cta": {
+    "badge": "准备好开始了吗？",
+    "title": "让您的",
+    "titleHighlight": "愿景成真",
+    "subtitle": "立即联系我们，讨论您的项目，了解我们如何帮助您实现数字目标。",
+    "primary": "联系我们",
+    "secondary": "获取报价"
+  },
+  "footer": {
+    "aboutText": "您的数字解决方案合作伙伴。开发、设计、培训和维护，助您的企业迈入数字时代。",
+    "services": "我们的服务",
+    "usefulLinks": "有用链接",
+    "contact": "联系我们",
+    "contactButton": "联系表单",
+    "about": "关于我们",
+    "team": "我们的团队",
+    "portfolio": "作品集",
+    "blog": "博客",
+    "testimonials": "客户评价",
+    "rights": "版权所有。",
+    "legal": "法律声明",
+    "cookies": "Cookie 政策",
+    "terms": "条款",
+    "servicesList": {
+      "s1": "应用开发",
+      "s2": "网站创建",
+      "s3": "API 开发",
+      "s4": "网页与平面设计",
+      "s5": "数字培训",
+      "s6": "IT 维护"
+    }
+  },
+  "hero": {
+  "badge": "新品 · 2026 AI 解决方案",
+  "title": "数字解决方案",
+  "titleHighlight": "量身定制",
+  "subtitle": "开发、设计、培训和维护——成功实现数字化转型所需的一切。",
+  "ctaPrimary": "探索我们的服务",
+  "ctaSecondary": "联系我们",
+  "available": "在线",
+  "stats": {
+    "projects": "交付项目",
+    "clients": "满意客户",
+    "years": "年经验",
+    "team": "专业专家"
+  }
+},"servicesPage": {
+  "hero": {
+  "title": "高级",
+  "titleHighlight": "服务",
+  "subtitle": "高端数字解决方案，将您的愿景变为现实。专业、高效、品质保证。",
+  "ctaPrimary": "获取报价",
+  "ctaSecondary": "联系我们",
+  "available": "在线",
+  "fastDelivery": "快速交付",
+  "fastDeliverySub": "创纪录的项目周期",
+  "quickStats": {
+    "expertise": "专长领域",
+    "projects": "交付项目",
+    "support": "客户支持"
+  }
+},
+  "tabs": {
+    "label": "类别"
+  },
+  "categories": {
+    "development": {
+      "name": "开发",
+      "description": "为您企业量身定制的技术解决方案",
+      "items": {
+        "web": {
+          "title": "Web 开发",
+          "description": "使用 React、Next.js 和 Node.js 等现代技术构建高性能网站和复杂的 Web 应用程序。",
+          "details": [
+            "展示型和企业网站",
+            "业务 Web 应用程序",
+            "电子商务平台",
+            "SaaS 解决方案"
+          ]
+        },
+        "mobile": {
+          "title": "移动应用",
+          "description": "使用 Flutter 和 React Native 为 iOS 和 Android 设计和开发原生及跨平台应用。",
+          "details": [
+            "定制应用",
+            "API 集成",
+            "混合应用",
+            "应用商店发布"
+          ]
+        },
+        "software": {
+          "title": "定制软件",
+          "description": "开发适合您业务流程的软件解决方案，实现自动化和优化。",
+          "details": [
+            "管理软件",
+            "ERP/CRM 解决方案",
+            "分析工具",
+            "流程自动化"
+          ]
+        },
+        "api": {
+          "title": "API 与微服务",
+          "description": "模块化和可扩展的架构，打造高性能、易维护的系统。",
+          "details": [
+            "REST/GraphQL API 设计",
+            "微服务架构",
+            "Swagger/OpenAPI 文档",
+            "云原生服务"
+          ]
+        }
+      }
+    },
+    "training": {
+      "name": "培训",
+      "description": "量身定制的培训，掌握现代技术和工具",
+      "items": {
+        "it": {
+          "title": "IT 培训",
+          "description": "完整的课程，掌握编程语言、框架和现代工具。",
+          "details": [
+            "React/Next.js 培训",
+            "Node.js 工作坊",
+            "Flutter 课程",
+            "DevOps 课程"
+          ]
+        },
+        "education": {
+          "title": "数字教育",
+          "description": "面向学校的数字教育工具工作坊。",
+          "details": [
+            "编程入门",
+            "协作工具",
+            "数字课堂管理",
+            "教学资源"
+          ]
+        }
+      }
+    },
+    "maintenance": {
+      "name": "维护",
+      "description": "全面的服务，让您的系统保持最佳状态",
+      "items": {
+        "it": {
+          "title": "IT 维护",
+          "description": "为您所有 IT 设备提供预防性和纠正性维护。",
+          "details": [
+            "硬件维护",
+            "软件优化",
+            "系统清理",
+            "安全更新"
+          ]
+        },
+        "repair": {
+          "title": "硬件维修",
+          "description": "维修计算机、打印机、复印机和外围设备。",
+          "details": [
+            "全面诊断",
+            "组件更换",
+            "屏幕维修",
+            "网络故障排除"
+          ]
+        }
+      }
+    },
+    "sales": {
+      "name": "硬件销售",
+      "description": "专业级设备和硬件解决方案",
+      "items": {
+        "hardware": {
+          "title": "IT 硬件",
+          "description": "专业级计算机、服务器、组件和配件。",
+          "details": [
+            "定制 PC",
+            "服务器和存储",
+            "高端外设",
+            "网络解决方案"
+          ]
+        },
+        "office": {
+          "title": "办公设备",
+          "description": "打印机、复印机、扫描仪和完整的打印解决方案。",
+          "details": [
+            "专业打印机",
+            "多功能复印机",
+            "高速扫描仪",
+            "原装耗材"
+          ]
+        }
+      }
+    },
+    "design": {
+      "name": "设计",
+      "description": "打造强有力品牌形象的视觉创作",
+      "items": {
+        "web": {
+          "title": "网页设计",
+          "description": "直观的用户界面和难忘的数字体验。",
+          "details": [
+            "响应式设计",
+            "交互式原型",
+            "用户测试",
+            "无障碍访问"
+          ]
+        },
+        "graphic": {
+          "title": "平面设计",
+          "description": "视觉识别、品牌指南和有影响力的印刷/数字媒体。",
+          "details": [
+            "标志和品牌",
+            "印刷媒体",
+            "插画",
+            "动画"
+          ]
+        }
+      }
+    }
+  },
+  "learnMore": "了解更多",
+  "process": {
+    "badge": "方法论",
+    "title": "我们的卓越",
+    "titleHighlight": "流程",
+    "subtitle": "严谨的方法论，确保每个阶段都能取得卓越成果。",
+    "steps": {
+      "consultation": {
+        "title": "咨询",
+        "description": "深入分析您的需求，制定战略目标。"
+      },
+      "design": {
+        "title": "设计",
+        "description": "制定量身定制的解决方案并验证概念。"
+      },
+      "build": {
+        "title": "实施",
+        "description": "严谨开发，每个阶段都进行质量测试。"
+      },
+      "delivery": {
+        "title": "交付",
+        "description": "持续支持和改进，实现最佳性能。"
+      }
+    }
+  },
+  "cta": {
+    "title": "准备好实现您的项目了吗？",
+    "subtitle": "联系我们进行免费咨询，了解我们如何帮助您。",
+    "primary": "给我们打电话",
+    "secondary": "发送邮件"
+  }
+},"serviceDetail": {
+  "common": {
+    "learnMore": "了解更多",
+    "viewProjects": "查看项目",
+    "talkToExpert": "与专家交流",
+    "requestQuote": "获取报价",
+    "ctaTitle": "准备好实现您的项目了吗？",
+    "ctaSubtitle": "联系我们，讨论您的需求。"
+  },
+  "developpement": {
+    "hero": {
+      "title": "软件",
+      "titleHighlight": "开发",
+      "subtitle": "量身定制的技术解决方案，助您的企业迈向未来。",
+      "available": "在线",
+      "fastDelivery": "快速交付",
+      "fastDeliverySub": "创纪录的项目周期"
+    },
+    "expertise": {
+      "title": "掌握的",
+      "titleHighlight": "技术",
+      "subtitle": "我们使用最好的技术来交付卓越的产品。",
+      "groups": {
+        "frontend": "前端",
+        "backend": "后端",
+        "fullstack": "全栈",
+        "mobile": "移动端",
+        "devops": "DevOps",
+        "databases": "数据库",
+        "testing": "测试",
+        "tooling": "工具"
+      },
+      "descriptions": {
+        "react": "高性能框架 SSR、ISR 和 SSG。",
+        "angular": "稳健且可扩展的架构。",
+        "vue": "快速渲染与精致 UX。",
+        "astro": "超快速静态网站。",
+        "solid": "原始性能、JSX、细粒度响应式。",
+        "qwik": "近乎即时启动，SEO 优化。",
+        "svelte": "超轻量、响应式、简单、出色 DX。",
+        "remix": "API 优先、渐进增强、高性能和稳健。",
+        "nest": "可扩展且可维护的 TypeScript API。",
+        "express": "快速且易于部署的 API。",
+        "python": "快速、干净、类型化的后端。",
+        "spring": "复杂、安全且稳固的系统。",
+        "t3": "类型化、快速且可测试的全栈架构。",
+        "mern": "关注点分离、模块化和可扩展性。",
+        "angularSpring": "高效管理多包项目。",
+        "mean": "关注点分离和可扩展性。",
+        "reactNative": "快速且跨平台的移动开发。",
+        "flutter": "高性能 UI 和统一设计。",
+        "swiftKotlin": "原生 iOS / Android 应用。",
+        "ionic": "PWA + Capacitor，与 Firebase 无缝集成。",
+        "docker": "容器化和编排。",
+        "cicd": "自动化持续交付。",
+        "cloud": "可扩展的集成基础设施。",
+        "nginx": "反向代理和流量管理。",
+        "postgres": "强大可靠的数据库。",
+        "mongo": "云就绪的 NoSQL 数据库。",
+        "prisma": "现代 SQL ORM。",
+        "sqlite": "本地和嵌入式数据库。",
+        "jest": "快速可靠的单元测试。",
+        "playwright": "端到端测试，打造稳健 UX。",
+        "eslint": "干净且自动格式化的代码。",
+        "testingLib": "面向用户的测试，提升无障碍性。",
+        "vite": "超快速打包工具。",
+        "esbuild": "新一代 JS/TS 编译器。",
+        "zod": "客户端和服务器端模式验证。",
+        "nx": "高效的 JS/TS monorepo 管理。"
+      }
+    },
+    "offerings": {
+      "title": "我们的",
+      "titleHighlight": "服务",
+      "subtitle": "满足您所有技术需求的完整解决方案。",
+      "items": {
+        "web": {
+          "title": "定制 Web 开发",
+          "description": "我们构建高性能、可扩展的 Web 应用程序，满足您的特定需求。",
+          "features": [
+            "现代架构（微前端、Monorepo）",
+            "性能优化（懒加载、代码分割）",
+            "高级 SEO（SSR、ISR、SSG）",
+            "无障碍（WCAG AA）",
+            "自动化测试（Jest、Cypress）"
+          ]
+        },
+        "mobile": {
+          "title": "跨平台移动应用",
+          "description": "使用单一代码库为 iOS 和 Android 打造高性能原生应用。",
+          "features": [
+            "接近原生的性能",
+            "访问设备 API",
+            "流畅动画",
+            "应用商店发布",
+            "OTA 更新"
+          ]
+        },
+        "api": {
+          "title": "API 与微服务",
+          "description": "模块化且可扩展的后端架构，支持您的增长。",
+          "features": [
+            "REST 与 GraphQL",
+            "身份验证（JWT、OAuth2）",
+            "数据库（SQL 和 NoSQL）",
+            "缓存（Redis）",
+            "Swagger/OpenAPI 文档"
+          ]
+        },
+        "refactor": {
+          "title": "重构与优化",
+          "description": "改进现有代码，提升性能和可维护性。",
+          "features": [
+            "代码审计",
+            "减少技术债务",
+            "最佳实践",
+            "单元/集成测试",
+            "技术文档"
+          ]
+        }
+      }
+    },
+    "process": {
+      "title": "我们的",
+      "titleHighlight": "流程",
+      "subtitle": "严谨的方法论，确保卓越成果。",
+      "steps": {
+        "design": { "title": "设计", "description": "需求分析和技术架构定义。" },
+        "prototype": { "title": "原型", "description": "使用交互式 MVP 验证概念。" },
+        "build": { "title": "开发", "description": "定期代码审查的实施。" },
+        "test": { "title": "测试", "description": "自动化和手动质量验证。" },
+        "deploy": { "title": "部署", "description": "带监控的生产发布。" }
+      }
+    },
+    "cta": {
+      "primary": "与专家交流",
+      "secondary": "获取报价",
+      "subtitle": "联系我们，讨论您的开发需求。"
+    }
+  },
+  "design": {
+    "hero": {
+      "title": "创意",
+      "titleHighlight": "设计",
+      "subtitle": "引人注目的设计解决方案，讲述您的故事并吸引您的受众。",
+      "available": "在线",
+      "fastDelivery": "快速交付",
+      "fastDeliverySub": "创纪录的项目周期"
+    },
+    "expertise": {
+      "title": "我们的",
+      "titleHighlight": "专长领域",
+      "subtitle": "全面的设计方法，涵盖您所有的创意需求。",
+      "groups": {
+        "branding": "品牌",
+        "print": "印刷",
+        "digital": "数字",
+        "motion": "动效"
+      },
+      "descriptions": {
+        "identity": "为您的品牌打造独特且一致的形象。",
+        "charter": "完整指南，助您和谐应用品牌形象。",
+        "logo": "设计令人难忘且体现您价值的标志。",
+        "guidelines": "视觉识别使用手册。",
+        "brochures": "有吸引力且有效的印刷材料。",
+        "posters": "引人注目的视觉传达设计。",
+        "cards": "与您品牌的首次实际接触。",
+        "packaging": "讲述您故事的包装设计。",
+        "ui": "为您的应用打造直观美观的 UI。",
+        "responsive": "完美适配所有设备。",
+        "prototypes": "可点击的原型以验证体验。",
+        "system": "一致且可扩展的组件库。",
+        "animations": "微交互带来动态体验。",
+        "motionGraphics": "动画视频内容吸引您的受众。",
+        "transitions": "状态间的流畅视觉效果。",
+        "brandAnim": "为活跃品牌打造动画识别。"
+      }
+    },
+    "offerings": {
+      "title": "我们的设计",
+      "titleHighlight": "服务",
+      "subtitle": "为每种需求量身定制的创意解决方案。",
+      "items": {
+        "identity": {
+          "title": "完整视觉识别",
+          "description": "我们打造强大且一致的视觉识别，反映您品牌的本质。",
+          "features": [
+            "品牌研究与策略",
+            "艺术指导",
+            "标志开发",
+            "色彩和字体",
+            "多介质应用"
+          ]
+        },
+        "ui": {
+          "title": "用户界面设计",
+          "description": "直观美观的界面，提升用户体验。",
+          "features": [
+            "现有 UX/UI 审计",
+            "线框图和原型",
+            "一致的设计系统",
+            "动画和微交互",
+            "用户测试"
+          ]
+        },
+        "print": {
+          "title": "印刷与数字媒体",
+          "description": "为您的物理和数字传播媒介提供有影响力的图形设计。",
+          "features": [
+            "宣传册和目录",
+            "海报和横幅",
+            "专业演示",
+            "社交媒体",
+            "包装设计"
+          ]
+        },
+        "motion": {
+          "title": "动效设计",
+          "description": "用引人入胜的叙事动画为您的品牌注入活力。",
+          "features": [
+            "标志动画",
+            "说明性动效",
+            "UI 微交互",
+            "流畅过渡",
+            "宣传视频"
+          ]
+        }
+      }
+    },
+    "process": {
+      "title": "我们的创意",
+      "titleHighlight": "流程",
+      "subtitle": "经过验证的方法论，取得卓越成果。",
+      "steps": {
+        "discovery": { "title": "探索", "description": "深入了解您的品牌、价值观和目标。" },
+        "research": { "title": "研究", "description": "市场、趋势和竞争分析。" },
+        "concept": { "title": "概念化", "description": "开发创意概念和艺术方向。" },
+        "design": { "title": "设计", "description": "创建视觉效果和交互式原型。" },
+        "validation": { "title": "验证", "description": "用户测试和迭代完善。" },
+        "delivery": { "title": "交付", "description": "提供源文件和指南。" }
+      }
+    },
+    "cta": {
+      "primary": "与设计师交流",
+      "secondary": "获取报价",
+      "subtitle": "联系我们，讨论您的设计需求。"
+    }
+  },
+  "formation": {
+    "hero": {
+      "title": "专家",
+      "titleHighlight": "培训",
+      "subtitle": "通过我们完整的课程和经验丰富的培训师提升您的技能。",
+      "available": "在线",
+      "fastDelivery": "快速交付",
+      "fastDeliverySub": "创纪录的项目周期"
+    },
+    "expertise": {
+      "title": "我们的培训",
+      "titleHighlight": "领域",
+      "subtitle": "适合所有级别和需求的课程。",
+      "groups": {
+        "tech": "技术培训",
+        "education": "数字教育"
+      },
+      "descriptions": {
+        "frontend": "掌握 React、Angular、Vue 和现代框架。",
+        "backend": "Node.js、Python、Java 和服务器架构。",
+        "mobile": "使用 React Native、Flutter 开发应用。",
+        "devops": "Docker、Kubernetes、CI/CD 和云部署。",
+        "coding": "为初学者提供有趣的编程入门。",
+        "tools": "掌握数字教育平台。",
+        "classroom": "用数字工具优化您的教学。",
+        "resources": "创建交互式教育内容。"
+      }
+    },
+    "offerings": {
+      "title": "我们的技术",
+      "titleHighlight": "课程",
+      "subtitle": "强化培训，掌握现代技术。",
+      "items": {
+        "frontend": {
+          "title": "高级前端培训",
+          "description": "全面掌握 React、Angular 和 Vue 生态系统及最佳实践。",
+          "features": [
+            "React/Next.js（SSR、ISR、SSG）",
+            "高级状态管理",
+            "性能优化",
+            "自动化测试",
+            "模块化架构"
+          ]
+        },
+        "backend": {
+          "title": "后端与 API 工作坊",
+          "description": "使用现代技术开发稳健、安全的 API。",
+          "features": [
+            "Node.js/NestJS/Express",
+            "GraphQL 和 REST",
+            "JWT/OAuth 认证",
+            "SQL/NoSQL 数据库",
+            "性能优化"
+          ]
+        },
+        "mobile": {
+          "title": "跨平台移动",
+          "description": "使用 React Native 和 Flutter 开发原生应用。",
+          "features": [
+            "移动应用架构",
+            "访问原生 API",
+            "流畅动画",
+            "应用商店发布",
+            "设备测试"
+          ]
+        },
+        "devops": {
+          "title": "DevOps 课程",
+          "description": "部署自动化和可扩展云基础设施。",
+          "features": [
+            "Docker 和 Kubernetes",
+            "CI/CD（GitHub Actions、GitLab）",
+            "基础设施即代码",
+            "监控与日志",
+            "云安全"
+          ]
+        }
+      }
+    },
+    "process": {
+      "title": "我们的教学",
+      "titleHighlight": "方法",
+      "subtitle": "实用且适配的方法，实现有效学习。",
+      "steps": {
+        "evaluation": { "title": "需求评估", "description": "分析先决条件和学习目标。" },
+        "custom": { "title": "定制内容", "description": "根据具体需求调整课程。" },
+        "practice": { "title": "实践学习", "description": "具体练习和真实项目。" },
+        "support": { "title": "持续支持", "description": "培训后的资源和跟进。" },
+        "validation": { "title": "技能验证", "description": "认证和技能评估。" }
+      }
+    },
+    "cta": {
+      "primary": "与培训师交流",
+      "secondary": "申请课程",
+      "subtitle": "联系我们，讨论您的培训需求。"
+    }
+  },
+  "maintenance": {
+    "hero": {
+      "title": "IT",
+      "titleHighlight": "维护",
+      "subtitle": "为您所有 IT 设备提供维修、故障排除和维护。",
+      "available": "在线",
+      "fastDelivery": "快速交付",
+      "fastDeliverySub": "创纪录的项目周期"
+    },
+    "expertise": {
+      "title": "我们的维护",
+      "titleHighlight": "服务",
+      "subtitle": "满足您所有技术需求的完整解决方案。",
+      "groups": {
+        "repair": "维修",
+        "network": "网络",
+        "preventive": "预防性维护"
+      },
+      "descriptions": {
+        "computer": "计算机诊断和完整维修。",
+        "peripherals": "打印机、扫描仪和其他设备。",
+        "screens": "更换损坏的 LCD/LED 屏幕。",
+        "data": "在故障驱动器上恢复数据。",
+        "troubleshoot": "解决连接问题。",
+        "wifi": "信号和覆盖优化。",
+        "security": "防止入侵。",
+        "cabling": "专业有线网络安装。",
+        "cleaning": "除尘以实现最佳冷却。",
+        "updates": "软件和固件维护。",
+        "diagnostic": "深入硬件验证。",
+        "contracts": "个性化跟进计划。"
+      }
+    },
+    "offerings": {
+      "title": "我们的维护",
+      "titleHighlight": "方案",
+      "subtitle": "由认证技术人员提供快速高效的干预。",
+      "items": {
+        "hardware": {
+          "title": "硬件维修",
+          "description": "诊断和维修您所有的 IT 设备。",
+          "features": [
+            "台式机和笔记本电脑",
+            "打印机和复印机",
+            "组件更换",
+            "屏幕维修",
+            "数据恢复"
+          ]
+        },
+        "preventive": {
+          "title": "预防性维护",
+          "description": "定期维护，延长设备使用寿命。",
+          "features": [
+            "完整内部清洁",
+            "组件验证",
+            "性能优化",
+            "软件更新",
+            "年度合同"
+          ]
+        },
+        "network": {
+          "title": "网络故障排除",
+          "description": "解决连接和配置问题。",
+          "features": [
+            "完整网络诊断",
+            "路由器/交换机配置",
+            "WiFi 优化",
+            "网络安全",
+            "结构化布线"
+          ]
+        },
+        "installation": {
+          "title": "安装与配置",
+          "description": "新设备和软件的调试。",
+          "features": [
+            "工作站安装",
+            "软件配置",
+            "数据迁移",
+            "初始备份",
+            "用户培训"
+          ]
+        }
+      }
+    },
+    "process": {
+      "title": "我们的干预",
+      "titleHighlight": "流程",
+      "subtitle": "严谨的方法论，实现高效维修。",
+      "steps": {
+        "diagnostic": { "title": "诊断", "description": "精确分析故障或需求。" },
+        "quote": { "title": "报价", "description": "包含维修选项的详细建议。" },
+        "repair": { "title": "维修", "description": "由我们认证的技术人员干预。" },
+        "test": { "title": "测试", "description": "完整验证正常运行。" },
+        "delivery": { "title": "交付", "description": "带保修返还设备。" }
+      }
+    },
+    "cta": {
+      "primary": "申请维修",
+      "secondary": "订阅合同",
+      "subtitle": "我们的团队随时为您解决技术问题。"
+    }
+  },
+  "vente": {
+    "hero": {
+      "title": "专业",
+      "titleHighlight": "商店",
+      "subtitle": "以有竞争力的价格提供优质 IT 设备和专家服务。",
+      "available": "在线",
+      "fastDelivery": "快速交付",
+      "fastDeliverySub": "创纪录的项目周期"
+    },
+    "expertise": {
+      "title": "我们的产品",
+      "titleHighlight": "类别",
+      "subtitle": "您需要的所有专业 IT 设备。",
+      "groups": {
+        "computers": "计算机",
+        "peripherals": "外设",
+        "networking": "网络",
+        "accessories": "配件"
+      },
+      "descriptions": {
+        "laptops": "功能强大且轻便，适合各种用途。",
+        "desktops": "性能和模块化。",
+        "mini": "紧凑且节能。",
+        "workstations": "适合要求苛刻的专业人士。",
+        "screens": "全高清、4K 和曲面屏幕。",
+        "input": "游戏、办公和人体工学。",
+        "printers": "喷墨、激光和多功能。",
+        "audio": "专业和游戏音频。",
+        "routers": "高速路由器。",
+        "switches": "专业和企业级。",
+        "cables": "RJ45、HDMI、USB 和适配器。",
+        "nas": "安全的网络存储。",
+        "chargers": "通用适配器。",
+        "batteries": "原装替换件。",
+        "hubs": "多端口连接。",
+        "stands": "工作站人体工学。"
+      }
+    },
+    "offerings": {
+      "title": "我们的相关",
+      "titleHighlight": "服务",
+      "subtitle": "专业服务，完善您的购买。",
+      "items": {
+        "config": {
+          "title": "专业配置",
+          "description": "设备的完整安装和设置。",
+          "features": [
+            "操作系统和软件安装",
+            "性能优化",
+            "初始备份",
+            "完整硬件测试"
+          ]
+        },
+        "maintenance": {
+          "title": "快速维护",
+          "description": "清洁和完整检查您的硬件。",
+          "features": [
+            "内部/外部清洁",
+            "完整诊断",
+            "导热膏涂抹",
+            "稳定性测试"
+          ]
+        },
+        "network": {
+          "title": "网络安装",
+          "description": "设置您的网络基础设施。",
+          "features": [
+            "路由器/交换机配置",
+            "速度测试",
+            "WiFi 安全",
+            "结构化布线"
+          ]
+        },
+        "warranty": {
+          "title": "延长保修",
+          "description": "为您的设备提供额外保护。",
+          "features": [
+            "制造商保修延长",
+            "快速更换",
+            "优先支持",
+            "完整覆盖"
+          ]
+        }
+      }
+    },
+    "process": {
+      "title": "我们的购买",
+      "titleHighlight": "流程",
+      "subtitle": "从选择到支持，简单快捷。",
+      "steps": {
+        "browse": { "title": "浏览", "description": "探索我们完整的在线目录。" },
+        "select": { "title": "选择", "description": "选择适合您需求的产品。" },
+        "config": { "title": "配置", "description": "与我们的专家一起定制您的硬件。" },
+        "delivery": { "title": "交付", "description": "快速安全地收到您的订单。" },
+        "support": { "title": "支持", "description": "购买后享受持续支持。" }
+      }
+    },
+    "cta": {
+      "primary": "联系专家",
+      "secondary": "获取报价",
+      "subtitle": "我们的专家随时为您提供指导。"
+    }
+  }
+},"contact": {
+  "hero": {
+    "label": "联系我们",
+    "title": "让我们讨论您的",
+    "titleHighlight": "项目",
+    "subtitle": "我们的团队随时为您解答所有问题，并在数字化转型中为您提供支持。"
+  },
+  "form": {
+    "title": "给我们发送",
+    "titleHighlight": "消息",
+    "subtitle": "请填写下方表单，我们会尽快与您联系。",
+    "fields": {
+      "name": { "label": "您的姓名", "placeholder": "张三" },
+      "email": { "label": "您的邮箱", "placeholder": "zhang@example.com" },
+      "subject": { "label": "主题", "placeholder": "报价请求" },
+      "message": { "label": "您的消息", "placeholder": "用几句话描述您的项目..." }
+    },
+    "submit": "发送消息",
+    "success": "您的消息已发送。我们会尽快回复您。",
+    "error": "发生错误，请重试。"
+  },
+  "info": {
+    "title": "我们的",
+    "titleHighlight": "联系方式",
+    "items": {
+      "address": { "label": "地址" },
+      "phone": { "label": "电话" },
+      "email": { "label": "邮箱" }
+    }
+  },
+  "schedule": {
+    "title": "营业",
+    "titleHighlight": "时间",
+    "days": {
+      "weekdays": "周一至周五",
+      "saturday": "周六",
+      "sunday": "周日"
+    },
+    "hours": {
+      "weekdays": "08:00 - 18:00",
+      "saturday": "09:00 - 14:00",
+      "sunday": "休息"
+    },
+    "socials": "社交媒体"
+  },
+  "map": {
+    "title": "找到",
+    "titleHighlight": "我们",
+    "subtitle": "我们的办公室位于布基纳法索瓦加杜古。"
+  }
+}
+}

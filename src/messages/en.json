@@ -1,0 +1,955 @@
+{
+  "topBar": {
+    "promo": " New: AI trainings available"
+  },
+  "nav": {
+    "home": "Home",
+    "services": "Services",
+    "portfolio": "Portfolio",
+    "blog": "Blog",
+    "contact": "Contact",
+    "quote": "Request a quote",
+    "theme": "Theme",
+    "language": "Language"
+  },
+  "services": {
+    "development": "Development",
+    "design": "Design",
+    "training": "Training",
+    "maintenance": "Maintenance",
+    "shop": "Shop"
+  },
+
+  "servicesSection": {
+    "badge": "Our expertise",
+    "title": "What we",
+    "titleHighlight": "do",
+    "subtitle": "A complete range of digital services to meet all your needs.",
+    "learnMore": "Learn more",
+    "viewAll": "View all services",
+    "items": {
+      "development": {
+        "title": "Development",
+        "description": "Mobile apps, custom software, APIs and web services built for your business."
+      },
+      "design": {
+        "title": "Design",
+        "description": "Visual identity, user interfaces and memorable digital experiences for your customers."
+      },
+      "training": {
+        "title": "Training",
+        "description": "Tailored training modules to master digital tools and technologies."
+      },
+      "maintenance": {
+        "title": "Maintenance",
+        "description": "Technical support, repair and configuration of your IT equipment."
+      }
+    }
+  },
+  "team": {
+    "badge": "Our team",
+    "title": "Passionate",
+    "titleHighlight": "experts",
+    "subtitle": "Meet the experts who bring your projects to life.",
+    "members": {
+      "ceo": {
+        "name": "Nestor COMPAORE",
+        "role": "CEO & Lead Developer",
+        "bio": "Full-stack development expert with 4 years of experience building complex solutions."
+      },
+      "designer": {
+        "name": "Sophie Martin",
+        "role": "UX/UI Designer",
+        "bio": "Specialist in interface design and user experience, passionate about intuitive designs."
+      },
+      "trainer": {
+        "name": "Thomas Leroy",
+        "role": "Training Manager",
+        "bio": "Certified trainer with a teaching approach adapted to all levels."
+      },
+      "support": {
+        "name": "Camille Petit",
+        "role": "Technical Support Manager",
+        "bio": "Guarantor of the quality and responsiveness of our customer support."
+      }
+    }
+  },
+  "clients": {
+    "badge": "Our partners",
+    "title": "They trust",
+    "titleHighlight": "us",
+    "subtitle": "Innovative companies that chose us for their digital projects."
+  },
+  "testimonials": {
+    "badge": "Testimonials",
+    "title": "What our",
+    "titleHighlight": "clients say",
+    "subtitle": "Discover the feedback from our partners.",
+    "items": {
+      "t1": {
+        "quote": "Open Numeric transformed our online presence with a custom application that boosted our sales by 40%.",
+        "author": "Jean Lambert",
+        "company": "CEO, TechCorp"
+      },
+      "t2": {
+        "quote": "Their design team created a visual identity that perfectly represents our values and attracts our target customers.",
+        "author": "Marie Dubois",
+        "company": "Marketing Director, Innovate"
+      },
+      "t3": {
+        "quote": "The trainings were perfectly adapted to our needs and helped our teams gain productivity.",
+        "author": "Pierre Garnier",
+        "company": "HR Director, DigitalSphere"
+      }
+    }
+  },
+  "cta": {
+    "badge": "Ready to start?",
+    "title": "Let's turn your",
+    "titleHighlight": "vision into reality",
+    "subtitle": "Contact us today to discuss your project and discover how we can help you reach your digital goals.",
+    "primary": "Contact us",
+    "secondary": "Request a quote"
+  },
+  "footer": {
+    "aboutText": "Your digital solutions partner. Development, design, training and maintenance to propel your business into the digital age.",
+    "services": "Our Services",
+    "usefulLinks": "Useful Links",
+    "contact": "Contact Us",
+    "contactButton": "Contact form",
+    "about": "About us",
+    "team": "Our team",
+    "portfolio": "Portfolio",
+    "blog": "Blog",
+    "testimonials": "Testimonials",
+    "rights": "All rights reserved.",
+    "legal": "Legal notice",
+    "cookies": "Cookie policy",
+    "terms": "Terms",
+    "servicesList": {
+      "s1": "Application development",
+      "s2": "Website creation",
+      "s3": "API development",
+      "s4": "Web & graphic design",
+      "s5": "Digital training",
+      "s6": "IT maintenance"
+    }
+  },
+  "hero": {
+  "badge": "New · AI Solutions 2026",
+  "title": "Digital Solutions",
+  "titleHighlight": "Tailor-Made",
+  "subtitle": "Development, design, training and maintenance — everything you need to succeed in your digital transformation.",
+  "ctaPrimary": "Discover our services",
+  "ctaSecondary": "Contact us",
+  "available": "Available",
+  "stats": {
+    "projects": "Projects delivered",
+    "clients": "Happy clients",
+    "years": "Years of experience",
+    "team": "Dedicated experts"
+  }
+},"servicesPage": {
+ "hero": {
+  "title": "Premium",
+  "titleHighlight": "Services",
+  "subtitle": "High-end digital solutions to turn your vision into reality. Expertise, speed and quality guaranteed.",
+  "ctaPrimary": "Request a quote",
+  "ctaSecondary": "Contact us",
+  "available": "Available",
+  "fastDelivery": "Fast delivery",
+  "fastDeliverySub": "Projects in record time",
+  "quickStats": {
+    "expertise": "Expertise",
+    "projects": "Projects delivered",
+    "support": "Customer support"
+  }
+},
+  "tabs": {
+    "label": "Categories"
+  },
+  "categories": {
+    "development": {
+      "name": "Development",
+      "description": "Custom technology solutions to propel your business",
+      "items": {
+        "web": {
+          "title": "Web Development",
+          "description": "Building high-performance websites and complex web applications with modern technologies like React, Next.js and Node.js.",
+          "details": [
+            "Showcase and institutional sites",
+            "Business web applications",
+            "E-commerce platforms",
+            "SaaS solutions"
+          ]
+        },
+        "mobile": {
+          "title": "Mobile Apps",
+          "description": "Design and development of native and cross-platform apps for iOS and Android with Flutter and React Native.",
+          "details": [
+            "Custom applications",
+            "API integration",
+            "Hybrid applications",
+            "App store publishing"
+          ]
+        },
+        "software": {
+          "title": "Custom Software",
+          "description": "Development of software solutions tailored to your business processes to automate and optimize your operations.",
+          "details": [
+            "Management software",
+            "ERP/CRM solutions",
+            "Analytics tools",
+            "Process automation"
+          ]
+        },
+        "api": {
+          "title": "API & Microservices",
+          "description": "Modular and scalable architectures for high-performance, easy-to-maintain systems.",
+          "details": [
+            "REST/GraphQL API design",
+            "Microservices architecture",
+            "Swagger/OpenAPI documentation",
+            "Cloud-native services"
+          ]
+        }
+      }
+    },
+    "training": {
+      "name": "Training",
+      "description": "Tailored training to master modern technologies and tools",
+      "items": {
+        "it": {
+          "title": "IT Training",
+          "description": "Complete programs to master programming languages, frameworks and modern tools.",
+          "details": [
+            "React/Next.js training",
+            "Node.js workshops",
+            "Flutter courses",
+            "DevOps sessions"
+          ]
+        },
+        "education": {
+          "title": "Digital Education",
+          "description": "Workshops for schools on digital educational tools.",
+          "details": [
+            "Coding introduction",
+            "Collaborative tools",
+            "Digital classroom management",
+            "Teaching resources"
+          ]
+        }
+      }
+    },
+    "maintenance": {
+      "name": "Maintenance",
+      "description": "Complete services to keep your systems in perfect working order",
+      "items": {
+        "it": {
+          "title": "IT Maintenance",
+          "description": "Preventive and corrective maintenance for all your IT equipment.",
+          "details": [
+            "Hardware maintenance",
+            "Software optimization",
+            "System cleanup",
+            "Security updates"
+          ]
+        },
+        "repair": {
+          "title": "Hardware Repair",
+          "description": "Repair of computers, printers, copiers and peripherals.",
+          "details": [
+            "Full diagnostic",
+            "Component replacement",
+            "Screen repair",
+            "Network troubleshooting"
+          ]
+        }
+      }
+    },
+    "sales": {
+      "name": "Hardware Sales",
+      "description": "Professional-grade equipment and hardware solutions",
+      "items": {
+        "hardware": {
+          "title": "IT Hardware",
+          "description": "Computers, servers, components and professional-grade accessories.",
+          "details": [
+            "Custom PCs",
+            "Servers and storage",
+            "High-end peripherals",
+            "Network solutions"
+          ]
+        },
+        "office": {
+          "title": "Office Equipment",
+          "description": "Printers, copiers, scanners and complete printing solutions.",
+          "details": [
+            "Professional printers",
+            "Multifunction copiers",
+            "High-speed scanners",
+            "Original consumables"
+          ]
+        }
+      }
+    },
+    "design": {
+      "name": "Design",
+      "description": "Impactful visual creations for a strong identity",
+      "items": {
+        "web": {
+          "title": "Web Design",
+          "description": "Intuitive user interfaces and memorable digital experiences.",
+          "details": [
+            "Responsive design",
+            "Interactive prototypes",
+            "User testing",
+            "Accessibility"
+          ]
+        },
+        "graphic": {
+          "title": "Graphic Design",
+          "description": "Visual identity, brand guidelines and impactful print/digital media.",
+          "details": [
+            "Logos and branding",
+            "Print media",
+            "Illustrations",
+            "Animations"
+          ]
+        }
+      }
+    }
+  },
+  "learnMore": "Learn more",
+  "process": {
+    "badge": "Methodology",
+    "title": "Our process",
+    "titleHighlight": "of excellence",
+    "subtitle": "A rigorous methodology for exceptional results at every stage.",
+    "steps": {
+      "consultation": {
+        "title": "Consultation",
+        "description": "In-depth analysis of your needs and definition of strategic objectives."
+      },
+      "design": {
+        "title": "Design",
+        "description": "Development of tailored solutions and validation of concepts."
+      },
+      "build": {
+        "title": "Build",
+        "description": "Rigorous development with quality testing at every stage."
+      },
+      "delivery": {
+        "title": "Delivery",
+        "description": "Ongoing support and improvements for optimal performance."
+      }
+    }
+  },
+  "cta": {
+    "title": "Ready to bring your project to life?",
+    "subtitle": "Contact us for a free consultation and discover how we can help you.",
+    "primary": "Call us",
+    "secondary": "Send an email"
+  }
+},"serviceDetail": {
+  "common": {
+    "learnMore": "Learn more",
+    "viewProjects": "View projects",
+    "talkToExpert": "Talk to an expert",
+    "requestQuote": "Request a quote",
+    "ctaTitle": "Ready to bring your project to life?",
+    "ctaSubtitle": "Contact us to discuss your needs."
+  },
+  "developpement": {
+    "hero": {
+      "title": "Software",
+      "titleHighlight": "Development",
+      "subtitle": "Custom technology solutions to propel your business into the future.",
+      "available": "Available",
+      "fastDelivery": "Fast delivery",
+      "fastDeliverySub": "Projects in record time"
+    },
+    "expertise": {
+      "title": "Mastered",
+      "titleHighlight": "Technologies",
+      "subtitle": "We use the best technologies to deliver exceptional products.",
+      "groups": {
+        "frontend": "Frontend",
+        "backend": "Backend",
+        "fullstack": "Fullstack",
+        "mobile": "Mobile",
+        "devops": "DevOps",
+        "databases": "Databases",
+        "testing": "Testing",
+        "tooling": "Tooling"
+      },
+      "descriptions": {
+        "react": "High-performance frameworks SSR, ISR and SSG.",
+        "angular": "Solid and scalable architecture.",
+        "vue": "Fast rendering with polished UX.",
+        "astro": "Ultra-fast static sites.",
+        "solid": "Raw performance, JSX, fine-grained reactivity.",
+        "qwik": "Near-instant start, optimal for SEO.",
+        "svelte": "Ultra light, reactive, simple, excellent DX.",
+        "remix": "API-first, progressive enhancement, performant and robust.",
+        "nest": "Scalable and maintainable TypeScript API.",
+        "express": "Fast and easy-to-deploy APIs.",
+        "python": "Fast, clean and typed backend.",
+        "spring": "Complex, secure and solid systems.",
+        "t3": "Typed, fast and testable fullstack architecture.",
+        "mern": "Separation of concerns, modularity and scalability.",
+        "angularSpring": "Efficient management of multi-package projects.",
+        "mean": "Separation of concerns and scalability.",
+        "reactNative": "Fast and cross-platform mobile development.",
+        "flutter": "High-performance UI and uniform design.",
+        "swiftKotlin": "Native iOS / Android apps.",
+        "ionic": "PWA + Capacitor, smooth integration with Firebase.",
+        "docker": "Containerization and orchestration.",
+        "cicd": "Automated continuous delivery.",
+        "cloud": "Scalable and integrated infrastructure.",
+        "nginx": "Reverse proxies and traffic management.",
+        "postgres": "Powerful and reliable relational databases.",
+        "mongo": "Cloud-ready NoSQL for modern apps.",
+        "prisma": "Modern ORMs for SQL databases.",
+        "sqlite": "Local and embedded databases.",
+        "jest": "Fast and reliable unit tests.",
+        "playwright": "End-to-end tests for solid UX.",
+        "eslint": "Clean and automatically formatted code.",
+        "testingLib": "User-oriented tests for better accessibility.",
+        "vite": "Ultra-fast bundlers for modern dev.",
+        "esbuild": "Next-generation JS/TS compilers.",
+        "zod": "Schema validation on client and server.",
+        "nx": "Efficient JS/TS monorepo management."
+      }
+    },
+    "offerings": {
+      "title": "Our",
+      "titleHighlight": "Services",
+      "subtitle": "Complete solutions for all your technology needs.",
+      "items": {
+        "web": {
+          "title": "Custom Web Development",
+          "description": "We build high-performance and scalable web applications tailored to your specific needs.",
+          "features": [
+            "Modern architecture (Micro-frontends, Monorepo)",
+            "Performance optimization (Lazy loading, Code splitting)",
+            "Advanced SEO (SSR, ISR, SSG)",
+            "Accessibility (WCAG AA)",
+            "Automated testing (Jest, Cypress)"
+          ]
+        },
+        "mobile": {
+          "title": "Cross-Platform Mobile Apps",
+          "description": "High-performance native apps for iOS and Android with a single codebase.",
+          "features": [
+            "Near-native performance",
+            "Access to device APIs",
+            "Smooth animations",
+            "App store publishing",
+            "OTA updates"
+          ]
+        },
+        "api": {
+          "title": "APIs & Microservices",
+          "description": "Modular and scalable backend architectures to support your growth.",
+          "features": [
+            "REST & GraphQL",
+            "Authentication (JWT, OAuth2)",
+            "Databases (SQL & NoSQL)",
+            "Cache (Redis)",
+            "Swagger/OpenAPI documentation"
+          ]
+        },
+        "refactor": {
+          "title": "Refactoring & Optimization",
+          "description": "Improving your existing code for more performance and maintainability.",
+          "features": [
+            "Code audit",
+            "Reduced technical debt",
+            "Best practices",
+            "Unit/integration tests",
+            "Technical documentation"
+          ]
+        }
+      }
+    },
+    "process": {
+      "title": "Our",
+      "titleHighlight": "Process",
+      "subtitle": "A rigorous methodology for exceptional results.",
+      "steps": {
+        "design": { "title": "Design", "description": "Requirements analysis and definition of the technical architecture." },
+        "prototype": { "title": "Prototyping", "description": "Concept validation with interactive MVPs." },
+        "build": { "title": "Development", "description": "Implementation with regular code reviews." },
+        "test": { "title": "Testing", "description": "Automated and manual quality validation." },
+        "deploy": { "title": "Deployment", "description": "Production release with monitoring." }
+      }
+    },
+    "cta": {
+      "primary": "Talk to an expert",
+      "secondary": "Request a quote",
+      "subtitle": "Contact us to discuss your development needs."
+    }
+  },
+  "design": {
+    "hero": {
+      "title": "Creative",
+      "titleHighlight": "Design",
+      "subtitle": "Impactful design solutions that tell your story and captivate your audience.",
+      "available": "Available",
+      "fastDelivery": "Fast delivery",
+      "fastDeliverySub": "Projects in record time"
+    },
+    "expertise": {
+      "title": "Our Areas",
+      "titleHighlight": "of Expertise",
+      "subtitle": "A holistic approach to design to cover all your creative needs.",
+      "groups": {
+        "branding": "Branding",
+        "print": "Print",
+        "digital": "Digital",
+        "motion": "Motion"
+      },
+      "descriptions": {
+        "identity": "Creating a unique and consistent identity for your brand.",
+        "charter": "Complete guide for harmonious application of your identity.",
+        "logo": "Designing memorable logos that evoke your values.",
+        "guidelines": "User manual for your visual identity.",
+        "brochures": "Attractive and effective print materials.",
+        "posters": "Striking designs for your visual communication.",
+        "cards": "First tangible contact with your brand.",
+        "packaging": "Packaging design that tells your story.",
+        "ui": "Intuitive and aesthetic UIs for your applications.",
+        "responsive": "Perfect adaptation to all devices.",
+        "prototypes": "Clickable mockups to validate the experience.",
+        "system": "Consistent and scalable component library.",
+        "animations": "Micro-interactions for a dynamic experience.",
+        "motionGraphics": "Animated video content to captivate your audience.",
+        "transitions": "Smooth visual effects between states.",
+        "brandAnim": "Animated identity for a living brand."
+      }
+    },
+    "offerings": {
+      "title": "Our Design",
+      "titleHighlight": "Services",
+      "subtitle": "Creative solutions tailored to every need.",
+      "items": {
+        "identity": {
+          "title": "Complete Visual Identity",
+          "description": "We create a strong and consistent visual identity that reflects the essence of your brand.",
+          "features": [
+            "Brand research and strategy",
+            "Art direction",
+            "Logo development",
+            "Color palette and typography",
+            "Applications on various media"
+          ]
+        },
+        "ui": {
+          "title": "User Interface Design",
+          "description": "Intuitive and aesthetic interfaces that improve the user experience.",
+          "features": [
+            "Existing UX/UI audit",
+            "Wireframes and prototypes",
+            "Consistent design system",
+            "Animations and micro-interactions",
+            "User testing"
+          ]
+        },
+        "print": {
+          "title": "Print & Digital Media",
+          "description": "Impactful graphic design for your physical and digital communication media.",
+          "features": [
+            "Brochures and catalogs",
+            "Posters and banners",
+            "Professional presentations",
+            "Social media",
+            "Packaging design"
+          ]
+        },
+        "motion": {
+          "title": "Motion Design",
+          "description": "Bring your brand to life with captivating and narrative animations.",
+          "features": [
+            "Logo animations",
+            "Explanatory motion graphics",
+            "UI micro-interactions",
+            "Smooth transitions",
+            "Promotional videos"
+          ]
+        }
+      }
+    },
+    "process": {
+      "title": "Our Creative",
+      "titleHighlight": "Process",
+      "subtitle": "A proven methodology for exceptional results.",
+      "steps": {
+        "discovery": { "title": "Discovery", "description": "In-depth understanding of your brand, values and objectives." },
+        "research": { "title": "Research", "description": "Market, trends and competition analysis." },
+        "concept": { "title": "Conceptualization", "description": "Development of creative concepts and art directions." },
+        "design": { "title": "Design", "description": "Creation of visuals and interactive prototypes." },
+        "validation": { "title": "Validation", "description": "User testing and iterations for refinement." },
+        "delivery": { "title": "Delivery", "description": "Provision of source files and guidelines." }
+      }
+    },
+    "cta": {
+      "primary": "Talk to a designer",
+      "secondary": "Request a quote",
+      "subtitle": "Contact us to discuss your design needs."
+    }
+  },
+  "formation": {
+    "hero": {
+      "title": "Expert",
+      "titleHighlight": "Training",
+      "subtitle": "Level up your skills with our complete programs and experienced trainers.",
+      "available": "Available",
+      "fastDelivery": "Fast delivery",
+      "fastDeliverySub": "Projects in record time"
+    },
+    "expertise": {
+      "title": "Our Training",
+      "titleHighlight": "Areas",
+      "subtitle": "Programs adapted to all levels and needs.",
+      "groups": {
+        "tech": "Tech Training",
+        "education": "Digital Education"
+      },
+      "descriptions": {
+        "frontend": "Master React, Angular, Vue and modern frameworks.",
+        "backend": "Node.js, Python, Java and server architectures.",
+        "mobile": "Build apps with React Native, Flutter.",
+        "devops": "Docker, Kubernetes, CI/CD and cloud deployments.",
+        "coding": "Fun introduction to programming for beginners.",
+        "tools": "Master digital educational platforms.",
+        "classroom": "Optimize your teaching with digital tools.",
+        "resources": "Create interactive educational content."
+      }
+    },
+    "offerings": {
+      "title": "Our Tech",
+      "titleHighlight": "Programs",
+      "subtitle": "Intensive training to master modern technologies.",
+      "items": {
+        "frontend": {
+          "title": "Advanced Frontend Training",
+          "description": "Complete mastery of React, Angular and Vue ecosystems with best practices.",
+          "features": [
+            "React/Next.js (SSR, ISR, SSG)",
+            "Advanced state management",
+            "Performance optimization",
+            "Automated testing",
+            "Modular architecture"
+          ]
+        },
+        "backend": {
+          "title": "Backend & API Workshops",
+          "description": "Developing robust and secure APIs with modern technologies.",
+          "features": [
+            "Node.js/NestJS/Express",
+            "GraphQL & REST",
+            "JWT/OAuth authentication",
+            "SQL/NoSQL databases",
+            "Performance optimization"
+          ]
+        },
+        "mobile": {
+          "title": "Cross-platform Mobile",
+          "description": "Developing native apps with React Native and Flutter.",
+          "features": [
+            "Mobile app architecture",
+            "Access to native APIs",
+            "Smooth animations",
+            "App store publishing",
+            "Device testing"
+          ]
+        },
+        "devops": {
+          "title": "DevOps Track",
+          "description": "Deployment automation and scalable cloud infrastructure.",
+          "features": [
+            "Docker & Kubernetes",
+            "CI/CD (GitHub Actions, GitLab)",
+            "Infrastructure as Code",
+            "Monitoring & logging",
+            "Cloud security"
+          ]
+        }
+      }
+    },
+    "process": {
+      "title": "Our Teaching",
+      "titleHighlight": "Methodology",
+      "subtitle": "A practical and adapted approach for effective learning.",
+      "steps": {
+        "evaluation": { "title": "Needs Assessment", "description": "Analysis of prerequisites and learning objectives." },
+        "custom": { "title": "Tailored Content", "description": "Program adaptation to specific needs." },
+        "practice": { "title": "Hands-on Learning", "description": "Concrete exercises and real projects." },
+        "support": { "title": "Ongoing Support", "description": "Resources and post-training follow-up." },
+        "validation": { "title": "Skills Validation", "description": "Certification and skills assessment." }
+      }
+    },
+    "cta": {
+      "primary": "Talk to a trainer",
+      "secondary": "Request a program",
+      "subtitle": "Contact us to discuss your training needs."
+    }
+  },
+  "maintenance": {
+    "hero": {
+      "title": "IT",
+      "titleHighlight": "Maintenance",
+      "subtitle": "Repair, troubleshooting and maintenance for all your IT equipment.",
+      "available": "Available",
+      "fastDelivery": "Fast delivery",
+      "fastDeliverySub": "Projects in record time"
+    },
+    "expertise": {
+      "title": "Our Maintenance",
+      "titleHighlight": "Services",
+      "subtitle": "Complete solutions for all your technical needs.",
+      "groups": {
+        "repair": "Repair",
+        "network": "Network",
+        "preventive": "Preventive Maintenance"
+      },
+      "descriptions": {
+        "computer": "Diagnosis and complete computer repair.",
+        "peripherals": "Printers, scanners and other equipment.",
+        "screens": "Replacement of damaged LCD/LED screens.",
+        "data": "Data recovery on defective drives.",
+        "troubleshoot": "Resolution of connectivity issues.",
+        "wifi": "Signal and coverage optimization.",
+        "security": "Protection against intrusions.",
+        "cabling": "Professional wired network installation.",
+        "cleaning": "Dust removal for optimal cooling.",
+        "updates": "Software and firmware maintenance.",
+        "diagnostic": "In-depth hardware verification.",
+        "contracts": "Personalized follow-up programs."
+      }
+    },
+    "offerings": {
+      "title": "Our Maintenance",
+      "titleHighlight": "Offers",
+      "subtitle": "Fast and efficient interventions by certified technicians.",
+      "items": {
+        "hardware": {
+          "title": "Hardware Repair",
+          "description": "Diagnosis and repair of all your IT equipment.",
+          "features": [
+            "Desktop and laptop computers",
+            "Printers and copiers",
+            "Component replacement",
+            "Screen repair",
+            "Data recovery"
+          ]
+        },
+        "preventive": {
+          "title": "Preventive Maintenance",
+          "description": "Regular maintenance to extend the life of your equipment.",
+          "features": [
+            "Complete internal cleaning",
+            "Component verification",
+            "Performance optimization",
+            "Software updates",
+            "Annual contracts"
+          ]
+        },
+        "network": {
+          "title": "Network Troubleshooting",
+          "description": "Resolution of connectivity and configuration issues.",
+          "features": [
+            "Complete network diagnostics",
+            "Router/switch configuration",
+            "WiFi optimization",
+            "Network security",
+            "Structured cabling"
+          ]
+        },
+        "installation": {
+          "title": "Installation & Configuration",
+          "description": "Commissioning of new equipment and software.",
+          "features": [
+            "Workstation installation",
+            "Software configuration",
+            "Data migration",
+            "Initial backup",
+            "User training"
+          ]
+        }
+      }
+    },
+    "process": {
+      "title": "Our Intervention",
+      "titleHighlight": "Process",
+      "subtitle": "A rigorous methodology for efficient repairs.",
+      "steps": {
+        "diagnostic": { "title": "Diagnostic", "description": "Precise analysis of the failure or need." },
+        "quote": { "title": "Quote", "description": "Detailed proposal with repair options." },
+        "repair": { "title": "Repair", "description": "Intervention by our certified technicians." },
+        "test": { "title": "Test", "description": "Complete validation of proper functioning." },
+        "delivery": { "title": "Delivery", "description": "Return of equipment with warranty." }
+      }
+    },
+    "cta": {
+      "primary": "Request a repair",
+      "secondary": "Subscribe to a contract",
+      "subtitle": "Our team is available to solve your technical problems."
+    }
+  },
+  "vente": {
+    "hero": {
+      "title": "Professional",
+      "titleHighlight": "Shop",
+      "subtitle": "Quality IT equipment and expert services at competitive prices.",
+      "available": "Available",
+      "fastDelivery": "Fast delivery",
+      "fastDeliverySub": "Projects in record time"
+    },
+    "expertise": {
+      "title": "Our Product",
+      "titleHighlight": "Categories",
+      "subtitle": "All the professional IT equipment you need.",
+      "groups": {
+        "computers": "Computers",
+        "peripherals": "Peripherals",
+        "networking": "Networking",
+        "accessories": "Accessories"
+      },
+      "descriptions": {
+        "laptops": "Powerful and lightweight for all uses.",
+        "desktops": "Power and modularity.",
+        "mini": "Compact and energy-efficient.",
+        "workstations": "For demanding professionals.",
+        "screens": "Full HD, 4K and curved screens.",
+        "input": "Gaming, office and ergonomic.",
+        "printers": "Inkjet, laser and multifunction.",
+        "audio": "Professional and gaming audio.",
+        "routers": "High-speed routers.",
+        "switches": "Professional and enterprise.",
+        "cables": "RJ45, HDMI, USB and adapters.",
+        "nas": "Secure network storage.",
+        "chargers": "Universal adapters.",
+        "batteries": "Original replacements.",
+        "hubs": "Multi-port connectivity.",
+        "stands": "Workstation ergonomics."
+      }
+    },
+    "offerings": {
+      "title": "Our Related",
+      "titleHighlight": "Services",
+      "subtitle": "Professional services to complete your purchases.",
+      "items": {
+        "config": {
+          "title": "Professional Configuration",
+          "description": "Complete installation and setup of your equipment.",
+          "features": [
+            "OS and software installation",
+            "Performance optimization",
+            "Initial backup",
+            "Complete hardware test"
+          ]
+        },
+        "maintenance": {
+          "title": "Express Maintenance",
+          "description": "Cleaning and complete verification of your hardware.",
+          "features": [
+            "Internal/external cleaning",
+            "Complete diagnostic",
+            "Thermal paste application",
+            "Stability test"
+          ]
+        },
+        "network": {
+          "title": "Network Installation",
+          "description": "Setting up your network infrastructure.",
+          "features": [
+            "Router/switch configuration",
+            "Speed test",
+            "WiFi security",
+            "Structured cabling"
+          ]
+        },
+        "warranty": {
+          "title": "Extended Warranty",
+          "description": "Additional protection for your equipment.",
+          "features": [
+            "Manufacturer warranty extension",
+            "Express replacement",
+            "Priority assistance",
+            "Complete coverage"
+          ]
+        }
+      }
+    },
+    "process": {
+      "title": "Our Purchase",
+      "titleHighlight": "Process",
+      "subtitle": "Simple and fast, from selection to support.",
+      "steps": {
+        "browse": { "title": "Browse", "description": "Discover our complete online catalog." },
+        "select": { "title": "Select", "description": "Choose the products that fit your needs." },
+        "config": { "title": "Configure", "description": "Customize your hardware with our experts." },
+        "delivery": { "title": "Delivery", "description": "Receive your order quickly and safely." },
+        "support": { "title": "Support", "description": "Benefit from ongoing support after purchase." }
+      }
+    },
+    "cta": {
+      "primary": "Contact an expert",
+      "secondary": "Request a quote",
+      "subtitle": "Our experts are available to guide you."
+    }
+  }
+},"contact": {
+  "hero": {
+    "label": "Contact",
+    "title": "Let's discuss your",
+    "titleHighlight": "project",
+    "subtitle": "Our team is available to answer all your questions and support you in your digital transformation."
+  },
+  "form": {
+    "title": "Send us a",
+    "titleHighlight": "message",
+    "subtitle": "Fill in the form below and we'll get back to you as soon as possible.",
+    "fields": {
+      "name": { "label": "Your name", "placeholder": "John Doe" },
+      "email": { "label": "Your email", "placeholder": "john@example.com" },
+      "subject": { "label": "Subject", "placeholder": "Quote request" },
+      "message": { "label": "Your message", "placeholder": "Describe your project in a few words..." }
+    },
+    "submit": "Send message",
+    "success": "Your message has been sent. We'll get back to you soon.",
+    "error": "An error occurred. Please try again."
+  },
+  "info": {
+    "title": "Our",
+    "titleHighlight": "contact details",
+    "items": {
+      "address": { "label": "Address" },
+      "phone": { "label": "Phone" },
+      "email": { "label": "Email" }
+    }
+  },
+  "schedule": {
+    "title": "Opening",
+    "titleHighlight": "hours",
+    "days": {
+      "weekdays": "Monday - Friday",
+      "saturday": "Saturday",
+      "sunday": "Sunday"
+    },
+    "hours": {
+      "weekdays": "08:00 - 18:00",
+      "saturday": "09:00 - 14:00",
+      "sunday": "Closed"
+    },
+    "socials": "Social media"
+  },
+  "map": {
+    "title": "Find",
+    "titleHighlight": "us",
+    "subtitle": "Our office in Ouagadougou, Burkina Faso."
+  }
+}
+}

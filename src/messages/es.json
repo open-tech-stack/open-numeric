@@ -1,0 +1,955 @@
+{
+  "topBar": {
+    "promo": " Nuevo: formaciones en IA disponibles"
+  },
+  "nav": {
+    "home": "Inicio",
+    "services": "Servicios",
+    "portfolio": "Portafolio",
+    "blog": "Blog",
+    "contact": "Contacto",
+    "quote": "Solicitar presupuesto",
+    "theme": "Tema",
+    "language": "Idioma"
+  },
+  "services": {
+    "development": "Desarrollo",
+    "design": "Diseño",
+    "training": "Formación",
+    "maintenance": "Mantenimiento",
+    "shop": "Tienda"
+  },
+
+  "servicesSection": {
+    "badge": "Nuestra experiencia",
+    "title": "Lo que",
+    "titleHighlight": "hacemos",
+    "subtitle": "Una gama completa de servicios digitales para todas tus necesidades.",
+    "learnMore": "Saber más",
+    "viewAll": "Ver todos los servicios",
+    "items": {
+      "development": {
+        "title": "Desarrollo",
+        "description": "Aplicaciones móviles, software a medida, APIs y servicios web para tu empresa."
+      },
+      "design": {
+        "title": "Diseño",
+        "description": "Identidad visual, interfaces de usuario y experiencias digitales memorables."
+      },
+      "training": {
+        "title": "Formación",
+        "description": "Módulos de formación a medida para dominar herramientas y tecnologías digitales."
+      },
+      "maintenance": {
+        "title": "Mantenimiento",
+        "description": "Soporte técnico, reparación y configuración de tus equipos informáticos."
+      }
+    }
+  },
+  "team": {
+    "badge": "Nuestro equipo",
+    "title": "Expertos",
+    "titleHighlight": "apasionados",
+    "subtitle": "Conoce a los expertos que dan vida a tus proyectos.",
+    "members": {
+      "ceo": {
+        "name": "Nestor COMPAORE",
+        "role": "CEO & Desarrollador Principal",
+        "bio": "Experto en desarrollo full-stack con 4 años de experiencia en soluciones complejas."
+      },
+      "designer": {
+        "name": "Sophie Martin",
+        "role": "Diseñadora UX/UI",
+        "bio": "Especialista en diseño de interfaces y experiencia de usuario."
+      },
+      "trainer": {
+        "name": "Thomas Leroy",
+        "role": "Responsable de Formación",
+        "bio": "Formador certificado con un enfoque pedagógico adaptado a todos los niveles."
+      },
+      "support": {
+        "name": "Camille Petit",
+        "role": "Responsable de Soporte",
+        "bio": "Garante de la calidad y reactividad de nuestro soporte al cliente."
+      }
+    }
+  },
+  "clients": {
+    "badge": "Nuestros socios",
+    "title": "Confían en",
+    "titleHighlight": "nosotros",
+    "subtitle": "Empresas innovadoras que nos eligieron para sus proyectos digitales."
+  },
+  "testimonials": {
+    "badge": "Testimonios",
+    "title": "Lo que dicen",
+    "titleHighlight": "nuestros clientes",
+    "subtitle": "Descubre los comentarios de nuestros socios.",
+    "items": {
+      "t1": {
+        "quote": "Open Numeric transformó nuestra presencia online con una aplicación a medida que aumentó nuestras ventas un 40%.",
+        "author": "Jean Lambert",
+        "company": "CEO, TechCorp"
+      },
+      "t2": {
+        "quote": "Su equipo de diseño creó una identidad visual que representa perfectamente nuestros valores.",
+        "author": "Marie Dubois",
+        "company": "Directora de Marketing, Innovate"
+      },
+      "t3": {
+        "quote": "Las formaciones se adaptaron perfectamente a nuestras necesidades y aumentaron la productividad de nuestros equipos.",
+        "author": "Pierre Garnier",
+        "company": "Director de RRHH, DigitalSphere"
+      }
+    }
+  },
+  "cta": {
+    "badge": "¿Listo para empezar?",
+    "title": "Convirtamos tu",
+    "titleHighlight": "visión en realidad",
+    "subtitle": "Contáctanos hoy para hablar de tu proyecto y descubrir cómo podemos ayudarte.",
+    "primary": "Contáctanos",
+    "secondary": "Solicitar presupuesto"
+  },
+  "footer": {
+    "aboutText": "Tu socio en soluciones digitales. Desarrollo, diseño, formación y mantenimiento.",
+    "services": "Nuestros Servicios",
+    "usefulLinks": "Enlaces Útiles",
+    "contact": "Contáctanos",
+    "contactButton": "Formulario de contacto",
+    "about": "Sobre nosotros",
+    "team": "Nuestro equipo",
+    "portfolio": "Portafolio",
+    "blog": "Blog",
+    "testimonials": "Testimonios",
+    "rights": "Todos los derechos reservados.",
+    "legal": "Aviso legal",
+    "cookies": "Política de cookies",
+    "terms": "Términos",
+    "servicesList": {
+      "s1": "Desarrollo de aplicaciones",
+      "s2": "Creación de sitios web",
+      "s3": "Desarrollo de APIs",
+      "s4": "Diseño web y gráfico",
+      "s5": "Formación digital",
+      "s6": "Mantenimiento informático"
+    }
+  },
+  "hero": {
+  "badge": "Nuevo · Soluciones IA 2026",
+  "title": "Soluciones Digitales",
+  "titleHighlight": "A Medida",
+  "subtitle": "Desarrollo, diseño, formación y mantenimiento — todo lo que necesitas para triunfar en tu transformación digital.",
+  "ctaPrimary": "Descubre nuestros servicios",
+  "ctaSecondary": "Contáctanos",
+  "available": "Disponible",
+  "stats": {
+    "projects": "Proyectos entregados",
+    "clients": "Clientes satisfechos",
+    "years": "Años de experiencia",
+    "team": "Expertos dedicados"
+  }
+},"servicesPage": {
+  "hero": {
+  "title": "Servicios",
+  "titleHighlight": "Premium",
+  "subtitle": "Soluciones digitales de alto nivel para convertir tu visión en realidad. Experiencia, rapidez y calidad garantizadas.",
+  "ctaPrimary": "Solicitar presupuesto",
+  "ctaSecondary": "Contáctanos",
+  "available": "Disponible",
+  "fastDelivery": "Entrega rápida",
+  "fastDeliverySub": "Proyectos en tiempo récord",
+  "quickStats": {
+    "expertise": "Especialidades",
+    "projects": "Proyectos entregados",
+    "support": "Atención al cliente"
+  }
+},
+  "tabs": {
+    "label": "Categorías"
+  },
+  "categories": {
+    "development": {
+      "name": "Desarrollo",
+      "description": "Soluciones tecnológicas a medida para impulsar tu empresa",
+      "items": {
+        "web": {
+          "title": "Desarrollo Web",
+          "description": "Creación de sitios web de alto rendimiento y aplicaciones web complejas con tecnologías modernas como React, Next.js y Node.js.",
+          "details": [
+            "Sitios institucionales",
+            "Aplicaciones web de negocio",
+            "Plataformas de e-commerce",
+            "Soluciones SaaS"
+          ]
+        },
+        "mobile": {
+          "title": "Aplicaciones Móviles",
+          "description": "Diseño y desarrollo de aplicaciones nativas y multiplataforma para iOS y Android con Flutter y React Native.",
+          "details": [
+            "Aplicaciones a medida",
+            "Integración de API",
+            "Aplicaciones híbridas",
+            "Publicación en tiendas"
+          ]
+        },
+        "software": {
+          "title": "Software a Medida",
+          "description": "Desarrollo de soluciones de software adaptadas a tus procesos de negocio para automatizar y optimizar tus operaciones.",
+          "details": [
+            "Software de gestión",
+            "Soluciones ERP/CRM",
+            "Herramientas de análisis",
+            "Automatización de procesos"
+          ]
+        },
+        "api": {
+          "title": "API y Microservicios",
+          "description": "Arquitecturas modulares y escalables para sistemas de alto rendimiento y fáciles de mantener.",
+          "details": [
+            "Diseño de API REST/GraphQL",
+            "Arquitectura de microservicios",
+            "Documentación Swagger/OpenAPI",
+            "Servicios cloud-native"
+          ]
+        }
+      }
+    },
+    "training": {
+      "name": "Formación",
+      "description": "Formaciones adaptadas para dominar tecnologías y herramientas modernas",
+      "items": {
+        "it": {
+          "title": "Formación en Informática",
+          "description": "Programas completos para dominar lenguajes de programación, frameworks y herramientas modernas.",
+          "details": [
+            "Formaciones React/Next.js",
+            "Talleres Node.js",
+            "Cursos Flutter",
+            "Sesiones DevOps"
+          ]
+        },
+        "education": {
+          "title": "Educación Digital",
+          "description": "Talleres para centros escolares sobre herramientas digitales educativas.",
+          "details": [
+            "Iniciación a la programación",
+            "Herramientas colaborativas",
+            "Gestión de aula digital",
+            "Recursos pedagógicos"
+          ]
+        }
+      }
+    },
+    "maintenance": {
+      "name": "Mantenimiento",
+      "description": "Servicios completos para mantener tus sistemas en perfecto estado",
+      "items": {
+        "it": {
+          "title": "Mantenimiento Informático",
+          "description": "Mantenimiento preventivo y correctivo para todos tus equipos informáticos.",
+          "details": [
+            "Mantenimiento hardware",
+            "Optimización de software",
+            "Limpieza de sistemas",
+            "Actualizaciones de seguridad"
+          ]
+        },
+        "repair": {
+          "title": "Reparación de Hardware",
+          "description": "Reparación de ordenadores, impresoras, fotocopiadoras y periféricos.",
+          "details": [
+            "Diagnóstico completo",
+            "Sustitución de componentes",
+            "Reparación de pantallas",
+            "Resolución de problemas de red"
+          ]
+        }
+      }
+    },
+    "sales": {
+      "name": "Venta de Equipos",
+      "description": "Equipos y soluciones de hardware de calidad profesional",
+      "items": {
+        "hardware": {
+          "title": "Hardware Informático",
+          "description": "Ordenadores, servidores, componentes y accesorios de calidad profesional.",
+          "details": [
+            "PC a medida",
+            "Servidores y almacenamiento",
+            "Periféricos de gama alta",
+            "Soluciones de red"
+          ]
+        },
+        "office": {
+          "title": "Equipos de Oficina",
+          "description": "Impresoras, fotocopiadoras, escáneres y soluciones de impresión completas.",
+          "details": [
+            "Impresoras profesionales",
+            "Fotocopiadoras multifunción",
+            "Escáneres de alta velocidad",
+            "Consumibles originales"
+          ]
+        }
+      }
+    },
+    "design": {
+      "name": "Diseño",
+      "description": "Creaciones visuales impactantes para una identidad fuerte",
+      "items": {
+        "web": {
+          "title": "Diseño Web",
+          "description": "Interfaces de usuario intuitivas y experiencias digitales memorables.",
+          "details": [
+            "Diseño responsive",
+            "Prototipos interactivos",
+            "Pruebas de usuario",
+            "Accesibilidad"
+          ]
+        },
+        "graphic": {
+          "title": "Diseño Gráfico",
+          "description": "Identidad visual, manual de marca y soportes impresos/digitales impactantes.",
+          "details": [
+            "Logotipos y branding",
+            "Soportes impresos",
+            "Ilustraciones",
+            "Animaciones"
+          ]
+        }
+      }
+    }
+  },
+  "learnMore": "Saber más",
+  "process": {
+    "badge": "Metodología",
+    "title": "Nuestro proceso",
+    "titleHighlight": "de excelencia",
+    "subtitle": "Una metodología rigurosa para resultados excepcionales en cada etapa.",
+    "steps": {
+      "consultation": {
+        "title": "Consulta",
+        "description": "Análisis en profundidad de tus necesidades y definición de objetivos estratégicos."
+      },
+      "design": {
+        "title": "Diseño",
+        "description": "Elaboración de soluciones a medida y validación de conceptos."
+      },
+      "build": {
+        "title": "Realización",
+        "description": "Desarrollo riguroso con pruebas de calidad en cada etapa."
+      },
+      "delivery": {
+        "title": "Entrega",
+        "description": "Soporte continuo y mejoras para un rendimiento óptimo."
+      }
+    }
+  },
+  "cta": {
+    "title": "¿Listo para hacer realidad tu proyecto?",
+    "subtitle": "Contáctanos para una consulta gratuita y descubre cómo podemos ayudarte.",
+    "primary": "Llámanos",
+    "secondary": "Enviar email"
+  }
+},"serviceDetail": {
+  "common": {
+    "learnMore": "Saber más",
+    "viewProjects": "Ver proyectos",
+    "talkToExpert": "Hablar con un experto",
+    "requestQuote": "Solicitar presupuesto",
+    "ctaTitle": "¿Listo para hacer realidad tu proyecto?",
+    "ctaSubtitle": "Contáctanos para hablar de tus necesidades."
+  },
+  "developpement": {
+    "hero": {
+      "title": "Desarrollo",
+      "titleHighlight": "de Software",
+      "subtitle": "Soluciones tecnológicas a medida para impulsar tu empresa hacia el futuro.",
+      "available": "Disponible",
+      "fastDelivery": "Entrega rápida",
+      "fastDeliverySub": "Proyectos en tiempo récord"
+    },
+    "expertise": {
+      "title": "Tecnologías",
+      "titleHighlight": "Dominadas",
+      "subtitle": "Utilizamos las mejores tecnologías para ofrecer productos excepcionales.",
+      "groups": {
+        "frontend": "Frontend",
+        "backend": "Backend",
+        "fullstack": "Fullstack",
+        "mobile": "Móvil",
+        "devops": "DevOps",
+        "databases": "Bases de datos",
+        "testing": "Testing",
+        "tooling": "Herramientas"
+      },
+      "descriptions": {
+        "react": "Frameworks de alto rendimiento SSR, ISR y SSG.",
+        "angular": "Arquitectura sólida y escalable.",
+        "vue": "Renderizado rápido con UX cuidada.",
+        "astro": "Sitios estáticos ultrarrápidos.",
+        "solid": "Rendimiento bruto, JSX, reactividad fina.",
+        "qwik": "Inicio casi instantáneo, óptimo para SEO.",
+        "svelte": "Ultraligero, reactivo, simple, excelente DX.",
+        "remix": "API-first, mejora progresiva, rendimiento y robustez.",
+        "nest": "API TypeScript escalable y mantenible.",
+        "express": "APIs rápidas y fáciles de desplegar.",
+        "python": "Backend rápido, limpio y tipado.",
+        "spring": "Sistemas complejos, seguros y sólidos.",
+        "t3": "Arquitectura fullstack tipada, rápida y testeable.",
+        "mern": "Separación de responsabilidades, modularidad y escalabilidad.",
+        "angularSpring": "Gestión eficiente de proyectos multi-paquete.",
+        "mean": "Separación de responsabilidades y escalabilidad.",
+        "reactNative": "Desarrollo móvil rápido y multiplataforma.",
+        "flutter": "UI de alto rendimiento y diseño uniforme.",
+        "swiftKotlin": "Apps nativas iOS / Android.",
+        "ionic": "PWA + Capacitor, integración fluida con Firebase.",
+        "docker": "Contenedorización y orquestación.",
+        "cicd": "Entrega continua automatizada.",
+        "cloud": "Infraestructura escalable e integrada.",
+        "nginx": "Reverse proxies y gestión de tráfico.",
+        "postgres": "Bases de datos relacionales potentes y fiables.",
+        "mongo": "NoSQL listo para la nube para apps modernas.",
+        "prisma": "ORM modernos para bases SQL.",
+        "sqlite": "Bases de datos locales y embebidas.",
+        "jest": "Pruebas unitarias rápidas y fiables.",
+        "playwright": "Pruebas end-to-end para una UX sólida.",
+        "eslint": "Código limpio y formateado automáticamente.",
+        "testingLib": "Pruebas orientadas al usuario para mejor accesibilidad.",
+        "vite": "Bundlers ultrarrápidos para desarrollo moderno.",
+        "esbuild": "Compiladores JS/TS de nueva generación.",
+        "zod": "Validación de esquemas en cliente y servidor.",
+        "nx": "Gestión eficiente de monorepos JS/TS."
+      }
+    },
+    "offerings": {
+      "title": "Nuestros",
+      "titleHighlight": "Servicios",
+      "subtitle": "Soluciones completas para todas tus necesidades tecnológicas.",
+      "items": {
+        "web": {
+          "title": "Desarrollo Web a Medida",
+          "description": "Creamos aplicaciones web de alto rendimiento y escalables adaptadas a tus necesidades específicas.",
+          "features": [
+            "Arquitectura moderna (Micro-frontends, Monorepo)",
+            "Optimización del rendimiento (Lazy loading, Code splitting)",
+            "SEO avanzado (SSR, ISR, SSG)",
+            "Accesibilidad (WCAG AA)",
+            "Pruebas automatizadas (Jest, Cypress)"
+          ]
+        },
+        "mobile": {
+          "title": "Apps Móviles Multiplataforma",
+          "description": "Apps nativas de alto rendimiento para iOS y Android con una sola base de código.",
+          "features": [
+            "Rendimiento casi nativo",
+            "Acceso a APIs del dispositivo",
+            "Animaciones fluidas",
+            "Publicación en tiendas",
+            "Actualizaciones OTA"
+          ]
+        },
+        "api": {
+          "title": "APIs y Microservicios",
+          "description": "Arquitecturas backend modulares y escalables para apoyar tu crecimiento.",
+          "features": [
+            "REST y GraphQL",
+            "Autenticación (JWT, OAuth2)",
+            "Bases de datos (SQL y NoSQL)",
+            "Caché (Redis)",
+            "Documentación Swagger/OpenAPI"
+          ]
+        },
+        "refactor": {
+          "title": "Refactorización y Optimización",
+          "description": "Mejora de tu código existente para mayor rendimiento y mantenibilidad.",
+          "features": [
+            "Auditoría de código",
+            "Deuda técnica reducida",
+            "Buenas prácticas",
+            "Pruebas unitarias/integración",
+            "Documentación técnica"
+          ]
+        }
+      }
+    },
+    "process": {
+      "title": "Nuestro",
+      "titleHighlight": "Proceso",
+      "subtitle": "Una metodología rigurosa para resultados excepcionales.",
+      "steps": {
+        "design": { "title": "Diseño", "description": "Análisis de necesidades y definición de la arquitectura técnica." },
+        "prototype": { "title": "Prototipado", "description": "Validación de conceptos con MVPs interactivos." },
+        "build": { "title": "Desarrollo", "description": "Implementación con revisiones de código regulares." },
+        "test": { "title": "Pruebas", "description": "Validación de calidad automatizada y manual." },
+        "deploy": { "title": "Despliegue", "description": "Puesta en producción con monitorización." }
+      }
+    },
+    "cta": {
+      "primary": "Hablar con un experto",
+      "secondary": "Solicitar presupuesto",
+      "subtitle": "Contáctanos para hablar de tus necesidades de desarrollo."
+    }
+  },
+  "design": {
+    "hero": {
+      "title": "Diseño",
+      "titleHighlight": "Creativo",
+      "subtitle": "Soluciones de diseño impactantes que cuentan tu historia y cautivan a tu audiencia.",
+      "available": "Disponible",
+      "fastDelivery": "Entrega rápida",
+      "fastDeliverySub": "Proyectos en tiempo récord"
+    },
+    "expertise": {
+      "title": "Nuestras Áreas",
+      "titleHighlight": "de Especialización",
+      "subtitle": "Un enfoque holístico del diseño para cubrir todas tus necesidades creativas.",
+      "groups": {
+        "branding": "Branding",
+        "print": "Print",
+        "digital": "Digital",
+        "motion": "Motion"
+      },
+      "descriptions": {
+        "identity": "Creación de una identidad única y coherente para tu marca.",
+        "charter": "Guía completa para una aplicación armoniosa de tu identidad.",
+        "logo": "Diseño de logotipos memorables que evocan tus valores.",
+        "guidelines": "Manual de uso de tu identidad visual.",
+        "brochures": "Materiales impresos atractivos y eficaces.",
+        "posters": "Diseños impactantes para tu comunicación visual.",
+        "cards": "Primer contacto tangible con tu marca.",
+        "packaging": "Diseño de packaging que cuenta tu historia.",
+        "ui": "UIs intuitivas y estéticas para tus aplicaciones.",
+        "responsive": "Adaptación perfecta a todos los dispositivos.",
+        "prototypes": "Maquetas clicables para validar la experiencia.",
+        "system": "Biblioteca de componentes coherente y escalable.",
+        "animations": "Microinteracciones para una experiencia dinámica.",
+        "motionGraphics": "Contenido de video animado para cautivar a tu audiencia.",
+        "transitions": "Efectos visuales fluidos entre estados.",
+        "brandAnim": "Identidad animada para una marca viva."
+      }
+    },
+    "offerings": {
+      "title": "Nuestros Servicios de",
+      "titleHighlight": "Diseño",
+      "subtitle": "Soluciones creativas a medida para cada necesidad.",
+      "items": {
+        "identity": {
+          "title": "Identidad Visual Completa",
+          "description": "Creamos una identidad visual fuerte y coherente que refleja la esencia de tu marca.",
+          "features": [
+            "Investigación y estrategia de marca",
+            "Dirección artística",
+            "Desarrollo de logotipo",
+            "Paleta de colores y tipografía",
+            "Aplicaciones en distintos soportes"
+          ]
+        },
+        "ui": {
+          "title": "Diseño de Interfaz de Usuario",
+          "description": "Interfaces intuitivas y estéticas que mejoran la experiencia del usuario.",
+          "features": [
+            "Auditoría UX/UI existente",
+            "Wireframes y prototipos",
+            "Sistema de diseño coherente",
+            "Animaciones y microinteracciones",
+            "Pruebas de usuario"
+          ]
+        },
+        "print": {
+          "title": "Soportes Print y Digitales",
+          "description": "Diseño gráfico impactante para tus soportes de comunicación físicos y digitales.",
+          "features": [
+            "Folletos y catálogos",
+            "Carteles y banners",
+            "Presentaciones profesionales",
+            "Redes sociales",
+            "Diseño de packaging"
+          ]
+        },
+        "motion": {
+          "title": "Motion Design",
+          "description": "Da vida a tu marca con animaciones cautivadoras y narrativas.",
+          "features": [
+            "Animaciones de logotipo",
+            "Motion graphics explicativos",
+            "Microinteracciones UI",
+            "Transiciones fluidas",
+            "Videos promocionales"
+          ]
+        }
+      }
+    },
+    "process": {
+      "title": "Nuestro Proceso",
+      "titleHighlight": "Creativo",
+      "subtitle": "Una metodología probada para resultados excepcionales.",
+      "steps": {
+        "discovery": { "title": "Descubrimiento", "description": "Comprensión profunda de tu marca, valores y objetivos." },
+        "research": { "title": "Investigación", "description": "Análisis del mercado, tendencias y competencia." },
+        "concept": { "title": "Conceptualización", "description": "Desarrollo de conceptos creativos y direcciones artísticas." },
+        "design": { "title": "Diseño", "description": "Creación de visuales y prototipos interactivos." },
+        "validation": { "title": "Validación", "description": "Pruebas de usuario e iteraciones para perfeccionar." },
+        "delivery": { "title": "Entrega", "description": "Suministro de archivos fuente y guías." }
+      }
+    },
+    "cta": {
+      "primary": "Hablar con un diseñador",
+      "secondary": "Solicitar presupuesto",
+      "subtitle": "Contáctanos para hablar de tus necesidades de diseño."
+    }
+  },
+  "formation": {
+    "hero": {
+      "title": "Formación",
+      "titleHighlight": "Experta",
+      "subtitle": "Mejora tus habilidades con nuestros programas completos y formadores experimentados.",
+      "available": "Disponible",
+      "fastDelivery": "Entrega rápida",
+      "fastDeliverySub": "Proyectos en tiempo récord"
+    },
+    "expertise": {
+      "title": "Nuestras Áreas",
+      "titleHighlight": "de Formación",
+      "subtitle": "Programas adaptados a todos los niveles y necesidades.",
+      "groups": {
+        "tech": "Formación Tech",
+        "education": "Educación Digital"
+      },
+      "descriptions": {
+        "frontend": "Domina React, Angular, Vue y los frameworks modernos.",
+        "backend": "Node.js, Python, Java y arquitecturas de servidor.",
+        "mobile": "Desarrolla apps con React Native, Flutter.",
+        "devops": "Docker, Kubernetes, CI/CD y despliegues cloud.",
+        "coding": "Introducción lúdica a la programación para principiantes.",
+        "tools": "Domina las plataformas educativas digitales.",
+        "classroom": "Optimiza tu enseñanza con lo digital.",
+        "resources": "Crea contenidos educativos interactivos."
+      }
+    },
+    "offerings": {
+      "title": "Nuestros Programas",
+      "titleHighlight": "Tech",
+      "subtitle": "Formaciones intensivas para dominar las tecnologías modernas.",
+      "items": {
+        "frontend": {
+          "title": "Formaciones Frontend Avanzadas",
+          "description": "Dominio completo de los ecosistemas React, Angular y Vue con buenas prácticas.",
+          "features": [
+            "React/Next.js (SSR, ISR, SSG)",
+            "Gestión de estado avanzada",
+            "Optimización de rendimiento",
+            "Pruebas automatizadas",
+            "Arquitectura modular"
+          ]
+        },
+        "backend": {
+          "title": "Talleres Backend y API",
+          "description": "Desarrollo de APIs robustas y seguras con tecnologías modernas.",
+          "features": [
+            "Node.js/NestJS/Express",
+            "GraphQL y REST",
+            "Autenticación JWT/OAuth",
+            "Bases de datos SQL/NoSQL",
+            "Optimización de rendimiento"
+          ]
+        },
+        "mobile": {
+          "title": "Móvil Multiplataforma",
+          "description": "Desarrollo de aplicaciones nativas con React Native y Flutter.",
+          "features": [
+            "Arquitectura de apps móviles",
+            "Acceso a APIs nativas",
+            "Animaciones fluidas",
+            "Publicación en tiendas",
+            "Pruebas en dispositivos"
+          ]
+        },
+        "devops": {
+          "title": "Itinerario DevOps",
+          "description": "Automatización de despliegues e infraestructura cloud escalable.",
+          "features": [
+            "Docker y Kubernetes",
+            "CI/CD (GitHub Actions, GitLab)",
+            "Infraestructura como código",
+            "Monitorización y logging",
+            "Seguridad cloud"
+          ]
+        }
+      }
+    },
+    "process": {
+      "title": "Nuestra Metodología",
+      "titleHighlight": "Pedagógica",
+      "subtitle": "Un enfoque práctico y adaptado para un aprendizaje eficaz.",
+      "steps": {
+        "evaluation": { "title": "Evaluación de necesidades", "description": "Análisis de prerrequisitos y objetivos de aprendizaje." },
+        "custom": { "title": "Contenido a medida", "description": "Adaptación del programa a necesidades específicas." },
+        "practice": { "title": "Aprendizaje práctico", "description": "Ejercicios concretos y proyectos reales." },
+        "support": { "title": "Soporte continuo", "description": "Recursos y acompañamiento post-formación." },
+        "validation": { "title": "Validación de competencias", "description": "Certificación y evaluación de habilidades." }
+      }
+    },
+    "cta": {
+      "primary": "Hablar con un formador",
+      "secondary": "Solicitar un programa",
+      "subtitle": "Contáctanos para hablar de tus necesidades de formación."
+    }
+  },
+  "maintenance": {
+    "hero": {
+      "title": "Mantenimiento",
+      "titleHighlight": "Informático",
+      "subtitle": "Reparación, resolución de problemas y mantenimiento para todos tus equipos informáticos.",
+      "available": "Disponible",
+      "fastDelivery": "Entrega rápida",
+      "fastDeliverySub": "Proyectos en tiempo récord"
+    },
+    "expertise": {
+      "title": "Nuestros Servicios de",
+      "titleHighlight": "Mantenimiento",
+      "subtitle": "Soluciones completas para todas tus necesidades técnicas.",
+      "groups": {
+        "repair": "Reparación",
+        "network": "Red",
+        "preventive": "Mantenimiento Preventivo"
+      },
+      "descriptions": {
+        "computer": "Diagnóstico y reparación completa de ordenadores.",
+        "peripherals": "Impresoras, escáneres y otros equipos.",
+        "screens": "Sustitución de pantallas LCD/LED dañadas.",
+        "data": "Recuperación de datos en discos defectuosos.",
+        "troubleshoot": "Resolución de problemas de conectividad.",
+        "wifi": "Optimización de señal y cobertura.",
+        "security": "Protección contra intrusiones.",
+        "cabling": "Instalación de red cableada profesional.",
+        "cleaning": "Eliminación de polvo para un enfriamiento óptimo.",
+        "updates": "Mantenimiento de software y firmware.",
+        "diagnostic": "Verificación profunda del hardware.",
+        "contracts": "Programas de seguimiento personalizados."
+      }
+    },
+    "offerings": {
+      "title": "Nuestras Ofertas de",
+      "titleHighlight": "Mantenimiento",
+      "subtitle": "Intervenciones rápidas y eficaces por técnicos certificados.",
+      "items": {
+        "hardware": {
+          "title": "Reparación de Hardware",
+          "description": "Diagnóstico y reparación de todos tus equipos informáticos.",
+          "features": [
+            "Ordenadores de sobremesa y portátiles",
+            "Impresoras y fotocopiadoras",
+            "Sustitución de componentes",
+            "Reparación de pantallas",
+            "Recuperación de datos"
+          ]
+        },
+        "preventive": {
+          "title": "Mantenimiento Preventivo",
+          "description": "Mantenimiento regular para prolongar la vida útil de tus equipos.",
+          "features": [
+            "Limpieza interna completa",
+            "Verificación de componentes",
+            "Optimización de rendimiento",
+            "Actualizaciones de software",
+            "Contratos anuales"
+          ]
+        },
+        "network": {
+          "title": "Resolución de Problemas de Red",
+          "description": "Resolución de problemas de conectividad y configuración.",
+          "features": [
+            "Diagnóstico completo de red",
+            "Configuración de routers/switches",
+            "Optimización WiFi",
+            "Seguridad de red",
+            "Cableado estructurado"
+          ]
+        },
+        "installation": {
+          "title": "Instalación y Configuración",
+          "description": "Puesta en marcha de nuevos equipos y software.",
+          "features": [
+            "Instalación de puesto de trabajo",
+            "Configuración de software",
+            "Migración de datos",
+            "Copia de seguridad inicial",
+            "Formación de usuario"
+          ]
+        }
+      }
+    },
+    "process": {
+      "title": "Nuestro Proceso",
+      "titleHighlight": "de Intervención",
+      "subtitle": "Una metodología rigurosa para reparaciones eficaces.",
+      "steps": {
+        "diagnostic": { "title": "Diagnóstico", "description": "Análisis preciso de la avería o necesidad." },
+        "quote": { "title": "Presupuesto", "description": "Propuesta detallada con opciones de reparación." },
+        "repair": { "title": "Reparación", "description": "Intervención por nuestros técnicos certificados." },
+        "test": { "title": "Prueba", "description": "Validación completa del correcto funcionamiento." },
+        "delivery": { "title": "Entrega", "description": "Devolución del equipo con garantía." }
+      }
+    },
+    "cta": {
+      "primary": "Solicitar una reparación",
+      "secondary": "Suscribir un contrato",
+      "subtitle": "Nuestro equipo está disponible para resolver tus problemas técnicos."
+    }
+  },
+  "vente": {
+    "hero": {
+      "title": "Tienda",
+      "titleHighlight": "Profesional",
+      "subtitle": "Equipos informáticos de calidad y servicios expertos a precios competitivos.",
+      "available": "Disponible",
+      "fastDelivery": "Entrega rápida",
+      "fastDeliverySub": "Proyectos en tiempo récord"
+    },
+    "expertise": {
+      "title": "Nuestras Categorías de",
+      "titleHighlight": "Productos",
+      "subtitle": "Todo el equipamiento informático profesional que necesitas.",
+      "groups": {
+        "computers": "Ordenadores",
+        "peripherals": "Periféricos",
+        "networking": "Red",
+        "accessories": "Accesorios"
+      },
+      "descriptions": {
+        "laptops": "Potentes y ligeros para todos los usos.",
+        "desktops": "Potencia y modularidad.",
+        "mini": "Compactos y eficientes energéticamente.",
+        "workstations": "Para profesionales exigentes.",
+        "screens": "Pantallas Full HD, 4K y curvas.",
+        "input": "Gaming, oficina y ergonómicos.",
+        "printers": "Inyección de tinta, láser y multifunción.",
+        "audio": "Audio profesional y gaming.",
+        "routers": "Routers de alta velocidad.",
+        "switches": "Profesionales y empresariales.",
+        "cables": "RJ45, HDMI, USB y adaptadores.",
+        "nas": "Almacenamiento en red seguro.",
+        "chargers": "Adaptadores universales.",
+        "batteries": "Repuestos originales.",
+        "hubs": "Conectividad multipuerto.",
+        "stands": "Ergonomía del puesto de trabajo."
+      }
+    },
+    "offerings": {
+      "title": "Nuestros Servicios",
+      "titleHighlight": "Asociados",
+      "subtitle": "Servicios profesionales para completar tus compras.",
+      "items": {
+        "config": {
+          "title": "Configuración Profesional",
+          "description": "Instalación y configuración completa de tus equipos.",
+          "features": [
+            "Instalación de SO y software",
+            "Optimización de rendimiento",
+            "Copia de seguridad inicial",
+            "Test completo de hardware"
+          ]
+        },
+        "maintenance": {
+          "title": "Mantenimiento Express",
+          "description": "Limpieza y verificación completa de tu hardware.",
+          "features": [
+            "Limpieza interna/externa",
+            "Diagnóstico completo",
+            "Aplicación de pasta térmica",
+            "Prueba de estabilidad"
+          ]
+        },
+        "network": {
+          "title": "Instalación de Red",
+          "description": "Configuración de tu infraestructura de red.",
+          "features": [
+            "Configuración de router/switch",
+            "Prueba de velocidad",
+            "Seguridad WiFi",
+            "Cableado estructurado"
+          ]
+        },
+        "warranty": {
+          "title": "Garantía Extendida",
+          "description": "Protección adicional para tus equipos.",
+          "features": [
+            "Extensión de garantía del fabricante",
+            "Reemplazo express",
+            "Asistencia prioritaria",
+            "Cobertura completa"
+          ]
+        }
+      }
+    },
+    "process": {
+      "title": "Nuestro Proceso",
+      "titleHighlight": "de Compra",
+      "subtitle": "Simple y rápido, desde la selección hasta el soporte.",
+      "steps": {
+        "browse": { "title": "Explorar", "description": "Descubre nuestro catálogo completo en línea." },
+        "select": { "title": "Seleccionar", "description": "Elige los productos que se ajusten a tus necesidades." },
+        "config": { "title": "Configurar", "description": "Personaliza tu hardware con nuestros expertos." },
+        "delivery": { "title": "Entrega", "description": "Recibe tu pedido rápida y seguramente." },
+        "support": { "title": "Soporte", "description": "Benefíciate de un acompañamiento continuo tras la compra." }
+      }
+    },
+    "cta": {
+      "primary": "Contactar a un experto",
+      "secondary": "Solicitar presupuesto",
+      "subtitle": "Nuestros expertos están a tu disposición para guiarte."
+    }
+  }
+},"contact": {
+  "hero": {
+    "label": "Contacto",
+    "title": "Hablemos de tu",
+    "titleHighlight": "proyecto",
+    "subtitle": "Nuestro equipo está disponible para responder a todas tus preguntas y acompañarte en tu transformación digital."
+  },
+  "form": {
+    "title": "Envíanos un",
+    "titleHighlight": "mensaje",
+    "subtitle": "Rellena el siguiente formulario y te responderemos lo antes posible.",
+    "fields": {
+      "name": { "label": "Tu nombre", "placeholder": "Juan Pérez" },
+      "email": { "label": "Tu correo", "placeholder": "juan@ejemplo.com" },
+      "subject": { "label": "Asunto", "placeholder": "Solicitud de presupuesto" },
+      "message": { "label": "Tu mensaje", "placeholder": "Describe tu proyecto en pocas palabras..." }
+    },
+    "submit": "Enviar mensaje",
+    "success": "Tu mensaje ha sido enviado. Te responderemos pronto.",
+    "error": "Ha ocurrido un error. Inténtalo de nuevo."
+  },
+  "info": {
+    "title": "Nuestros",
+    "titleHighlight": "datos de contacto",
+    "items": {
+      "address": { "label": "Dirección" },
+      "phone": { "label": "Teléfono" },
+      "email": { "label": "Correo" }
+    }
+  },
+  "schedule": {
+    "title": "Horario",
+    "titleHighlight": "de apertura",
+    "days": {
+      "weekdays": "Lunes - Viernes",
+      "saturday": "Sábado",
+      "sunday": "Domingo"
+    },
+    "hours": {
+      "weekdays": "08:00 - 18:00",
+      "saturday": "09:00 - 14:00",
+      "sunday": "Cerrado"
+    },
+    "socials": "Redes sociales"
+  },
+  "map": {
+    "title": "Encuéntranos",
+    "titleHighlight": "",
+    "subtitle": "Nuestra oficina en Uagadugú, Burkina Faso."
+  }
+}
+}
