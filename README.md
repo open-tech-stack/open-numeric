@@ -1,62 +1,174 @@
-# Open Numeric — Frontend
+<div align="center">
 
-Next.js 15 (App Router) + React 19 + TS + Tailwind + Framer Motion + @dnd-kit.
+# ⚡ Open Numeric
 
-## Démarrage
+### Frontend — Site vitrine + Dashboard d'administration
 
-    npm install
-    npm run dev
+[![Next.js](https://img.shields.io/badge/Next.js-15-000000?style=for-the-badge&logo=next.js&logoColor=white)](https://nextjs.org)
+[![React](https://img.shields.io/badge/React-19-61DAFB?style=for-the-badge&logo=react&logoColor=black)](https://react.dev)
+[![TypeScript](https://img.shields.io/badge/TypeScript-5-3178C6?style=for-the-badge&logo=typescript&logoColor=white)](https://www.typescriptlang.org)
+[![Tailwind](https://img.shields.io/badge/Tailwind-4-06B6D4?style=for-the-badge&logo=tailwindcss&logoColor=white)](https://tailwindcss.com)
 
-`.env.local` :
-    NEXT_PUBLIC_API_URL=http://localhost:5000
+Interface moderne pour le site **Open Numeric** et son espace d'administration.
 
-## Structure
+</div>
 
-    src/
-    ├── app/(site)/          # Vitrine
-    ├── app/(auth)/auth/     # Login
-    ├── app/(dashboard)/     # Dashboard admin
-    ├── components/ui/       # Design system
-    ├── components/dashboard/# Nav, Admins, Profile, Contacts
-    ├── contexts/AuthContext # Session cookies httpOnly
-    ├── hooks/               # useAuth, useCrud, useStats, useNav
-    ├── services/core/       # http, crud, interceptor
-    ├── services/*/          # Par module
-    ├── endpoints/           # Chemins API
-    └── types/               # Types TS
+---
 
-## Auth
+## 📚 Table des matières
 
-- Cookies httpOnly (`on.accessToken`, `on.refreshToken`, `on.user`)
-- `AuthContext` charge `/api/auth/me` au boot
-- `<RequireAuth>` protège `/dashboard/*`
-- `<RequireAdmin>` protège `/dashboard/admins`
-- Redirect auto `/auth` sur 401
+- [✨ Stack technique](#-stack-technique)
+- [🚀 Démarrage rapide](#-démarrage-rapide)
+- [📁 Structure du projet](#-structure-du-projet)
+- [🔐 Authentification](#-authentification)
+- [🧭 Pages du dashboard](#-pages-du-dashboard)
+- [🧩 Pattern CRUD](#-pattern-crud)
+- [📦 Scripts](#-scripts)
+- [🚀 Déploiement](#-déploiement)
+- [📄 License](#-license)
 
-## Pages dashboard
+---
 
-    /dashboard              Stats
-    /dashboard/projects     CRUD
-    /dashboard/services     CRUD
-    /dashboard/team         CRUD
-    /dashboard/clients      CRUD
-    /dashboard/testimonials CRUD
-    /dashboard/socials      CRUD
-    /dashboard/navigation   Arbre + DnD
-    /dashboard/contacts     Messages
-    /dashboard/quotes       Devis
-    /dashboard/uploads      Médias
-    /dashboard/profile      Mon profil
-    /dashboard/admins       ADMIN only
+## ✨ Stack technique
 
-## Pattern CRUD
+<div align="center">
 
-    class XService extends CrudService<X, XCreateInput, XUpdateInput> {}
-    const { items, loading, create, update, remove } = useCrud(xService);
+| 🛠 | Technologie | Rôle |
+|:---:|:---:|:---|
+| ⚛️ | **Next.js 15** | App Router |
+| 🧩 | **React 19** | UI |
+| 🟦 | **TypeScript** | Typage strict |
+| 🎨 | **Tailwind CSS** | Styles |
+| 🎬 | **Framer Motion** | Animations |
+| 🎯 | **Lucide React** | Icônes |
+| 🖱️ | **@dnd-kit** | Drag & drop |
 
-## Docs liées
+</div>
 
-- `README_API.md` — Backend
-- `README_ADMIN.md` — Guide dashboard
+---
 
-License : UNLICENSED
+## 🚀 Démarrage rapide
+
+### 1️⃣ Installation
+
+```bash
+
+npm install
+2️⃣ Variables d'environnement
+Crée un fichier .env.local à la racine :
+
+env
+NEXT_PUBLIC_API_URL=http://localhost:5000
+⚠️ L'API backend doit tourner en parallèle → voir README_API.md
+
+3️⃣ Lancer le serveur
+bash
+npm run dev
+<div align="center">
+🌐 http://localhost:3000
+
+</div>
+📁 Structure du projet
+txt
+src/
+├── 📂 app/
+│   ├── 🌍 (site)/              # Site vitrine public
+│   ├── 🔑 (auth)/auth/         # Login admin
+│   └── 🛡️ (dashboard)/         # Dashboard admin
+│
+├── 📂 components/
+│   ├── 🎨 ui/                  # Design system
+│   ├── 📊 dashboard/           # Composants dashboard
+│   └── 🔒 auth/                # Guards
+│
+├── 📂 contexts/
+│   └── 🔐 AuthContext.tsx
+│
+├── 📂 hooks/
+│   ├── useAuth.ts
+│   ├── useCrud.ts
+│   ├── useStats.ts
+│   └── useNav.ts
+│
+├── 📂 services/
+│   ├── ⚙️ core/                # HTTP + CRUD générique
+│   └── 🔌 */                   # Par module
+│
+├── 📂 endpoints/               # Chemins API centralisés
+├── 📂 types/                   # Types TS partagés
+└── 📂 lib/                     # Utils
+🔐 Authentification
+<div align="center">
+🍪 Cookie	🔒 HttpOnly	📁 Path	⏱️ Durée
+on.accessToken	✅	/	15 min
+on.refreshToken	✅	/api/auth	7 jours
+on.user	❌	/	7 jours
+</div>
+🔄 Flux
+txt
+1️⃣  POST /api/auth/login       →  🍪 cookies posés
+2️⃣  GET  /api/auth/me          →  👤 profil chargé
+3️⃣  RequireAuth vérifie        →  🚫 sinon redirect /auth
+4️⃣  http.service gère 401      →  ↩️ redirect auto
+5️⃣  POST /api/auth/logout      →  🧹 clear cookies
+🧭 Pages du dashboard
+<div align="center">
+🖥️ Page	📝 Rôle	🔐 Accès
+🏠 /dashboard	Vue d'ensemble (stats)	🔵 Auth
+📦 /dashboard/projects	Projets	🔵 Auth
+🧰 /dashboard/services	Services	🔵 Auth
+👥 /dashboard/team	Équipe	🔵 Auth
+🏢 /dashboard/clients	Clients	🔵 Auth
+💬 /dashboard/testimonials	Témoignages	🔵 Auth
+🔗 /dashboard/socials	Réseaux	🔵 Auth
+🧭 /dashboard/navigation	Menus (DnD)	🔵 Auth
+📬 /dashboard/contacts	Messages	🔵 Auth
+📄 /dashboard/quotes	Devis	🔵 Auth
+🖼️ /dashboard/uploads	Médias	🔵 Auth
+👤 /dashboard/profile	Mon profil	🔵 Auth
+🛡️ /dashboard/admins	Admins	🔴 ADMIN
+</div>
+🧩 Pattern CRUD
+Chaque entité suit le même pattern en 3 étapes :
+
+1️⃣ Service
+ts
+class XService extends CrudService<X, XCreateInput, XUpdateInput> {}
+export const xService = new XService();
+2️⃣ Hook
+ts
+const { items, loading, create, update, remove } = useCrud(xService);
+3️⃣ Page
+tsx
+<DataTable data={items} columns={columns} config={{ actions }} />
+<XFormModal open={...} onSubmit={...} />
+<ConfirmDialog open={...} onConfirm={...} />
+📦 Scripts
+bash
+npm run dev        # 🚀 Développement
+npm run build      # 📦 Build production
+npm run start      # ▶️  Production
+npm run lint       # 🔍 ESLint
+npm run typecheck  # 🟦 tsc --noEmit
+🚀 Déploiement
+<div align="center">
+🌐 Cible	🛠️ Plateforme
+Frontend	▲ Vercel
+API	🚂 Railway · 🪰 Fly.io · 🖥️ VPS
+Images	☁️ Cloudflare R2 · 🖼️ Cloudinary
+</div>
+📚 Documentation liée
+<div align="center">
+📄 Fichier	📝 Contenu
+README_API.md	Backend NestJS + Prisma
+README_ADMIN.md	Guide développeur dashboard
+</div>
+<div align="center">
+📄 License
+UNLICENSED — Projet privé Open Numeric.
+
+Fait avec ❤️ par Open Numeric
+
+</div> 
+
+```
