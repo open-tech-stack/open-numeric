@@ -3,17 +3,15 @@
 import { motion } from "framer-motion";
 import { useTranslations } from "next-intl";
 import { Phone, Mail } from "lucide-react";
-import { getSite } from "@/lib/data";
-import type { ServiceDetail } from "@/types";
+import type { Service, SiteSettings } from "@/types";
 
 interface DetailCtaProps {
-  service: ServiceDetail;
+  service: Service;
+  settings: SiteSettings;
 }
 
-export default function DetailCta({ service }: DetailCtaProps) {
-  const t = useTranslations(`serviceDetail.${service.slug}.cta`);
-  const tCommon = useTranslations("serviceDetail.common");
-  const site = getSite();
+export default function DetailCta({ settings }: DetailCtaProps) {
+  const t = useTranslations("serviceDetail.common");
 
   return (
     <section className="relative py-20 lg:py-28 overflow-hidden">
@@ -30,26 +28,26 @@ export default function DetailCta({ service }: DetailCtaProps) {
 
           <div className="relative">
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight mb-5">
-              {tCommon("ctaTitle")}
+              {t("ctaTitle")}
             </h2>
             <p className="text-foreground-muted text-base sm:text-lg max-w-2xl mx-auto mb-8 leading-relaxed">
-              {t("subtitle")}
+              {t("ctaSubtitle")}
             </p>
 
             <div className="flex flex-col sm:flex-row gap-3 justify-center">
               <a
-                href={site.phoneHref}
+                href={`tel:${settings.phone}`}
                 className="group inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl font-semibold text-primary-foreground bg-gradient-primary shadow-lg glow-primary hover:shadow-xl hover:scale-[1.03] active:scale-[0.97] transition-all duration-300"
               >
                 <Phone className="h-4 w-4" />
-                {t("primary")}
+                {t("talkToExpert")}
               </a>
               <a
-                href={`mailto:${site.email}`}
+                href={`mailto:${settings.email}`}
                 className="group inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl font-semibold border border-border-strong text-foreground hover:bg-surface-hover hover:border-primary hover:scale-[1.03] active:scale-[0.97] transition-all duration-300"
               >
                 <Mail className="h-4 w-4" />
-                {t("secondary")}
+                {t("requestQuote")}
               </a>
             </div>
           </div>

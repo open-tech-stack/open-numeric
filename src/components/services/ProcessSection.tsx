@@ -3,11 +3,39 @@
 import { motion } from "framer-motion";
 import { useTranslations } from "next-intl";
 import Icon from "@/components/ui/Icon";
-import { getProcessSteps } from "@/lib/data";
+
+/**
+ * Étapes du process (données éditoriales locales):  Ne vient PAS de l'API.
+ */
+const PROCESS_STEPS = [
+  {
+    key: "consultation",
+    step: 1,
+    accent: "from-indigo-500 to-blue-500",
+    icon: "Lightbulb",
+  },
+  {
+    key: "design",
+    step: 2,
+    accent: "from-blue-500 to-teal-500",
+    icon: "Palette",
+  },
+  {
+    key: "build",
+    step: 3,
+    accent: "from-teal-500 to-emerald-500",
+    icon: "Code2",
+  },
+  {
+    key: "delivery",
+    step: 4,
+    accent: "from-emerald-500 to-green-500",
+    icon: "ShieldCheck",
+  },
+] as const;
 
 export default function ProcessSection() {
   const t = useTranslations("servicesPage.process");
-  const steps = getProcessSteps();
 
   return (
     <section className="relative py-20 lg:py-28 bg-background-alt">
@@ -32,22 +60,19 @@ export default function ProcessSection() {
         </motion.div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-          {steps.map((step, i) => (
+          {PROCESS_STEPS.map((step, i) => (
             <motion.div
               key={step.key}
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-80px" }}
               transition={{ duration: 0.5, delay: i * 0.1 }}
-              // Pas de whileHover → CSS
             >
               <div className="group relative h-full rounded-2xl overflow-hidden transition-all duration-300 ease-out hover:-translate-y-1.5 hover:shadow-2xl">
-                {/* Bordure gradient (visible en permanence) */}
                 <div
                   className={`h-full p-[2px] rounded-2xl bg-gradient-to-br ${step.accent}`}
                 >
                   <div className="h-full p-6 rounded-2xl bg-surface flex flex-col items-center text-center">
-                    {/* Cercle numéroté */}
                     <div
                       className={`relative h-16 w-16 rounded-2xl bg-gradient-to-br ${step.accent} text-white flex items-center justify-center shadow-lg mb-5 transition-transform duration-300 ease-out group-hover:scale-110 group-hover:rotate-3`}
                     >

@@ -5,7 +5,7 @@ import { ArrowRight, Sparkles, Phone } from "lucide-react";
 import { useTranslations } from "next-intl";
 import { Link } from "@/i18n/navigation";
 import Image from "next/image";
-import { getHeroImage, getHeroStats, getSite } from "@/lib/data";
+import type { SiteSettings } from "@/types";
 
 const container = {
   hidden: { opacity: 0 },
@@ -20,12 +20,18 @@ const item = {
   show: { opacity: 1, y: 0, transition: { duration: 0.5, ease: "easeOut" } },
 };
 
-export default function Hero() {
-  const t = useTranslations("hero");
+/**
+ * Image et stats du hero — statiques (i18n pour les labels).
+ */
+const HERO_IMAGE = "/images/hero.jpg";
 
-  const site = getSite();
-  const heroImage = getHeroImage();
-  const stats = getHeroStats((key) => t(key));
+
+interface HeroProps {
+  settings: SiteSettings;
+}
+
+export default function Hero({ settings }: HeroProps) {
+  const t = useTranslations("hero");
 
   return (
     <section className="relative overflow-hidden pt-12 pb-20 lg:pt-20 lg:pb-28">
@@ -81,6 +87,7 @@ export default function Hero() {
                 {t("ctaSecondary")}
               </Link>
             </motion.div>
+
           </motion.div>
 
           {/* Image */}
@@ -92,10 +99,9 @@ export default function Hero() {
           >
             <div className="absolute -inset-4 rounded-3xl bg-gradient-primary opacity-20 blur-3xl" />
             <div className="relative rounded-3xl overflow-hidden border border-border shadow-2xl">
-              {/* ✅ Image depuis lib/data.ts */}
               <Image
-                src={heroImage}
-                alt={site.name}
+                src={HERO_IMAGE}
+                alt={settings.siteName}
                 width={800}
                 height={600}
                 priority
@@ -115,7 +121,7 @@ export default function Hero() {
               <div className="flex items-center gap-2">
                 <div className="h-2 w-2 rounded-full bg-success animate-pulse-glow" />
                 <span className="text-xs font-semibold text-foreground">
-                  {t("available")} · {site.availability}
+                  {t("available")} · {settings.availability}
                 </span>
               </div>
             </motion.div>

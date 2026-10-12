@@ -1,64 +1,58 @@
-/** Type de champ de formulaire */
+import type { SubmissionStatus } from "./common";
+
+/* =========================================================
+   CONTACT — formulaire public
+   ========================================================= */
+
+/** Body du POST /api/contact */
+export interface ContactFormData {
+  name: string;
+  email: string;
+  subject: string;
+  message: string;
+}
+
+/** Réponse du POST /api/contact */
+export interface ContactSubmitResponse {
+  success: true;
+  id: string;
+}
+
+/* =========================================================
+   CONTACT — admin (liste des messages reçus)
+   ========================================================= */
+
+export interface ContactSubmission {
+  id: string;
+  name: string;
+  email: string;
+  subject: string;
+  message: string;
+  status: SubmissionStatus;
+  ip: string | null;
+  userAgent: string | null;
+  createdAt: string;
+  updatedAt: string;
+}
+
+/** Body du PATCH /api/contact/:id/status */
+export interface ContactStatusUpdate {
+  status: SubmissionStatus;
+}
+
+/* =========================================================
+   CONTACT — UI (config locale du composant)
+   ========================================================= */
+
+/**
+ * Champ de formulaire côté UI.
+ * Utilisé pour construire dynamiquement le formulaire.
+ */
 export type ContactFieldType = "text" | "email" | "tel" | "textarea";
 
-/** Champ du formulaire de contact */
 export interface ContactField {
-  /** Clé i18n : `contact.form.fields.<key>.label` */
   key: "name" | "email" | "subject" | "message";
   type: ContactFieldType;
   required: boolean;
-  /** Nombre de lignes (uniquement pour textarea) */
   rows?: number;
-}
-
-/** Type d'information de contact */
-export type ContactInfoType = "address" | "phone" | "email";
-
-/** Bloc d'information de contact */
-export interface ContactInfoItem {
-  /** Clé i18n : `contact.info.items.<key>.*` */
-  key: ContactInfoType;
-  /** Nom d'icône Lucide */
-  icon: string;
-  /** Dégradé Tailwind pour la pastille icône */
-  accent: string;
-  /** Valeurs (plusieurs lignes possibles : 2 tél, 2 emails...) */
-  values: ContactValue[];
-}
-
-export interface ContactValue {
-  /** Texte affiché */
-  text: string;
-  /** Lien optionnel (tel:, mailto:, maps) */
-  href?: string;
-}
-
-/** Horaire d'ouverture */
-export interface ContactSchedule {
-  /** Clé i18n : `contact.schedule.days.<key>` */
-  key: string;
-  /** Heures (clé i18n : `contact.schedule.hours.<key>`) */
-  hoursKey: string;
-  /** Fermé ? */
-  closed?: boolean;
-}
-
-/** Réseau social */
-export interface ContactSocial {
-  /** Nom (utilisé comme aria-label) */
-  name: string;
-  /** URL */
-  href: string;
-  /** Icône Lucide */
-  icon: string;
-  /** Couleur de hover (classe Tailwind) */
-  hoverColor: string;
-}
-
-/** Lien de contact complet */
-export interface ContactData {
-  info: ContactInfoItem[];
-  schedule: ContactSchedule[];
-  socials: ContactSocial[];
-  mapEmbedUrl: string;
 }

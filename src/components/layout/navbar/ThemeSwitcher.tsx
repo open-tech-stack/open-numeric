@@ -5,19 +5,29 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Palette, ChevronDown, Check } from "lucide-react";
 import { useTranslations } from "next-intl";
 import { useTheme, type Theme } from "@/context/ThemeContext";
-import { getThemeOptions } from "@/lib/data";
 import BottomSheet from "./BottomSheet";
+
+/**
+ * Options de thèmes — statiques, définies dans ThemeContext.
+ * ⚠️ À synchroniser avec `THEMES` dans `ThemeContext.tsx`.
+ */
+const THEME_OPTIONS = [
+  { value: "light", label: "Crème", mode: "light", preview: "linear-gradient(135deg, #fdf9f3 0%, #e85d2f 100%)" },
+  { value: "light-blue", label: "Azur", mode: "light", preview: "linear-gradient(135deg, #f5faff 0%, #2563eb 100%)" },
+  { value: "light-orange", label: "Pêche", mode: "light", preview: "linear-gradient(135deg, #fff8f0 0%, #f97316 100%)" },
+  { value: "dark", label: "Chocolat", mode: "dark", preview: "linear-gradient(135deg, #1a120b 0%, #f59e0b 100%)" },
+  { value: "dark-blue", label: "Nuit", mode: "dark", preview: "linear-gradient(135deg, #0a1128 0%, #3b82f6 100%)" },
+  { value: "dark-orange", label: "Braise", mode: "dark", preview: "linear-gradient(135deg, #15100a 0%, #f97316 100%)" },
+] as const;
 
 export default function ThemeSwitcher() {
   const t = useTranslations("nav");
   const { theme, setTheme } = useTheme();
-  const themes = getThemeOptions();
 
-  const [open, setOpen] = useState(false);       // desktop
-  const [sheetOpen, setSheetOpen] = useState(false); // mobile
+  const [open, setOpen] = useState(false);
+  const [sheetOpen, setSheetOpen] = useState(false);
   const ref = useRef<HTMLDivElement>(null);
 
-  // Ferme le dropdown desktop au clic extérieur
   useEffect(() => {
     if (!open) return;
     const onClick = (e: MouseEvent) => {
@@ -35,7 +45,7 @@ export default function ThemeSwitcher() {
 
   return (
     <>
-      {/* ============ MOBILE : icône seule ============ */}
+      {/* MOBILE : icône seule */}
       <button
         onClick={() => setSheetOpen(true)}
         aria-label={t("theme")}
@@ -44,7 +54,7 @@ export default function ThemeSwitcher() {
         <Palette className="h-5 w-5" />
       </button>
 
-      {/* ============ DESKTOP : dropdown ============ */}
+      {/* DESKTOP : dropdown */}
       <div className="relative hidden lg:block" ref={ref}>
         <button
           onClick={() => setOpen((v) => !v)}
@@ -54,7 +64,9 @@ export default function ThemeSwitcher() {
         >
           <Palette className="h-4 w-4" />
           <ChevronDown
-            className={`h-3.5 w-3.5 transition-transform ${open ? "rotate-180" : ""}`}
+            className={`h-3.5 w-3.5 transition-transform ${
+              open ? "rotate-180" : ""
+            }`}
           />
         </button>
 
@@ -72,7 +84,7 @@ export default function ThemeSwitcher() {
                 {t("theme")}
               </p>
               <div className="grid grid-cols-2 gap-2">
-                {themes.map((th) => (
+                {THEME_OPTIONS.map((th) => (
                   <button
                     key={th.value}
                     onClick={() => handleSelect(th.value as Theme)}
@@ -110,14 +122,14 @@ export default function ThemeSwitcher() {
         </AnimatePresence>
       </div>
 
-      {/* ============ MOBILE : BottomSheet ============ */}
+      {/* MOBILE : BottomSheet */}
       <BottomSheet
         open={sheetOpen}
         onClose={() => setSheetOpen(false)}
         title={t("theme")}
       >
         <div className="grid grid-cols-2 gap-3">
-          {themes.map((th) => (
+          {THEME_OPTIONS.map((th) => (
             <button
               key={th.value}
               onClick={() => handleSelect(th.value as Theme)}

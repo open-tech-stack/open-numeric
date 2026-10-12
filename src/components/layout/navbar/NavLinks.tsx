@@ -7,7 +7,6 @@ interface NavLinkProps {
   href: string;
   label: string;
   pathname: string;
-  /** Identifiant partagé pour l'animation de la barre lumineuse */
   indicatorId?: string;
 }
 

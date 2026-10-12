@@ -1,14 +1,30 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { useTranslations } from "next-intl";
+import { useTranslations, useLocale } from "next-intl";
 import { Quote, Star } from "lucide-react";
 import Image from "next/image";
-import { getTestimonials } from "@/lib/data";
+import type { Testimonial } from "@/types";
 
-export default function TestimonialsSection() {
+interface TestimonialsSectionProps {
+  testimonials: Testimonial[];
+}
+
+function getTestimonialText(t: Testimonial, locale: string) {
+  const tr = t.translations.find((x) => x.locale === locale);
+  const fallback = t.translations[0];
+  return {
+    quote: tr?.quote ?? fallback?.quote ?? "",
+    author: tr?.author ?? fallback?.author ?? "",
+    company: tr?.company ?? fallback?.company ?? "",
+  };
+}
+
+export default function TestimonialsSection({
+  testimonials,
+}: TestimonialsSectionProps) {
   const t = useTranslations("testimonials");
-  const testimonials = getTestimonials();
+  const locale = useLocale();
 
   return (
     <section className="relative py-20 lg:py-28 bg-background-alt">
@@ -30,51 +46,56 @@ export default function TestimonialsSection() {
         </motion.div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          {testimonials.map((item, i) => (
-            <motion.div
-              key={item.key}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-80px" }}
-              transition={{ duration: 0.5, delay: i * 0.1 }}
-              whileHover={{ y: -6 }}
-              className="group relative rounded-2xl p-6 sm:p-8 border border-border bg-surface hover:border-primary/40 hover:shadow-2xl transition-all duration-300"
-            >
-              <Quote className="h-8 w-8 text-primary/20 mb-4 group-hover:text-primary/40 transition-colors" />
+          {testimonials.map((item, i) => {
+            const text = getTestimonialText(item, locale);
 
-              {item.rating && (
+            return (
+              <motion.div
+                key={item.id}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-80px" }}
+                transition={{ duration: 0.5, delay: i * 0.1 }}
+                whileHover={{ y: -6 }}
+                className="group relative rounded-2xl p-6 sm:p-8 border border-border bg-surface hover:border-primary/40 hover:shadow-2xl transition-all duration-300"
+              >
+                <Quote className="h-8 w-8 text-primary/20 mb-4 group-hover:text-primary/40 transition-colors" />
+
                 <div className="flex gap-0.5 mb-4">
                   {Array.from({ length: item.rating }).map((_, j) => (
-                    <Star key={j} className="h-3.5 w-3.5 fill-primary text-primary" />
+                    <Star
+                      key={j}
+                      className="h-3.5 w-3.5 fill-primary text-primary"
+                    />
                   ))}
                 </div>
-              )}
 
-              <blockquote className="text-sm sm:text-base text-foreground-muted leading-relaxed mb-6">
-                "{t(`items.${item.key}.quote`)}"
-              </blockquote>
+                <blockquote className="text-sm sm:text-base text-foreground-muted leading-relaxed mb-6">
+                  "{text.quote}"
+                </blockquote>
 
-              <div className="flex items-center gap-3 pt-4 border-t border-border">
-                <div className="relative h-11 w-11 rounded-full overflow-hidden ring-2 ring-primary/20">
-                  <Image
-                    src={item.image}
-                    alt={t(`items.${item.key}.author`)}
-                    fill
-                    className="object-cover"
-                    sizes="44px"
-                  />
+                <div className="flex items-center gap-3 pt-4 border-t border-border">
+                  <div className="relative h-11 w-11 rounded-full overflow-hidden ring-2 ring-primary/20">
+                    <Image
+                      src={item.image}
+                      alt={text.author}
+                      fill
+                      className="object-cover"
+                      sizes="44px"
+                    />
+                  </div>
+                  <div>
+                    <p className="text-sm font-bold text-foreground">
+                      {text.author}
+                    </p>
+                    <p className="text-xs text-foreground-muted">
+                      {text.company}
+                    </p>
+                  </div>
                 </div>
-                <div>
-                  <p className="text-sm font-bold text-foreground">
-                    {t(`items.${item.key}.author`)}
-                  </p>
-                  <p className="text-xs text-foreground-muted">
-                    {t(`items.${item.key}.company`)}
-                  </p>
-                </div>
-              </div>
-            </motion.div>
-          ))}
+              </motion.div>
+            );
+          })}
         </div>
       </div>
     </section>

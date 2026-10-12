@@ -407,3 +407,29 @@ body {
     min-height: 92vh;
   }
 }
+/* Animation rotation lente (bordure gradient du wizard) */
+@keyframes spin-slow {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.animate-spin-slow {
+  animation: spin-slow 8s linear infinite;
+}
+
+/* Wrapper bordure animée — masque les débordements */
+.quote-border-wrapper {
+  isolation: isolate;
+}
+/* Scrollbar discrète pour les dropdowns */
+.max-h-\[260px\]::-webkit-scrollbar {
+  width: 6px;
+}
+.max-h-\[260px\]::-webkit-scrollbar-thumb {
+  background: var(--border-strong);
+  border-radius: 9999px;
+}

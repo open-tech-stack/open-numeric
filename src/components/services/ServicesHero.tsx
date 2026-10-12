@@ -3,9 +3,11 @@
 import { motion } from "framer-motion";
 import { useTranslations } from "next-intl";
 import { Link } from "@/i18n/navigation";
-import { ArrowRight, Phone, Zap } from "lucide-react";
+import { ArrowRight, Phone } from "lucide-react";
 import Image from "next/image";
-import { getServicesHeroImage, getSite } from "@/lib/data";
+import type { SiteSettings } from "@/types";
+
+const HERO_IMAGE = "/images/services-hero.jpg";
 
 const container = {
   hidden: { opacity: 0 },
@@ -24,51 +26,31 @@ const item = {
   },
 };
 
-export default function ServicesHero() {
+interface ServicesHeroProps {
+  settings: SiteSettings;
+}
+
+export default function ServicesHero({ settings }: ServicesHeroProps) {
   const t = useTranslations("servicesPage.hero");
-  const site = getSite();
-  const heroImage = getServicesHeroImage();
 
   return (
     <section className="relative pt-8 pb-16 lg:pt-12 lg:pb-24">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* CADRE ARRONDI AVEC DÉGRADÉ */}
         <div className="relative rounded-[32px] lg:rounded-[48px] overflow-hidden bg-gradient-to-br from-primary-soft via-background to-secondary-soft border border-border shadow-xl">
-          {/* Décors flottants (fond) */}
           <div className="absolute inset-0 pointer-events-none overflow-hidden">
             <div className="absolute top-10 left-1/4 h-48 w-48 rounded-full bg-primary/10 blur-3xl" />
             <div className="absolute bottom-10 right-1/4 h-64 w-64 rounded-full bg-secondary/10 blur-3xl" />
-
-            {/* Petits points */}
             <div className="absolute top-10 right-16 h-2 w-2 rounded-full bg-primary/40" />
             <div className="absolute top-32 left-10 h-1.5 w-1.5 rounded-full bg-secondary/50" />
-            <div className="absolute bottom-20 left-1/3 h-2.5 w-2.5 rounded-full bg-primary/30" />
-            <div className="absolute bottom-32 right-1/2 h-1.5 w-1.5 rounded-full bg-secondary/40" />
-
-            {/* Trait décoratif */}
-            <svg
-              className="absolute bottom-8 left-16 w-16 h-16 text-primary/20"
-              viewBox="0 0 64 64"
-              fill="none"
-            >
-              <path
-                d="M8 56C8 40 20 32 32 32C44 32 56 24 56 8"
-                stroke="currentColor"
-                strokeWidth="2"
-                strokeLinecap="round"
-              />
-            </svg>
           </div>
 
           <div className="relative grid lg:grid-cols-2 gap-10 lg:gap-16 items-center p-6 sm:p-10 lg:p-16">
-            {/* ═══════════ TEXTE ═══════════ */}
             <motion.div
               variants={container}
               initial="hidden"
               animate="show"
               className="text-center lg:text-left order-2 lg:order-1"
             >
-              {/* Titre */}
               <motion.h1
                 variants={item}
                 className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-extrabold leading-[1.05] tracking-tight mb-6"
@@ -77,7 +59,6 @@ export default function ServicesHero() {
                 <span className="text-gradient">{t("titleHighlight")}</span>
               </motion.h1>
 
-              {/* Sous-titre */}
               <motion.p
                 variants={item}
                 className="text-base sm:text-lg text-foreground-muted max-w-lg mx-auto lg:mx-0 mb-8 leading-relaxed"
@@ -85,10 +66,9 @@ export default function ServicesHero() {
                 {t("subtitle")}
               </motion.p>
 
-              {/* CTA */}
               <motion.div
                 variants={item}
-                className="flex flex-col sm:flex-row gap-3 justify-center lg:justify-start mb-10"
+                className="flex flex-col sm:flex-row gap-3 justify-center lg:justify-start"
               >
                 <Link
                   href="/devis"
@@ -107,34 +87,29 @@ export default function ServicesHero() {
               </motion.div>
             </motion.div>
 
-            {/* ═══════════ IMAGE ═══════════ */}
             <motion.div
               initial={{ opacity: 0, scale: 0.92 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.75, ease: [0.4, 0, 0.2, 1] }}
               className="relative order-1 lg:order-2"
             >
-              {/* Blob décoratif derrière l'image */}
               <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
                 <div className="h-[85%] w-[85%] rounded-[45%] bg-gradient-to-br from-primary/25 to-secondary/25 blur-2xl" />
               </div>
 
-              {/* Image dans forme organique */}
               <div className="relative aspect-square max-w-md mx-auto">
                 <div className="group absolute inset-0 rounded-[40%] overflow-hidden border-4 border-surface shadow-2xl bg-gradient-to-br from-primary-soft to-secondary-soft">
                   <Image
-                    src={heroImage}
-                    alt={`${site.name} — Services`}
+                    src={HERO_IMAGE}
+                    alt={`${settings.siteName} — Services`}
                     fill
                     priority
                     className="object-cover transition-transform duration-700 ease-out group-hover:scale-105"
                     sizes="(max-width: 1024px) 100vw, 50vw"
                   />
-                  {/* Léger overlay gradient */}
                   <div className="absolute inset-0 bg-gradient-to-tr from-primary/5 via-transparent to-secondary/5 pointer-events-none" />
                 </div>
 
-                {/* ═══ Badge FLOTTANT — top right ═══ */}
                 <motion.div
                   initial={{ opacity: 0, x: 20, y: -10 }}
                   animate={{ opacity: 1, x: 0, y: 0 }}
@@ -153,41 +128,8 @@ export default function ServicesHero() {
                     <div className="flex items-center gap-2">
                       <div className="h-2 w-2 rounded-full bg-success animate-pulse-glow" />
                       <span className="text-xs font-semibold text-foreground">
-                        {t("available")} · {site.availability}
+                        {t("available")} · {settings.availability}
                       </span>
-                    </div>
-                  </motion.div>
-                </motion.div>
-
-                {/* ═══ Badge FLOTTANT — bottom left ═══ */}
-                <motion.div
-                  initial={{ opacity: 0, x: -20, y: 10 }}
-                  animate={{ opacity: 1, x: 0, y: 0 }}
-                  transition={{ delay: 0.9, duration: 0.5 }}
-                  className="absolute -bottom-2 -left-2 z-10"
-                >
-                  <motion.div
-                    animate={{ y: [4, -4, 4] }}
-                    transition={{
-                      duration: 3.5,
-                      repeat: Infinity,
-                      ease: "easeInOut",
-                      delay: 0.3,
-                    }}
-                    className="rounded-2xl bg-surface border border-border px-4 py-3 shadow-xl"
-                  >
-                    <div className="flex items-center gap-3">
-                      <div className="h-10 w-10 rounded-xl bg-gradient-primary flex items-center justify-center text-primary-foreground shadow-md">
-                        <Zap className="h-5 w-5 fill-current" />
-                      </div>
-                      <div className="text-left">
-                        <p className="text-xs font-bold text-foreground">
-                          {t("fastDelivery")}
-                        </p>
-                        <p className="text-[10px] uppercase tracking-wider text-foreground-subtle">
-                          {t("fastDeliverySub")}
-                        </p>
-                      </div>
                     </div>
                   </motion.div>
                 </motion.div>

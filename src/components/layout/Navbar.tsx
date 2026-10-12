@@ -1,10 +1,11 @@
 "use client";
 
 import { useState, useRef, useEffect } from "react";
-import { useTranslations } from "next-intl";
+import { useTranslations, useLocale } from "next-intl";
 import { usePathname, Link } from "@/i18n/navigation";
 import { motion } from "framer-motion";
-import { getNavItems } from "@/lib/data";
+import type { NavItem, Service, SiteSettings } from "@/types";
+import { SearchTrigger } from "@/components/search";
 
 import Logo from "./navbar/Logo";
 import NavLink from "./navbar/NavLinks";
@@ -13,10 +14,21 @@ import ThemeSwitcher from "./navbar/ThemeSwitcher";
 import LanguageSwitcher from "./navbar/LanguageSwitcher";
 import MobileMenu from "./navbar/MobileMenu";
 
-export default function Navbar() {
+interface NavbarProps {
+  navItems: NavItem[];
+  services: Service[];
+  settings: SiteSettings;
+}
+
+function getNavLabel(item: NavItem, locale: string): string {
+  const tr = item.translations.find((t) => t.locale === locale);
+  return tr?.label ?? item.translations[0]?.label ?? item.key;
+}
+
+export default function Navbar({ navItems, services, settings }: NavbarProps) {
   const t = useTranslations("nav");
+  const locale = useLocale();
   const pathname = usePathname();
-  const navItems = getNavItems();
 
   const [servicesOpen, setServicesOpen] = useState(false);
   const servicesRef = useRef<HTMLDivElement>(null);
@@ -49,26 +61,28 @@ export default function Navbar() {
 
   const isServicesActive = pathname.startsWith("/services");
   const homeItem = navItems.find((n) => n.key === "home");
-  const otherItems = navItems.filter((n) => n.key !== "home");
+  const otherItems = navItems.filter(
+    (n) => n.key !== "home" && n.key !== "services",
+  );
 
   return (
     <nav className="sticky top-0 z-50 bg-navbar-bg border-b border-navbar-border">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-20 gap-4">
-          {/* LOGO */}
-          <div className="hidden lg:block">
-            <Logo showText />
+        <div className="flex items-center justify-between h-20 gap-3">
+          {/* LOGO — flex-shrink-0 pour ne pas être écrasé */}
+          <div className="flex-shrink-0 hidden lg:block">
+            <Logo showText settings={settings} />
           </div>
-          <div className="lg:hidden">
-            <Logo showText={false} />
+          <div className="flex-shrink-0 lg:hidden">
+            <Logo showText={false} settings={settings} />
           </div>
 
-          {/* NAV DESKTOP */}
-          <div className="hidden lg:flex items-center gap-1">
+          {/* NAV DESKTOP — min-w-0 pour permettre le shrink */}
+          <div className="hidden lg:flex items-center gap-1 min-w-0 flex-1 justify-center">
             {homeItem && (
               <NavLink
                 href={homeItem.href}
-                label={t(homeItem.key)}
+                label={getNavLabel(homeItem, locale)}
                 pathname={pathname}
               />
             )}
@@ -78,37 +92,44 @@ export default function Navbar() {
                 isActive={isServicesActive}
                 onEnter={handleServicesEnter}
                 onLeave={handleServicesLeave}
+                services={services}
               />
             </div>
             {otherItems.map((item) => (
               <NavLink
                 key={item.href}
                 href={item.href}
-                label={t(item.key)}
+                label={getNavLabel(item, locale)}
                 pathname={pathname}
               />
             ))}
           </div>
 
-          {/* ACTIONS DESKTOP */}
-          <div className="hidden lg:flex items-center gap-2">
+          {/* ACTIONS DESKTOP — flex-shrink-0 pour ne pas être écrasé */}
+          <div className="hidden lg:flex items-center gap-1.5 flex-shrink-0">
+            <SearchTrigger />
             <LanguageSwitcher />
             <ThemeSwitcher />
             <motion.div whileHover={{ scale: 1.03 }} whileTap={{ scale: 0.97 }}>
               <Link
                 href="/devis"
-                className="ml-2 px-5 py-2.5 rounded-xl text-sm font-semibold text-primary-foreground bg-gradient-primary hover:opacity-90 transition-all shadow-lg glow-primary"
+                className="ml-2 px-4 py-2.5 rounded-xl text-sm font-semibold text-primary-foreground bg-gradient-primary hover:opacity-90 transition-all shadow-lg glow-primary whitespace-nowrap"
               >
                 {t("quote")}
               </Link>
             </motion.div>
           </div>
 
-          {/* ACTIONS MOBILE — 3 boutons alignés, pas de débordement */}
+          {/* ACTIONS MOBILE */}
           <div className="lg:hidden flex items-center gap-1">
+            <SearchTrigger />
             <LanguageSwitcher />
             <ThemeSwitcher />
-            <MobileMenu pathname={pathname} />
+            <MobileMenu
+              pathname={pathname}
+              navItems={navItems}
+              services={services}
+            />
           </div>
         </div>
       </div>

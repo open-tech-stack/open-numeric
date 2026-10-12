@@ -3,23 +3,36 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
 import { useTranslations } from "next-intl";
-import { Send, CheckCircle2, Sparkles } from "lucide-react";
-import { getContactFields } from "@/lib/data";
+import { Send, CheckCircle2, AlertCircle } from "lucide-react";
+import { submitContact } from "@/lib/endpoints";
+import { ApiError } from "@/lib/api";
 import type { ContactField } from "@/types";
 
 type FormState = "idle" | "loading" | "success" | "error";
 
+/**
+ * Champs statiques du formulaire de contact.
+ * ⚠️ Ne vient PAS de l'API — structure éditoriale.
+ */
+const CONTACT_FIELDS: ContactField[] = [
+  { key: "name", type: "text", required: true },
+  { key: "email", type: "email", required: true },
+  { key: "subject", type: "text", required: true },
+  { key: "message", type: "textarea", required: true, rows: 5 },
+];
+
 export default function ContactForm() {
   const t = useTranslations("contact.form");
-  const fields = getContactFields();
+  const fields = CONTACT_FIELDS;
 
   const [values, setValues] = useState<Record<string, string>>(
-    fields.reduce((acc, f) => ({ ...acc, [f.key]: "" }), {})
+    fields.reduce((acc, f) => ({ ...acc, [f.key]: "" }), {}),
   );
   const [state, setState] = useState<FormState>("idle");
+  const [error, setError] = useState<string | null>(null);
 
   const handleChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
   ) => {
     setValues((prev) => ({ ...prev, [e.target.name]: e.target.value }));
   };
@@ -27,18 +40,53 @@ export default function ContactForm() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setState("loading");
-    await new Promise((r) => setTimeout(r, 1200));
-    setState("success");
-    setValues(fields.reduce((acc, f) => ({ ...acc, [f.key]: "" }), {}));
-    setTimeout(() => setState("idle"), 4000);
+    setError(null);
+
+    try {
+      await submitContact({
+        name: values.name,
+        email: values.email,
+        subject: values.subject,
+        message: values.message,
+      });
+
+      setState("success");
+      setValues(fields.reduce((acc, f) => ({ ...acc, [f.key]: "" }), {}));
+
+      // Reset après 4s
+      setTimeout(() => setState("idle"), 4000);
+    } catch (err) {
+      setState("error");
+
+      if (err instanceof ApiError) {
+        if (err.isRateLimited) {
+          setError(t("errors.rateLimited"));
+        } else if (err.status === 400) {
+          setError(t("errors.validation"));
+        } else {
+          setError(t("errors.generic"));
+        }
+      } else {
+        setError(t("errors.generic"));
+      }
+
+      // Reset l'erreur après 6s
+      setTimeout(() => {
+        setState("idle");
+        setError(null);
+      }, 6000);
+    }
   };
 
   const getFieldClass = () =>
-    "w-full px-4 py-3.5 rounded-xl bg-surface border border-border text-foreground placeholder:text-foreground-subtle focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/20 transition-all duration-200";
+    "w-full px-4 py-3.5 rounded-xl bg-surface border border-border text-foreground placeholder:text-foreground-subtle focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/20 transition-all duration-200 disabled:opacity-60";
 
-  // Champs texte en haut (name, email, subject), textarea en bas (message)
   const topFields = fields.filter((f) => f.type !== "textarea");
   const bottomFields = fields.filter((f) => f.type === "textarea");
+
+  const isLoading = state === "loading";
+  const isSuccess = state === "success";
+  const isError = state === "error";
 
   return (
     <motion.div
@@ -48,12 +96,10 @@ export default function ContactForm() {
       transition={{ duration: 0.7, ease: [0.4, 0, 0.2, 1] }}
       className="relative rounded-3xl p-6 sm:p-10 lg:p-14 bg-surface border border-border shadow-xl overflow-hidden"
     >
-      {/* Halos décoratifs */}
       <div className="absolute -top-32 -right-32 h-80 w-80 rounded-full bg-primary-soft blur-3xl pointer-events-none" />
       <div className="absolute -bottom-32 -left-32 h-80 w-80 rounded-full bg-secondary-soft blur-3xl pointer-events-none" />
 
       <div className="relative">
-        {/* En-tête en paysage : titre à gauche, icône à droite */}
         <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-6 mb-10">
           <div className="max-w-2xl">
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight mb-3">
@@ -65,7 +111,6 @@ export default function ContactForm() {
             </p>
           </div>
 
-          {/* Icône décorative droite (desktop) */}
           <div className="hidden sm:block flex-shrink-0">
             <div className="relative">
               <div className="absolute inset-0 rounded-2xl bg-primary/30 blur-2xl" />
@@ -77,7 +122,6 @@ export default function ContactForm() {
         </div>
 
         <form onSubmit={handleSubmit}>
-          {/* Grille des 3 champs texte en haut (name, email, subject) */}
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-5 mb-5">
             {topFields.map((field) => (
               <FieldRenderer
@@ -88,11 +132,11 @@ export default function ContactForm() {
                 label={t(`fields.${field.key}.label`)}
                 placeholder={t(`fields.${field.key}.placeholder`)}
                 className={getFieldClass()}
+                disabled={isLoading || isSuccess}
               />
             ))}
           </div>
 
-          {/* Textarea pleine largeur */}
           {bottomFields.map((field) => (
             <div key={field.key} className="mb-6">
               <FieldRenderer
@@ -102,22 +146,34 @@ export default function ContactForm() {
                 label={t(`fields.${field.key}.label`)}
                 placeholder={t(`fields.${field.key}.placeholder`)}
                 className={getFieldClass()}
+                disabled={isLoading || isSuccess}
               />
             </div>
           ))}
 
-          {/* Bouton submit pleine largeur */}
+          {/* Message d'erreur */}
+          {isError && error && (
+            <motion.div
+              initial={{ opacity: 0, y: -8 }}
+              animate={{ opacity: 1, y: 0 }}
+              className="mb-4 flex items-start gap-3 p-4 rounded-xl bg-danger/10 border border-danger/30 text-danger"
+            >
+              <AlertCircle className="h-5 w-5 flex-shrink-0 mt-0.5" />
+              <p className="text-sm font-medium">{error}</p>
+            </motion.div>
+          )}
+
           <button
             type="submit"
-            disabled={state === "loading"}
+            disabled={isLoading || isSuccess}
             className="group w-full inline-flex items-center justify-center gap-2 px-6 py-4 rounded-xl font-semibold text-primary-foreground bg-gradient-primary shadow-lg glow-primary hover:shadow-xl hover:scale-[1.01] active:scale-[0.99] disabled:opacity-60 disabled:cursor-not-allowed transition-all duration-300"
           >
-            {state === "loading" ? (
+            {isLoading ? (
               <>
                 <span className="h-4 w-4 rounded-full border-2 border-white/30 border-t-white animate-spin" />
-                Envoi...
+                {t("sending")}
               </>
-            ) : state === "success" ? (
+            ) : isSuccess ? (
               <>
                 <CheckCircle2 className="h-5 w-5" />
                 {t("success")}
@@ -136,7 +192,7 @@ export default function ContactForm() {
 }
 
 /* =========================================================
-   Sous-composant : champ générique
+   Champ générique
    ========================================================= */
 function FieldRenderer({
   field,
@@ -145,15 +201,17 @@ function FieldRenderer({
   label,
   placeholder,
   className,
+  disabled,
 }: {
   field: ContactField;
   value: string;
   onChange: (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
   ) => void;
   label: string;
   placeholder: string;
   className: string;
+  disabled: boolean;
 }) {
   const commonProps = {
     id: field.key,
@@ -162,6 +220,7 @@ function FieldRenderer({
     onChange,
     placeholder,
     required: field.required,
+    disabled,
     className,
   };
 

@@ -3,16 +3,14 @@
 import Image from "next/image";
 import { motion } from "framer-motion";
 import { Link } from "@/i18n/navigation";
-import { getSite } from "@/lib/data";
+import type { SiteSettings } from "@/types";
 
 interface LogoProps {
-  /** Affiche le texte à côté du logo (true en desktop, false en mobile) */
   showText?: boolean;
+  settings: SiteSettings;
 }
 
-export default function Logo({ showText = true }: LogoProps) {
-  const site = getSite();
-
+export default function Logo({ showText = true, settings }: LogoProps) {
   return (
     <Link href="/" className="flex items-center gap-3 group shrink-0">
       <motion.div
@@ -21,8 +19,8 @@ export default function Logo({ showText = true }: LogoProps) {
         className="h-11 w-11 rounded-full overflow-hidden ring-2 ring-primary/40 group-hover:ring-primary transition-all shadow-md"
       >
         <Image
-          src={site.logo}
-          alt={site.name}
+          src={settings.logo}
+          alt={settings.siteName}
           width={44}
           height={44}
           className="h-full w-full object-cover"
@@ -32,7 +30,7 @@ export default function Logo({ showText = true }: LogoProps) {
 
       {showText && (
         <span className="text-xl sm:text-2xl font-bold text-gradient whitespace-nowrap">
-          {site.name}
+          {settings.siteName}
         </span>
       )}
     </Link>

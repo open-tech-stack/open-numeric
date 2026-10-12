@@ -3,11 +3,19 @@
 import { motion } from "framer-motion";
 import { useTranslations } from "next-intl";
 import Image from "next/image";
-import { getClients } from "@/lib/data";
+import type { Client } from "@/types";
 
-export default function ClientsSection() {
+interface ClientsSectionProps {
+  clients: Client[];
+}
+
+export default function ClientsSection({ clients }: ClientsSectionProps) {
   const t = useTranslations("clients");
-  const clients = getClients();
+
+  // Si moins de 2 clients, pas de carrousel
+  if (clients.length < 2) {
+    return null;
+  }
 
   return (
     <section className="relative py-16 lg:py-20 overflow-hidden">
@@ -40,7 +48,7 @@ export default function ClientsSection() {
             >
               {[...clients, ...clients].map((client, i) => (
                 <div
-                  key={`${client.name}-${i}`}
+                  key={`${client.id}-${i}`}
                   className="relative h-16 w-32 shrink-0 opacity-60 hover:opacity-100 grayscale hover:grayscale-0 transition-all duration-300"
                 >
                   <Image

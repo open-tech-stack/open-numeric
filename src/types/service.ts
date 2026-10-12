@@ -1,82 +1,78 @@
-import type { ImageSource } from "./common";
+import type { BaseTranslation, ImageSource } from "./common";
 
 /* =========================================================
-   Service simple (navbar / home)
+   SERVICE — liste des services (navbar + home + page services)
    ========================================================= */
-export type ServiceKey =
-  | "development"
-  | "design"
-  | "training"
-  | "maintenance"
-  | "shop";
 
-export interface Service {
-  key: ServiceKey;
-  href: string;
-  icon: "Code2" | "PenTool" | "GraduationCap" | "Wrench" | "ShoppingBag";
-  accent: string;
-  image?: ImageSource;
-  features?: string[];
+export interface ServiceTranslation extends BaseTranslation {
+  name: string;
+  heroTitle: string | null;
+  heroTitleHighlight: string | null;
+  heroSubtitle: string | null;
 }
 
 /* =========================================================
-   Catégories enrichies (page /services)
+   CATÉGORIES DE SERVICE
    ========================================================= */
 
-/** Catégories affichées dans les tabs de la page services */
-export type ServiceCategoryId =
-  | "development"
-  | "training"
-  | "maintenance"
-  | "sales"
-  | "design";
-
-/** Icônes utilisables dans les sous-services */
-export type SubServiceIcon =
-  | "Code2"
-  | "PenTool"
-  | "GraduationCap"
-  | "Wrench"
-  | "ShoppingBag"
-  | "Globe"
-  | "Smartphone"
-  | "Server"
-  | "Network"
-  | "Lightbulb"
-  | "BookOpen"
-  | "ShieldCheck"
-  | "MonitorSmartphone"
-  | "Printer"
-  | "Palette";
-
-export interface SubService {
-  /** Clé i18n : `servicesPage.categories.<categoryId>.items.<key>.*` */
-  key: string;
-  /** Nom d'icône Lucide (mappé dans Icon.tsx) */
-  icon: SubServiceIcon;
+export interface ServiceCategoryTranslation extends BaseTranslation {
+  name: string;
+  description: string | null;
 }
 
 export interface ServiceCategory {
-  /** Identifiant unique, utilisé dans les tabs */
-  id: ServiceCategoryId;
-  /** Icône Lucide de l'onglet */
-  icon: SubServiceIcon;
-  /** Dégradé Tailwind de la catégorie */
+  id: string;
+  /** Clé unique dans le service : "frontend", "backend", ... */
+  key: string;
+  /** Nom d'icône Lucide */
+  icon: string;
+  /** Dégradé Tailwind : "from-blue-500 to-cyan-500" */
   accent: string;
-  /** Sous-services */
-  items: SubService[];
+  order: number;
+  translations: ServiceCategoryTranslation[];
+  items: ServiceItem[];
 }
 
 /* =========================================================
-   Étapes du processus
+   ITEMS DE CATÉGORIE (technologies, outils, etc.)
    ========================================================= */
-export interface ProcessStep {
-  /** Clé i18n : `servicesPage.process.steps.<key>.*` */
+
+export interface ServiceItemTranslation extends BaseTranslation {
+  name: string;
+  description: string | null;
+}
+
+export interface ServiceItem {
+  id: string;
+  /** Clé unique dans la catégorie : "react", "angular", ... */
   key: string;
-  /** Numéro affiché (1, 2, 3, 4) */
-  step: number;
+  image: ImageSource | null;
+  icon: string | null;
+  order: number;
+  translations: ServiceItemTranslation[];
+}
+
+/* =========================================================
+   SERVICE COMPLET
+   ========================================================= */
+
+export interface Service {
+  id: string;
+  /** Clé unique : "development", "design", ... */
+  key: string;
+  /** Slug URL : "developpement", "design", ... */
+  slug: string;
+  href: string;
+  /** Nom d'icône Lucide */
+  icon: string;
   /** Dégradé Tailwind */
   accent: string;
-  /** Icône Lucide */
-  icon: SubServiceIcon;
+  order: number;
+  isActive: boolean;
+
+  /** Traductions (toutes les langues) */
+  translations: ServiceTranslation[];
+
+  /** Catégories (avec items et traductions) */
+  categories: ServiceCategory[];
 }

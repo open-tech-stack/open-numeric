@@ -1,14 +1,23 @@
-import type { ImageSource } from "./common";
+import type { BaseTranslation, ImageSource } from "./common";
 
-/** Clés de membre (i18n) */
-export type TeamMemberKey = "ceo" | "designer" | "trainer" | "support";
+/* =========================================================
+   TEAM MEMBER — membres de l'équipe
+   ========================================================= */
+
+export interface TeamMemberTranslation extends BaseTranslation {
+  name: string;
+  role: string;
+  bio: string;
+}
 
 export interface TeamMember {
-  key: TeamMemberKey;
+  id: string;
+  /** Clé unique : "ceo", "designer", "trainer", "support" */
+  key: string;
   image: ImageSource;
-  /** Liens sociaux optionnels */
-  social?: {
-    linkedin?: string;
-    twitter?: string;
-  };
+  linkedin: string | null;
+  twitter: string | null;
+  order: number;
+  isActive: boolean;
+  translations: TeamMemberTranslation[];
 }

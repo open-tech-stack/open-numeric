@@ -3,16 +3,25 @@
 import { motion, AnimatePresence } from "framer-motion";
 import { ChevronDown } from "lucide-react";
 import { Link } from "@/i18n/navigation";
-import { useTranslations } from "next-intl";
+import { useTranslations, useLocale } from "next-intl";
 import Icon from "@/components/ui/Icon";
-import { getNavServices } from "@/lib/data";
 import { SERVICE_HOVER } from "./serviceHover";
+import type { Service } from "@/types";
 
 interface ServicesDropdownProps {
   open: boolean;
   isActive: boolean;
   onEnter: () => void;
   onLeave: () => void;
+  services: Service[];
+}
+
+/**
+ * Renvoie le label traduit d'un Service pour la locale courante.
+ */
+function getServiceLabel(service: Service, locale: string): string {
+  const tr = service.translations.find((t) => t.locale === locale);
+  return tr?.name ?? service.translations[0]?.name ?? service.key;
 }
 
 export default function ServicesDropdown({
@@ -20,17 +29,13 @@ export default function ServicesDropdown({
   isActive,
   onEnter,
   onLeave,
+  services,
 }: ServicesDropdownProps) {
   const t = useTranslations("nav");
-  const tServ = useTranslations("services");
-  const services = getNavServices();
+  const locale = useLocale();
 
   return (
-    <div
-      className="relative"
-      onMouseEnter={onEnter}
-      onMouseLeave={onLeave}
-    >
+    <div className="relative" onMouseEnter={onEnter} onMouseLeave={onLeave}>
       {/* Bouton Services */}
       <Link
         href="/services"
@@ -63,7 +68,7 @@ export default function ServicesDropdown({
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: -8, scale: 0.96 }}
             transition={{ duration: 0.2, ease: [0.4, 0, 0.2, 1] }}
-            className="absolute left-1/2 -translate-x-1/2 top-full mt-3 w-[600px] rounded-2xl bg-dropdown-bg border border-dropdown-border p-3 z-50"
+            className="absolute left-1/2 -translate-x-1/2 top-full mt-3 w-[min(90vw,600px)] rounded-2xl bg-dropdown-bg border border-dropdown-border p-3 z-50"
             style={{ boxShadow: "var(--dropdown-shadow)" }}
           >
             {/* Flèche */}
@@ -76,7 +81,7 @@ export default function ServicesDropdown({
 
                 return (
                   <Link
-                    key={service.key}
+                    key={service.id}
                     href={service.href}
                     className={`group/item flex flex-col items-center gap-2 p-3 rounded-xl text-foreground-muted transition-all duration-200 ${colors.itemBg}`}
                   >
@@ -88,7 +93,7 @@ export default function ServicesDropdown({
                     <span
                       className={`text-xs font-medium text-center transition-colors ${colors.itemText}`}
                     >
-                      {tServ(service.key)}
+                      {getServiceLabel(service, locale)}
                     </span>
                   </Link>
                 );

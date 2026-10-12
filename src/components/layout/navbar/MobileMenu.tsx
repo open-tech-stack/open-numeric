@@ -3,20 +3,34 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X, ChevronDown } from "lucide-react";
-import { useTranslations } from "next-intl";
+import { useTranslations, useLocale } from "next-intl";
 import { Link } from "@/i18n/navigation";
 import Icon from "@/components/ui/Icon";
-import { getNavItems, getNavServices } from "@/lib/data";
+import type { NavItem, Service } from "@/types";
 
 interface MobileMenuProps {
   pathname: string;
+  navItems: NavItem[];
+  services: Service[];
 }
 
-export default function MobileMenu({ pathname }: MobileMenuProps) {
+function getNavLabel(item: NavItem, locale: string): string {
+  const tr = item.translations.find((t) => t.locale === locale);
+  return tr?.label ?? item.translations[0]?.label ?? item.key;
+}
+
+function getServiceLabel(service: Service, locale: string): string {
+  const tr = service.translations.find((t) => t.locale === locale);
+  return tr?.name ?? service.translations[0]?.name ?? service.key;
+}
+
+export default function MobileMenu({
+  pathname,
+  navItems,
+  services,
+}: MobileMenuProps) {
   const t = useTranslations("nav");
-  const tServ = useTranslations("services");
-  const navItems = getNavItems();
-  const services = getNavServices();
+  const locale = useLocale();
 
   const [open, setOpen] = useState(false);
   const [servicesOpen, setServicesOpen] = useState(false);
@@ -64,11 +78,10 @@ export default function MobileMenu({ pathname }: MobileMenuProps) {
         </AnimatePresence>
       </button>
 
-      {/* PANNEAU — fixed sous la navbar, plein écran */}
+      {/* PANNEAU */}
       <AnimatePresence>
         {open && (
           <>
-            {/* Overlay sombre sous le panneau */}
             <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
@@ -79,7 +92,6 @@ export default function MobileMenu({ pathname }: MobileMenuProps) {
               aria-hidden
             />
 
-            {/* Panneau */}
             <motion.div
               initial={{ opacity: 0, y: -12 }}
               animate={{ opacity: 1, y: 0 }}
@@ -100,7 +112,7 @@ export default function MobileMenu({ pathname }: MobileMenuProps) {
                         : "text-foreground-muted hover:text-foreground hover:bg-surface-hover"
                     }`}
                   >
-                    {t(homeItem.key)}
+                    {getNavLabel(homeItem, locale)}
                   </Link>
                 )}
 
@@ -134,7 +146,7 @@ export default function MobileMenu({ pathname }: MobileMenuProps) {
                         <div className="pl-4 pt-1 space-y-1">
                           {services.map((service) => (
                             <Link
-                              key={service.key}
+                              key={service.id}
                               href={service.href}
                               onClick={closeAll}
                               className="flex items-center gap-3 px-4 py-2.5 rounded-lg text-sm font-medium text-foreground-muted hover:text-foreground hover:bg-surface-hover transition-colors"
@@ -143,7 +155,7 @@ export default function MobileMenu({ pathname }: MobileMenuProps) {
                                 name={service.icon}
                                 className="h-4 w-4 text-primary"
                               />
-                              {tServ(service.key)}
+                              {getServiceLabel(service, locale)}
                             </Link>
                           ))}
                         </div>
@@ -164,7 +176,7 @@ export default function MobileMenu({ pathname }: MobileMenuProps) {
                         : "text-foreground-muted hover:text-foreground hover:bg-surface-hover"
                     }`}
                   >
-                    {t(item.key)}
+                    {getNavLabel(item, locale)}
                   </Link>
                 ))}
 

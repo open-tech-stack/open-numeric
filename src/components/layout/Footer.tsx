@@ -1,31 +1,36 @@
 "use client";
 
-import { useTranslations } from "next-intl";
+import { useTranslations, useLocale } from "next-intl";
 import { Link } from "@/i18n/navigation";
-import {
-  Facebook,
-  Twitter,
-  Linkedin,
-  MapPin,
-  Phone,
-  Mail,
-  ArrowRight,
-} from "lucide-react";
+import { MapPin, Phone, Mail, ArrowRight } from "lucide-react";
 import Image from "next/image";
 import { motion } from "framer-motion";
+import Icon from "@/components/ui/Icon";
+import type { SiteSettings, Social, Service } from "@/types";
 
-export default function Footer() {
+interface FooterProps {
+  settings: SiteSettings;
+  socials: Social[];
+  services: Service[];
+}
+
+/**
+ * Renvoie le label traduit d'un Service pour la locale courante.
+ */
+function getServiceLabel(service: Service, locale: string): string {
+  const tr = service.translations.find((t) => t.locale === locale);
+  return tr?.name ?? service.translations[0]?.name ?? service.key;
+}
+
+export default function Footer({ settings, socials, services }: FooterProps) {
   const t = useTranslations("footer");
-
-  // ✅ Services maintenant traduits via i18n
-  const services = ["s1", "s2", "s3", "s4", "s5", "s6"] as const;
+  const locale = useLocale();
 
   const links = [
-    { key: "about", href: "/about" },
-    { key: "team", href: "/team" },
+    { key: "about", href: "/a-propos" },
     { key: "portfolio", href: "/portfolio" },
-    { key: "blog", href: "/blog" },
-    { key: "testimonials", href: "/testimonials" },
+    { key: "contact", href: "/contact" },
+    { key: "testimonials", href: "/#testimonials" },
   ] as const;
 
   return (
@@ -40,53 +45,53 @@ export default function Footer() {
             <Link href="/" className="flex items-center gap-3 mb-6 group">
               <div className="h-11 w-11 rounded-full overflow-hidden ring-2 ring-primary/30 group-hover:ring-primary transition-all">
                 <Image
-                  src="/images/logo.png"
-                  alt="Open Numeric"
+                  src={settings.logo}
+                  alt={settings.siteName}
                   width={44}
                   height={44}
                   className="h-full w-full object-cover"
                 />
               </div>
-              <span className="text-xl font-bold text-gradient">Open Numeric</span>
+              <span className="text-xl font-bold text-gradient">
+                {settings.siteName}
+              </span>
             </Link>
             <p className="text-foreground-muted mb-6 leading-relaxed text-sm">
               {t("aboutText")}
             </p>
             <div className="flex gap-3">
-              {[
-                { Icon: Facebook, label: "Facebook" },
-                { Icon: Twitter, label: "Twitter" },
-                { Icon: Linkedin, label: "LinkedIn" },
-              ].map(({ Icon, label }) => (
+              {socials.map((social) => (
                 <motion.a
-                  key={label}
-                  href="#"
-                  aria-label={label}
+                  key={social.id}
+                  href={social.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={social.key}
                   whileHover={{ y: -4, scale: 1.1 }}
                   transition={{ type: "spring", stiffness: 400, damping: 15 }}
-                  className="p-2.5 rounded-xl bg-surface border border-border text-foreground-muted hover:text-primary hover:border-primary hover:shadow-lg transition-colors"
+                  className={`p-2.5 rounded-xl bg-surface border border-border text-foreground-muted hover:border-primary hover:shadow-lg transition-colors ${social.hoverColor}`}
                 >
-                  <Icon className="h-4 w-4" />
+                  <Icon name={social.icon} className="h-4 w-4" />
                 </motion.a>
               ))}
             </div>
           </div>
 
-          {/* Colonne 2 — Services (traduits) */}
+          {/* Colonne 2 — Services */}
           <div>
             <h3 className="text-base font-bold mb-6 text-foreground">
               {t("services")}
             </h3>
             <ul className="space-y-3">
-              {services.map((key) => (
-                <li key={key}>
-                  <a
-                    href="#"
+              {services.map((service) => (
+                <li key={service.id}>
+                  <Link
+                    href={service.href}
                     className="text-foreground-muted hover:text-primary transition-colors text-sm flex items-center gap-2 group"
                   >
                     <span className="w-1.5 h-1.5 rounded-full bg-primary/40 group-hover:bg-primary group-hover:scale-150 transition-all" />
-                    {t(`servicesList.${key}`)}
-                  </a>
+                    {getServiceLabel(service, locale)}
+                  </Link>
                 </li>
               ))}
             </ul>
@@ -120,21 +125,24 @@ export default function Footer() {
             <address className="not-italic space-y-4 text-foreground-muted text-sm">
               <div className="flex items-start gap-3">
                 <MapPin className="h-4 w-4 text-primary flex-shrink-0 mt-0.5" />
-                <p>SOMGANDE, Ouagadougou, Burkina Faso</p>
+                <p>{settings.address}</p>
               </div>
               <div className="flex items-center gap-3">
                 <Phone className="h-4 w-4 text-primary flex-shrink-0" />
-                <a href="tel:+22665033742" className="hover:text-primary">
-                  +226 65 03 37 42
+                <a
+                  href={`tel:${settings.phone}`}
+                  className="hover:text-primary"
+                >
+                  {settings.phone}
                 </a>
               </div>
               <div className="flex items-center gap-3">
                 <Mail className="h-4 w-4 text-primary flex-shrink-0" />
                 <a
-                  href="mailto:tech00.02in@gmail.com"
+                  href={`mailto:${settings.email}`}
                   className="hover:text-primary break-all"
                 >
-                  tech00.02in@gmail.com
+                  {settings.email}
                 </a>
               </div>
             </address>
@@ -153,7 +161,7 @@ export default function Footer() {
         {/* Copyright */}
         <div className="mt-16 pt-8 border-t border-border flex flex-col md:flex-row justify-between items-center gap-4">
           <p className="text-xs text-foreground-subtle">
-            © {new Date().getFullYear()} Open Numeric. {t("rights")}
+            © {new Date().getFullYear()} {settings.siteName}. {t("rights")}
           </p>
           <div className="flex gap-6">
             {(["legal", "cookies", "terms"] as const).map((key) => (

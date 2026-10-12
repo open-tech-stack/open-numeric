@@ -3,11 +3,14 @@
 import { motion } from "framer-motion";
 import { useTranslations } from "next-intl";
 import { Phone, Mail } from "lucide-react";
-import { getSite } from "@/lib/data";
+import type { SiteSettings } from "@/types";
 
-export default function ServicesCta() {
+interface ServicesCtaProps {
+  settings: SiteSettings;
+}
+
+export default function ServicesCta({ settings }: ServicesCtaProps) {
   const t = useTranslations("servicesPage.cta");
-  const site = getSite();
 
   return (
     <section className="relative py-20 lg:py-28 overflow-hidden">
@@ -19,7 +22,6 @@ export default function ServicesCta() {
           transition={{ duration: 0.7 }}
         >
           <div className="relative rounded-3xl p-8 sm:p-12 lg:p-16 text-center overflow-hidden border border-border bg-surface shadow-2xl">
-            {/* Décors */}
             <div className="absolute -top-24 -left-24 h-64 w-64 rounded-full bg-primary-soft blur-3xl" />
             <div className="absolute -bottom-24 -right-24 h-64 w-64 rounded-full bg-secondary-soft blur-3xl" />
 
@@ -33,14 +35,14 @@ export default function ServicesCta() {
 
               <div className="flex flex-col sm:flex-row gap-3 justify-center">
                 <a
-                  href={site.phoneHref}
+                  href={`tel:${settings.phone}`}
                   className="group inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl font-semibold text-primary-foreground bg-gradient-primary shadow-lg glow-primary hover:shadow-xl hover:scale-[1.03] active:scale-[0.97] transition-all duration-300"
                 >
                   <Phone className="h-4 w-4" />
                   {t("primary")}
                 </a>
                 <a
-                  href={`mailto:${site.email}`}
+                  href={`mailto:${settings.email}`}
                   className="group inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl font-semibold border border-border-strong text-foreground hover:bg-surface-hover hover:border-primary hover:scale-[1.03] active:scale-[0.97] transition-all duration-300"
                 >
                   <Mail className="h-4 w-4" />

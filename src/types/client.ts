@@ -1,10 +1,16 @@
 import type { ImageSource } from "./common";
 
+/* =========================================================
+   CLIENT — logos "Ils nous font confiance"
+   ========================================================= */
+
 export interface Client {
-  /** Nom affiché + alt */
+  id: string;
   name: string;
-  /** Logo */
   logo: ImageSource;
-  /** URL du site du client */
-  url?: string;
+  url: string | null;
+  order: number;
+  isActive: boolean;
+  createdAt: string;
+  updatedAt: string;
 }

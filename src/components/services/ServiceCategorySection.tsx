@@ -1,18 +1,26 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { useTranslations } from "next-intl";
+import { useLocale } from "next-intl";
 import ServiceCard from "./ServiceCard";
-import type { ServiceCategory } from "@/types";
+import type { Service, ServiceCategory } from "@/types";
 
 interface ServiceCategorySectionProps {
+  service: Service;
   category: ServiceCategory;
 }
 
 export default function ServiceCategorySection({
+  service,
   category,
 }: ServiceCategorySectionProps) {
-  const t = useTranslations("servicesPage.categories");
+  const locale = useLocale();
+
+  const catText =
+    category.translations.find((x) => x.locale === locale) ??
+    category.translations[0];
+  const catLabel = catText?.name ?? category.key;
+  const catDescription = catText?.description ?? "";
 
   return (
     <motion.div
@@ -27,20 +35,23 @@ export default function ServiceCategorySection({
           <span
             className={`bg-gradient-to-r ${category.accent} bg-clip-text text-transparent`}
           >
-            {t(`${category.id}.name`)}
+            {catLabel}
           </span>
         </h2>
-        <p className="text-foreground-muted text-base sm:text-lg">
-          {t(`${category.id}.description`)}
-        </p>
+        {catDescription && (
+          <p className="text-foreground-muted text-base sm:text-lg">
+            {catDescription}
+          </p>
+        )}
       </div>
 
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
         {category.items.map((item, i) => (
           <ServiceCard
-            key={item.key}
+            key={item.id}
             category={category}
             item={item}
+            service={service}
             index={i}
           />
         ))}

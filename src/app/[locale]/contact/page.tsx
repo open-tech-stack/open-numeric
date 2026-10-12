@@ -4,8 +4,14 @@ import {
   ContactInfo,
   ContactMap,
 } from "@/components/contact";
+import { getSettings, getSocials } from "@/lib/endpoints";
 
-export default function ContactPage() {
+export default async function ContactPage() {
+  const [settings, socials] = await Promise.all([
+    getSettings(),
+    getSocials(),
+  ]);
+
   return (
     <>
       <ContactHero />
@@ -20,11 +26,11 @@ export default function ContactPage() {
       {/* Section INFOS pleine largeur */}
       <section className="relative py-16 lg:py-20 bg-background-alt">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-          <ContactInfo />
+          <ContactInfo settings={settings} socials={socials} />
         </div>
       </section>
 
-      <ContactMap />
+      <ContactMap settings={settings} />
     </>
   );
 }

@@ -2,11 +2,16 @@
 
 import { motion } from "framer-motion";
 import { useTranslations } from "next-intl";
-import { getContactData } from "@/lib/data";
+import type { SiteSettings } from "@/types";
 
-export default function ContactMap() {
+interface ContactMapProps {
+  settings: SiteSettings;
+}
+
+export default function ContactMap({ settings }: ContactMapProps) {
   const t = useTranslations("contact.map");
-  const data = getContactData();
+
+  if (!settings.mapEmbedUrl) return null;
 
   return (
     <section className="relative py-16 lg:py-20">
@@ -36,7 +41,7 @@ export default function ContactMap() {
         >
           <div className="aspect-[16/9] w-full">
             <iframe
-              src={data.mapEmbedUrl}
+              src={settings.mapEmbedUrl}
               width="100%"
               height="100%"
               style={{ border: 0 }}
