@@ -1,36 +1,62 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Open Numeric — Frontend
 
-## Getting Started
+Next.js 15 (App Router) + React 19 + TS + Tailwind + Framer Motion + @dnd-kit.
 
-First, run the development server:
+## Démarrage
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+    npm install
+    npm run dev
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+`.env.local` :
+    NEXT_PUBLIC_API_URL=http://localhost:5000
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Structure
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+    src/
+    ├── app/(site)/          # Vitrine
+    ├── app/(auth)/auth/     # Login
+    ├── app/(dashboard)/     # Dashboard admin
+    ├── components/ui/       # Design system
+    ├── components/dashboard/# Nav, Admins, Profile, Contacts
+    ├── contexts/AuthContext # Session cookies httpOnly
+    ├── hooks/               # useAuth, useCrud, useStats, useNav
+    ├── services/core/       # http, crud, interceptor
+    ├── services/*/          # Par module
+    ├── endpoints/           # Chemins API
+    └── types/               # Types TS
 
-## Learn More
+## Auth
 
-To learn more about Next.js, take a look at the following resources:
+- Cookies httpOnly (`on.accessToken`, `on.refreshToken`, `on.user`)
+- `AuthContext` charge `/api/auth/me` au boot
+- `<RequireAuth>` protège `/dashboard/*`
+- `<RequireAdmin>` protège `/dashboard/admins`
+- Redirect auto `/auth` sur 401
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Pages dashboard
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+    /dashboard              Stats
+    /dashboard/projects     CRUD
+    /dashboard/services     CRUD
+    /dashboard/team         CRUD
+    /dashboard/clients      CRUD
+    /dashboard/testimonials CRUD
+    /dashboard/socials      CRUD
+    /dashboard/navigation   Arbre + DnD
+    /dashboard/contacts     Messages
+    /dashboard/quotes       Devis
+    /dashboard/uploads      Médias
+    /dashboard/profile      Mon profil
+    /dashboard/admins       ADMIN only
 
-## Deploy on Vercel
+## Pattern CRUD
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+    class XService extends CrudService<X, XCreateInput, XUpdateInput> {}
+    const { items, loading, create, update, remove } = useCrud(xService);
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Docs liées
+
+- `README_API.md` — Backend
+- `README_ADMIN.md` — Guide dashboard
+
+License : UNLICENSED
