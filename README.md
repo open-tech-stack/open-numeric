@@ -1,75 +1,36 @@
-<div align="center">
-
-# ⚡ Open Numeric
-
-### Frontend — Site vitrine + Dashboard d'administration
-
-[![Next.js](https://img.shields.io/badge/Next.js-15-000000?style=for-the-badge&logo=next.js&logoColor=white)](https://nextjs.org)
-[![React](https://img.shields.io/badge/React-19-61DAFB?style=for-the-badge&logo=react&logoColor=black)](https://react.dev)
-[![TypeScript](https://img.shields.io/badge/TypeScript-5-3178C6?style=for-the-badge&logo=typescript&logoColor=white)](https://www.typescriptlang.org)
-[![Tailwind](https://img.shields.io/badge/Tailwind-4-06B6D4?style=for-the-badge&logo=tailwindcss&logoColor=white)](https://tailwindcss.com)
-
-Interface moderne pour le site **Open Numeric** et son espace d'administration.
-
-</div>
-
----
-
-## 📚 Table des matières
-
-- [✨ Stack technique](#-stack-technique)
-- [🚀 Démarrage rapide](#-démarrage-rapide)
-- [📁 Structure du projet](#-structure-du-projet)
-- [🔐 Authentification](#-authentification)
-- [🧭 Pages du dashboard](#-pages-du-dashboard)
-- [🧩 Pattern CRUD](#-pattern-crud)
-- [📦 Scripts](#-scripts)
-- [🚀 Déploiement](#-déploiement)
-- [📄 License](#-license)
-
----
-
-## ✨ Stack technique
-
-<div align="center">
-
-| 🛠 | Technologie | Rôle |
-|:---:|:---:|:---|
-| ⚛️ | **Next.js 15** | App Router |
-| 🧩 | **React 19** | UI |
-| 🟦 | **TypeScript** | Typage strict |
-| 🎨 | **Tailwind CSS** | Styles |
-| 🎬 | **Framer Motion** | Animations |
-| 🎯 | **Lucide React** | Icônes |
-| 🖱️ | **@dnd-kit** | Drag & drop |
-
-</div>
-
----
-
-## 🚀 Démarrage rapide
-
 ### 1️⃣ Installation
 
 ```bash
-
 npm install
-2️⃣ Variables d'environnement
-Crée un fichier .env.local à la racine :
+```
 
-env
+### 2️⃣ Variables d'environnement
+
+Crée un fichier `.env.local` à la racine :
+
+```env
 NEXT_PUBLIC_API_URL=http://localhost:5000
-⚠️ L'API backend doit tourner en parallèle → voir README_API.md
+```
 
-3️⃣ Lancer le serveur
-bash
+> ⚠️ L'API backend doit tourner en parallèle → voir [README_API.md](./README_API.md)
+
+### 3️⃣ Lancer le serveur
+
+```bash
 npm run dev
+```
+
 <div align="center">
-🌐 http://localhost:3000
+
+🌐 **http://localhost:3000**
 
 </div>
-📁 Structure du projet
-txt
+
+---
+
+## 📁 Structure du projet
+
+```txt
 src/
 ├── 📂 app/
 │   ├── 🌍 (site)/              # Site vitrine public
@@ -97,78 +58,130 @@ src/
 ├── 📂 endpoints/               # Chemins API centralisés
 ├── 📂 types/                   # Types TS partagés
 └── 📂 lib/                     # Utils
-🔐 Authentification
+```
+
+---
+
+## 🔐 Authentification
+
 <div align="center">
-🍪 Cookie	🔒 HttpOnly	📁 Path	⏱️ Durée
-on.accessToken	✅	/	15 min
-on.refreshToken	✅	/api/auth	7 jours
-on.user	❌	/	7 jours
+
+| 🍪 Cookie          | 🔒 HttpOnly | 📁 Path     | ⏱️ Durée  |
+| ------------------ | :---------: | ----------- | --------- |
+| `on.accessToken`   |     ✅      | `/`         | 15 min    |
+| `on.refreshToken`  |     ✅      | `/api/auth` | 7 jours   |
+| `on.user`          |     ❌      | `/`         | 7 jours   |
+
 </div>
-🔄 Flux
-txt
+
+### 🔄 Flux
+
+```txt
 1️⃣  POST /api/auth/login       →  🍪 cookies posés
 2️⃣  GET  /api/auth/me          →  👤 profil chargé
 3️⃣  RequireAuth vérifie        →  🚫 sinon redirect /auth
 4️⃣  http.service gère 401      →  ↩️ redirect auto
 5️⃣  POST /api/auth/logout      →  🧹 clear cookies
-🧭 Pages du dashboard
+```
+
+---
+
+## 🧭 Pages du dashboard
+
 <div align="center">
-🖥️ Page	📝 Rôle	🔐 Accès
-🏠 /dashboard	Vue d'ensemble (stats)	🔵 Auth
-📦 /dashboard/projects	Projets	🔵 Auth
-🧰 /dashboard/services	Services	🔵 Auth
-👥 /dashboard/team	Équipe	🔵 Auth
-🏢 /dashboard/clients	Clients	🔵 Auth
-💬 /dashboard/testimonials	Témoignages	🔵 Auth
-🔗 /dashboard/socials	Réseaux	🔵 Auth
-🧭 /dashboard/navigation	Menus (DnD)	🔵 Auth
-📬 /dashboard/contacts	Messages	🔵 Auth
-📄 /dashboard/quotes	Devis	🔵 Auth
-🖼️ /dashboard/uploads	Médias	🔵 Auth
-👤 /dashboard/profile	Mon profil	🔵 Auth
-🛡️ /dashboard/admins	Admins	🔴 ADMIN
+
+| 🖥️ Page                      | 📝 Rôle                 | 🔐 Accès  |
+| ---------------------------- | ----------------------- | --------- |
+| 🏠 `/dashboard`              | Vue d'ensemble (stats)  | 🔵 Auth   |
+| 📦 `/dashboard/projects`     | Projets                 | 🔵 Auth   |
+| 🧰 `/dashboard/services`     | Services                | 🔵 Auth   |
+| 👥 `/dashboard/team`         | Équipe                  | 🔵 Auth   |
+| 🏢 `/dashboard/clients`      | Clients                 | 🔵 Auth   |
+| 💬 `/dashboard/testimonials` | Témoignages             | 🔵 Auth   |
+| 🔗 `/dashboard/socials`      | Réseaux                 | 🔵 Auth   |
+| 🧭 `/dashboard/navigation`   | Menus (DnD)             | 🔵 Auth   |
+| 📬 `/dashboard/contacts`     | Messages                | 🔵 Auth   |
+| 📄 `/dashboard/quotes`       | Devis                   | 🔵 Auth   |
+| 🖼️ `/dashboard/uploads`      | Médias                  | 🔵 Auth   |
+| 👤 `/dashboard/profile`      | Mon profil              | 🔵 Auth   |
+| 🛡️ `/dashboard/admins`       | Admins                  | 🔴 ADMIN  |
+
 </div>
-🧩 Pattern CRUD
+
+---
+
+## 🧩 Pattern CRUD
+
 Chaque entité suit le même pattern en 3 étapes :
 
-1️⃣ Service
-ts
+### 1️⃣ Service
+
+```ts
 class XService extends CrudService<X, XCreateInput, XUpdateInput> {}
 export const xService = new XService();
-2️⃣ Hook
-ts
+```
+
+### 2️⃣ Hook
+
+```ts
 const { items, loading, create, update, remove } = useCrud(xService);
-3️⃣ Page
-tsx
+```
+
+### 3️⃣ Page
+
+```tsx
 <DataTable data={items} columns={columns} config={{ actions }} />
 <XFormModal open={...} onSubmit={...} />
 <ConfirmDialog open={...} onConfirm={...} />
-📦 Scripts
-bash
+```
+
+---
+
+## 📦 Scripts
+
+```bash
 npm run dev        # 🚀 Développement
 npm run build      # 📦 Build production
 npm run start      # ▶️  Production
 npm run lint       # 🔍 ESLint
 npm run typecheck  # 🟦 tsc --noEmit
-🚀 Déploiement
-<div align="center">
-🌐 Cible	🛠️ Plateforme
-Frontend	▲ Vercel
-API	🚂 Railway · 🪰 Fly.io · 🖥️ VPS
-Images	☁️ Cloudflare R2 · 🖼️ Cloudinary
-</div>
-📚 Documentation liée
-<div align="center">
-📄 Fichier	📝 Contenu
-README_API.md	Backend NestJS + Prisma
-README_ADMIN.md	Guide développeur dashboard
-</div>
-<div align="center">
-📄 License
-UNLICENSED — Projet privé Open Numeric.
-
-Fait avec ❤️ par Open Numeric
-
-</div> 
-
 ```
+
+---
+
+## 🚀 Déploiement
+
+<div align="center">
+
+| 🌐 Cible | 🛠️ Plateforme                         |
+| -------- | ------------------------------------- |
+| Frontend | ▲ Vercel                              |
+| API      | 🚂 Railway · 🪰 Fly.io · 🖥️ VPS       |
+| Images   | ☁️ Cloudflare R2 · 🖼️ Cloudinary      |
+
+</div>
+
+---
+
+## 📚 Documentation liée
+
+<div align="center">
+
+| 📄 Fichier                          | 📝 Contenu                      |
+| ----------------------------------- | ------------------------------- |
+| [README_API.md](./README_API.md)     | Backend NestJS + Prisma         |
+| [README_ADMIN.md](./README_ADMIN.md) | Guide développeur dashboard     |
+
+</div>
+
+---
+
+<div align="center">
+
+## 📄 License
+
+**UNLICENSED** — Projet privé Open Numeric.
+
+Fait avec ❤️ par **Open Numeric**
+
+</div>
