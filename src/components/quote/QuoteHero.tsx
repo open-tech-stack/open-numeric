@@ -21,7 +21,6 @@ const item = {
   },
 };
 
-/** Les 3 grandes icônes animées */
 const HERO_ICONS = [
   {
     icon: Briefcase,
@@ -44,16 +43,27 @@ export default function QuoteHero() {
   const t = useTranslations("quote.hero");
 
   return (
-    <section className="relative pt-16 pb-16 lg:pt-24 lg:pb-20 overflow-hidden border-b border-border">
-      {/* Fonds décoratifs */}
-      <div className="absolute inset-0 -z-20 pointer-events-none">
+    <section
+      aria-labelledby="quote-hero-title"
+      className="relative pt-16 pb-16 lg:pt-24 lg:pb-20 overflow-hidden border-b border-border"
+    >
+      <div
+        className="absolute inset-0 -z-20 pointer-events-none"
+        aria-hidden="true"
+      >
         <div className="absolute top-0 left-1/4 h-72 w-72 rounded-full bg-primary/15 blur-3xl" />
         <div className="absolute bottom-0 right-1/4 h-96 w-96 rounded-full bg-secondary/15 blur-3xl" />
       </div>
 
-      {/* Grille blueprint */}
-      <div className="absolute inset-0 -z-10 opacity-[0.05] pointer-events-none">
-        <svg className="w-full h-full" xmlns="http://www.w3.org/2000/svg">
+      <div
+        className="absolute inset-0 -z-10 opacity-[0.05] pointer-events-none"
+        aria-hidden="true"
+      >
+        <svg
+          className="w-full h-full"
+          xmlns="http://www.w3.org/2000/svg"
+          aria-hidden="true"
+        >
           <defs>
             <pattern
               id="quote-grid"
@@ -76,7 +86,6 @@ export default function QuoteHero() {
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid lg:grid-cols-12 gap-12 lg:gap-16 items-center">
-          {/* ═══════════ COLONNE GAUCHE — texte ═══════════ */}
           <motion.div
             variants={container}
             initial="hidden"
@@ -84,13 +93,14 @@ export default function QuoteHero() {
             className="lg:col-span-6"
           >
             <motion.div variants={item} className="mb-6 flex items-center gap-3">
-              <span className="h-px w-12 bg-primary" />
+              <span className="h-px w-12 bg-primary" aria-hidden="true" />
               <span className="text-xs uppercase tracking-[0.3em] font-semibold text-foreground-subtle">
                 Open Numeric · Quote
               </span>
             </motion.div>
 
             <motion.h1
+              id="quote-hero-title"
               variants={item}
               className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-black leading-[1.02] tracking-tight mb-6"
             >
@@ -106,10 +116,11 @@ export default function QuoteHero() {
             </motion.p>
           </motion.div>
 
-          {/* ═══════════ COLONNE DROITE — 3 icônes animées ═══════════ */}
           <div className="lg:col-span-6 relative">
-            {/* Halos de fond */}
-            <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+            <div
+              className="absolute inset-0 flex items-center justify-center pointer-events-none"
+              aria-hidden="true"
+            >
               <motion.div
                 animate={{ scale: [1, 1.1, 1], opacity: [0.4, 0.6, 0.4] }}
                 transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
@@ -117,23 +128,24 @@ export default function QuoteHero() {
               />
             </div>
 
-            {/* Grille 3 icônes */}
-            <div className="relative grid grid-cols-1 sm:grid-cols-3 gap-5 lg:gap-6">
-              {HERO_ICONS.map((item, i) => {
-                const Icon = item.icon;
+            <ul
+              role="list"
+              className="relative grid grid-cols-1 sm:grid-cols-3 gap-5 lg:gap-6"
+            >
+              {HERO_ICONS.map((heroIcon, i) => {
+                const Icon = heroIcon.icon;
                 return (
-                  <motion.div
+                  <motion.li
                     key={i}
                     initial={{ opacity: 0, y: 40, scale: 0.9 }}
                     animate={{ opacity: 1, y: 0, scale: 1 }}
                     transition={{
                       duration: 0.7,
-                      delay: item.delay,
+                      delay: heroIcon.delay,
                       ease: [0.4, 0, 0.2, 1],
                     }}
                     className="relative"
                   >
-                    {/* Carte avec lévitation décalée */}
                     <motion.div
                       animate={{ y: [-6, 6, -6] }}
                       transition={{
@@ -144,15 +156,13 @@ export default function QuoteHero() {
                       }}
                       className="group relative rounded-3xl p-6 bg-surface border border-border shadow-xl overflow-hidden"
                     >
-                      {/* Halo gradient au hover */}
                       <div
-                        className={`absolute -top-16 -right-16 h-40 w-40 rounded-full bg-gradient-to-br ${item.accent} opacity-20 blur-3xl transition-opacity duration-500 group-hover:opacity-40`}
+                        className={`absolute -top-16 -right-16 h-40 w-40 rounded-full bg-gradient-to-br ${heroIcon.accent} opacity-20 blur-3xl transition-opacity duration-500 group-hover:opacity-40`}
+                        aria-hidden="true"
                       />
 
                       <div className="relative flex flex-col items-center text-center gap-4">
-                        {/* Icône avec rotation continue */}
-                        <div className="relative">
-                          {/* Cercle pulsant derrière */}
+                        <div className="relative" aria-hidden="true">
                           <motion.div
                             animate={{
                               scale: [1, 1.4, 1],
@@ -164,10 +174,9 @@ export default function QuoteHero() {
                               ease: "easeInOut",
                               delay: i * 0.4,
                             }}
-                            className={`absolute inset-0 rounded-2xl bg-gradient-to-br ${item.accent} blur-xl`}
+                            className={`absolute inset-0 rounded-2xl bg-gradient-to-br ${heroIcon.accent} blur-xl`}
                           />
 
-                          {/* Cercle extérieur rotatif pointillé */}
                           <motion.div
                             animate={{ rotate: 360 }}
                             transition={{
@@ -180,17 +189,14 @@ export default function QuoteHero() {
                             <span className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 h-2 w-2 rounded-full bg-primary shadow-lg shadow-primary/50" />
                           </motion.div>
 
-                          {/* Icône centrale */}
                           <motion.div
-                            animate={{
-                              rotate: [-4, 4, -4],
-                            }}
+                            animate={{ rotate: [-4, 4, -4] }}
                             transition={{
                               duration: 5 + i * 0.5,
                               repeat: Infinity,
                               ease: "easeInOut",
                             }}
-                            className={`relative inline-flex h-20 w-20 items-center justify-center rounded-2xl bg-gradient-to-br ${item.accent} text-white shadow-2xl`}
+                            className={`relative inline-flex h-20 w-20 items-center justify-center rounded-2xl bg-gradient-to-br ${heroIcon.accent} text-white shadow-2xl`}
                             style={{
                               boxShadow:
                                 "0 10px 40px -10px rgba(0,0,0,0.3), 0 0 40px var(--primary-glow)",
@@ -202,10 +208,10 @@ export default function QuoteHero() {
                         </div>
                       </div>
                     </motion.div>
-                  </motion.div>
+                  </motion.li>
                 );
               })}
-            </div>
+            </ul>
           </div>
         </div>
       </div>

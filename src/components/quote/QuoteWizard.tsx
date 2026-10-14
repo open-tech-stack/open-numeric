@@ -15,10 +15,6 @@ import type { QuoteOption, QuoteStep } from "@/types";
 
 type WizardState = "form" | "loading" | "success" | "error";
 
-/* =========================================================
-   Configuration locale du wizard
-   ========================================================= */
-
 const WIZARD_STEPS: QuoteStep[] = [
   {
     number: 1,
@@ -206,10 +202,12 @@ export default function QuoteWizard() {
 
   const progress = (currentStep / WIZARD_STEPS.length) * 100;
 
-  // Écran succès
   if (state === "success") {
     return (
-      <section className="relative py-12 lg:py-16">
+      <section
+        aria-labelledby="quote-success-title"
+        className="relative py-12 lg:py-16"
+      >
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
           <StepSuccess onReset={handleReset} />
         </div>
@@ -218,7 +216,10 @@ export default function QuoteWizard() {
   }
 
   return (
-    <section className="relative py-12 lg:py-20">
+    <section
+      aria-labelledby="quote-wizard-title"
+      className="relative py-12 lg:py-20"
+    >
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="quote-border-wrapper relative rounded-[28px] p-[2px] overflow-hidden">
           <div
@@ -227,15 +228,20 @@ export default function QuoteWizard() {
               background:
                 "conic-gradient(from 0deg, var(--accent-from), var(--accent-to), var(--secondary), var(--primary), var(--accent-from))",
             }}
-            aria-hidden
+            aria-hidden="true"
           />
 
           <div className="relative rounded-[26px] bg-surface overflow-hidden">
-            <div className="absolute -top-32 -right-32 h-64 w-64 rounded-full bg-primary-soft blur-3xl pointer-events-none" />
-            <div className="absolute -bottom-32 -left-32 h-64 w-64 rounded-full bg-secondary-soft blur-3xl pointer-events-none" />
+            <div
+              className="absolute -top-32 -right-32 h-64 w-64 rounded-full bg-primary-soft blur-3xl pointer-events-none"
+              aria-hidden="true"
+            />
+            <div
+              className="absolute -bottom-32 -left-32 h-64 w-64 rounded-full bg-secondary-soft blur-3xl pointer-events-none"
+              aria-hidden="true"
+            />
 
             <div className="relative">
-              {/* PROGRESS */}
               <div className="px-6 sm:px-8 lg:px-10 pt-6 pb-4 border-b border-border">
                 <div className="relative h-1.5 rounded-full bg-border overflow-hidden mb-6">
                   <motion.div
@@ -243,57 +249,69 @@ export default function QuoteWizard() {
                     initial={{ width: 0 }}
                     animate={{ width: `${progress}%` }}
                     transition={{ duration: 0.5, ease: [0.4, 0, 0.2, 1] }}
+                    aria-hidden="true"
                   />
                 </div>
 
-                <div className="flex justify-between">
+                <ol
+                  role="list"
+                  className="flex justify-between"
+                  aria-label="Étapes du formulaire"
+                >
                   {WIZARD_STEPS.map((step) => {
                     const isActive = currentStep === step.number;
                     const isDone = currentStep > step.number;
                     return (
-                      <button
-                        key={step.key}
-                        type="button"
-                        onClick={() => isDone && setCurrentStep(step.number)}
-                        disabled={!isDone}
-                        className={`group flex flex-col items-center gap-2 flex-1 transition-all ${
-                          isDone ? "cursor-pointer" : "cursor-default"
-                        }`}
-                      >
-                        <div
-                          className={`relative flex h-10 w-10 sm:h-11 sm:w-11 items-center justify-center rounded-full transition-all duration-300 ${
-                            isDone || isActive
-                              ? "bg-gradient-primary text-primary-foreground shadow-lg glow-primary scale-100"
-                              : "bg-surface border border-border text-foreground-muted scale-95"
+                      <li key={step.key} className="flex-1">
+                        <button
+                          type="button"
+                          onClick={() =>
+                            isDone && setCurrentStep(step.number)
+                          }
+                          disabled={!isDone}
+                          aria-current={isActive ? "step" : undefined}
+                          className={`group flex flex-col items-center gap-2 w-full transition-all ${
+                            isDone ? "cursor-pointer" : "cursor-default"
                           }`}
                         >
-                          {isDone ? (
-                            <Check className="h-5 w-5" />
-                          ) : (
-                            <Icon name={step.icon} className="h-5 w-5" />
-                          )}
-                        </div>
-                        <span
-                          className={`text-[10px] sm:text-xs font-semibold text-center transition-colors ${
-                            isActive
-                              ? "text-primary"
-                              : isDone
-                                ? "text-foreground-muted group-hover:text-primary"
-                                : "text-foreground-subtle"
-                          }`}
-                        >
-                          {tSteps(`labels.${step.key}`)}
-                        </span>
-                      </button>
+                          <div
+                            className={`relative flex h-10 w-10 sm:h-11 sm:w-11 items-center justify-center rounded-full transition-all duration-300 ${
+                              isDone || isActive
+                                ? "bg-gradient-primary text-primary-foreground shadow-lg glow-primary scale-100"
+                                : "bg-surface border border-border text-foreground-muted scale-95"
+                            }`}
+                            aria-hidden="true"
+                          >
+                            {isDone ? (
+                              <Check className="h-5 w-5" />
+                            ) : (
+                              <Icon name={step.icon} className="h-5 w-5" />
+                            )}
+                          </div>
+                          <span
+                            className={`text-[10px] sm:text-xs font-semibold text-center transition-colors ${
+                              isActive
+                                ? "text-primary"
+                                : isDone
+                                  ? "text-foreground-muted group-hover:text-primary"
+                                  : "text-foreground-subtle"
+                            }`}
+                          >
+                            {tSteps(`labels.${step.key}`)}
+                          </span>
+                        </button>
+                      </li>
                     );
                   })}
-                </div>
+                </ol>
               </div>
 
-              {/* FORM */}
               <div className="p-6 sm:p-8 lg:p-10">
                 <div className="mb-8">
-                  <h2 className="text-2xl sm:text-3xl font-extrabold tracking-tight mb-2">
+                  <h2
+                    id="quote-wizard-title"
+                    className="text-2xl sm:text-3xl font-extrabold tracking-tight mb-2"
+                  >
                     {tSteps(`${currentStepData?.key}.title`)}
                   </h2>
                   <p className="text-sm text-foreground-muted">
@@ -301,7 +319,7 @@ export default function QuoteWizard() {
                   </p>
                 </div>
 
-                <form onSubmit={handleSubmit}>
+                <form onSubmit={handleSubmit} noValidate>
                   <AnimatePresence mode="wait">
                     <motion.div
                       key={currentStep}
@@ -333,19 +351,22 @@ export default function QuoteWizard() {
                     </motion.div>
                   </AnimatePresence>
 
-                  {/* Message d'erreur */}
                   {state === "error" && error && (
                     <motion.div
                       initial={{ opacity: 0, y: -8 }}
                       animate={{ opacity: 1, y: 0 }}
+                      role="alert"
+                      aria-live="polite"
                       className="mt-6 flex items-start gap-3 p-4 rounded-xl bg-danger/10 border border-danger/30 text-danger"
                     >
-                      <AlertCircle className="h-5 w-5 flex-shrink-0 mt-0.5" />
+                      <AlertCircle
+                        className="h-5 w-5 flex-shrink-0 mt-0.5"
+                        aria-hidden="true"
+                      />
                       <p className="text-sm font-medium">{error}</p>
                     </motion.div>
                   )}
 
-                  {/* Navigation */}
                   <div className="flex flex-col-reverse sm:flex-row sm:justify-between gap-3 mt-10 pt-6 border-t border-border">
                     {currentStep > 1 ? (
                       <button
@@ -354,7 +375,10 @@ export default function QuoteWizard() {
                         disabled={state === "loading"}
                         className="group inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl font-semibold border border-border-strong text-foreground hover:bg-surface-hover hover:border-primary disabled:opacity-60 transition-all duration-300"
                       >
-                        <ArrowLeft className="h-4 w-4 transition-transform duration-300 group-hover:-translate-x-1" />
+                        <ArrowLeft
+                          className="h-4 w-4 transition-transform duration-300 group-hover:-translate-x-1"
+                          aria-hidden="true"
+                        />
                         {tActions("previous")}
                       </button>
                     ) : (
@@ -369,7 +393,10 @@ export default function QuoteWizard() {
                         className="group inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl font-semibold text-primary-foreground bg-gradient-primary shadow-lg glow-primary hover:shadow-xl hover:scale-[1.03] active:scale-[0.97] disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:scale-100 transition-all duration-300"
                       >
                         {tActions("next")}
-                        <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
+                        <ArrowRight
+                          className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1"
+                          aria-hidden="true"
+                        />
                       </button>
                     ) : (
                       <button
@@ -379,13 +406,19 @@ export default function QuoteWizard() {
                       >
                         {state === "loading" ? (
                           <>
-                            <span className="h-4 w-4 rounded-full border-2 border-white/30 border-t-white animate-spin" />
+                            <span
+                              className="h-4 w-4 rounded-full border-2 border-white/30 border-t-white animate-spin"
+                              aria-hidden="true"
+                            />
                             {tActions("sending")}
                           </>
                         ) : (
                           <>
                             {tActions("submit")}
-                            <Send className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-0.5" />
+                            <Send
+                              className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-0.5"
+                              aria-hidden="true"
+                            />
                           </>
                         )}
                       </button>

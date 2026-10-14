@@ -24,8 +24,13 @@ export default function TeamSection({ members }: TeamSectionProps) {
   const t = useTranslations("team");
   const locale = useLocale();
 
+  if (members.length === 0) return null;
+
   return (
-    <section className="relative py-20 lg:py-28 bg-background-alt">
+    <section
+      aria-labelledby="home-team-title"
+      className="relative py-20 lg:py-28 bg-background-alt"
+    >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 24 }}
@@ -34,7 +39,10 @@ export default function TeamSection({ members }: TeamSectionProps) {
           transition={{ duration: 0.6 }}
           className="text-center mb-14 max-w-2xl mx-auto"
         >
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight mb-4">
+          <h2
+            id="home-team-title"
+            className="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight mb-4"
+          >
             {t("title")}{" "}
             <span className="text-gradient">{t("titleHighlight")}</span>
           </h2>
@@ -43,12 +51,15 @@ export default function TeamSection({ members }: TeamSectionProps) {
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <ul
+          role="list"
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6"
+        >
           {members.map((member, i) => {
             const text = getTeamText(member, locale);
 
             return (
-              <motion.div
+              <motion.li
                 key={member.id}
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -60,34 +71,37 @@ export default function TeamSection({ members }: TeamSectionProps) {
                 <div className="relative h-64 overflow-hidden">
                   <Image
                     src={member.image}
-                    alt={text.name}
+                    alt={`${text.name}, ${text.role} chez Open Numeric`}
                     fill
                     className="object-cover group-hover:scale-110 transition-transform duration-700"
                     sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                  <div
+                    className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                    aria-hidden="true"
+                  />
 
                   <div className="absolute bottom-4 left-4 right-4 flex gap-2 opacity-0 translate-y-4 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300">
                     {member.linkedin && (
                       <a
                         href={member.linkedin}
-                        aria-label="LinkedIn"
+                        aria-label={`Profil LinkedIn de ${text.name}`}
                         target="_blank"
                         rel="noopener noreferrer"
                         className="p-2 rounded-lg bg-white/10 backdrop-blur text-white hover:bg-primary transition-colors"
                       >
-                        <Linkedin className="h-4 w-4" />
+                        <Linkedin className="h-4 w-4" aria-hidden="true" />
                       </a>
                     )}
                     {member.twitter && (
                       <a
                         href={member.twitter}
-                        aria-label="Twitter"
+                        aria-label={`Profil Twitter de ${text.name}`}
                         target="_blank"
                         rel="noopener noreferrer"
                         className="p-2 rounded-lg bg-white/10 backdrop-blur text-white hover:bg-primary transition-colors"
                       >
-                        <Twitter className="h-4 w-4" />
+                        <Twitter className="h-4 w-4" aria-hidden="true" />
                       </a>
                     )}
                   </div>
@@ -100,14 +114,14 @@ export default function TeamSection({ members }: TeamSectionProps) {
                   <p className="text-xs font-semibold text-primary mt-0.5 mb-3">
                     {text.role}
                   </p>
-                  <p className="text-sm text-foreground-muted leading-relaxed">
+                  <p className="text-sm text-foreground-muted leading-relaxed line-clamp-3">
                     {text.bio}
                   </p>
                 </div>
-              </motion.div>
+              </motion.li>
             );
           })}
-        </div>
+        </ul>
       </div>
     </section>
   );

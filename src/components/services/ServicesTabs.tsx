@@ -20,7 +20,7 @@ export default function ServicesTabs({
   const locale = useLocale();
 
   return (
-    <div className="sticky top-20 z-30 py-4 bg-navbar-bg/95 backdrop-blur-md border-b border-navbar-border">
+    <nav className="sticky top-20 z-30 py-4 bg-navbar-bg/95 backdrop-blur-md border-b border-navbar-border">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-start lg:justify-center overflow-x-auto pb-1 -mb-1 scrollbar-hide">
           <div className="inline-flex gap-1.5 p-1.5 rounded-2xl bg-surface border border-border shadow-md">
@@ -34,7 +34,9 @@ export default function ServicesTabs({
               return (
                 <button
                   key={service.id}
+                  type="button"
                   onClick={() => onChange(service.id)}
+                  aria-current={isActive ? "true" : undefined}
                   className={`relative flex items-center gap-2 px-4 py-2.5 rounded-xl text-sm font-medium whitespace-nowrap transition-all duration-300 ease-out hover:scale-[1.03] active:scale-[0.97] ${
                     isActive
                       ? "text-white shadow-lg"
@@ -50,10 +52,15 @@ export default function ServicesTabs({
                         stiffness: 400,
                         damping: 30,
                       }}
+                      aria-hidden="true"
                     />
                   )}
                   <span className="relative z-10 flex items-center gap-2">
-                    <Icon name={service.icon} className="h-4 w-4" />
+                    <Icon
+                      name={service.icon}
+                      className="h-4 w-4"
+                      aria-hidden="true"
+                    />
                     {label}
                   </span>
                 </button>
@@ -62,6 +69,6 @@ export default function ServicesTabs({
           </div>
         </div>
       </div>
-    </div>
+    </nav>
   );
 }

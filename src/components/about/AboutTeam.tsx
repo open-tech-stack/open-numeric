@@ -10,9 +10,6 @@ interface AboutTeamProps {
   members: TeamMember[];
 }
 
-/**
- * Récupère les textes traduits d'un membre pour la locale courante.
- */
 function getTeamText(member: TeamMember, locale: string) {
   const tr = member.translations.find((t) => t.locale === locale);
   const fallback = member.translations[0];
@@ -28,7 +25,10 @@ export default function AboutTeam({ members }: AboutTeamProps) {
   const locale = useLocale();
 
   return (
-    <section className="relative py-16 lg:py-24 bg-background-alt">
+    <section
+      aria-labelledby="about-team-title"
+      className="relative py-16 lg:py-24 bg-background-alt"
+    >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 24 }}
@@ -40,7 +40,10 @@ export default function AboutTeam({ members }: AboutTeamProps) {
           <span className="text-xs uppercase tracking-widest font-bold text-foreground-subtle mb-3 block">
             {t("label")}
           </span>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight mb-4">
+          <h2
+            id="about-team-title"
+            className="text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight mb-4"
+          >
             {t("title")}{" "}
             <span className="text-gradient">{t("titleHighlight")}</span>
           </h2>
@@ -49,12 +52,15 @@ export default function AboutTeam({ members }: AboutTeamProps) {
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+        <ul
+          role="list"
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5"
+        >
           {members.map((member, i) => {
             const text = getTeamText(member, locale);
 
             return (
-              <motion.div
+              <motion.li
                 key={member.id}
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -65,33 +71,36 @@ export default function AboutTeam({ members }: AboutTeamProps) {
                 <div className="relative h-64 overflow-hidden">
                   <Image
                     src={member.image}
-                    alt={text.name}
+                    alt={`${text.name}, ${text.role} chez Open Numeric`}
                     fill
                     className="object-cover transition-transform duration-700 group-hover:scale-110"
                     sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                  <div
+                    className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                    aria-hidden="true"
+                  />
                   <div className="absolute bottom-4 left-4 right-4 flex gap-2 opacity-0 translate-y-4 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300">
                     {member.linkedin && (
                       <a
                         href={member.linkedin}
-                        aria-label="LinkedIn"
+                        aria-label={`Profil LinkedIn de ${text.name}`}
                         target="_blank"
                         rel="noopener noreferrer"
                         className="p-2 rounded-lg bg-white/10 backdrop-blur text-white hover:bg-primary transition-colors"
                       >
-                        <Linkedin className="h-4 w-4" />
+                        <Linkedin className="h-4 w-4" aria-hidden="true" />
                       </a>
                     )}
                     {member.twitter && (
                       <a
                         href={member.twitter}
-                        aria-label="Twitter"
+                        aria-label={`Profil Twitter de ${text.name}`}
                         target="_blank"
                         rel="noopener noreferrer"
                         className="p-2 rounded-lg bg-white/10 backdrop-blur text-white hover:bg-primary transition-colors"
                       >
-                        <Twitter className="h-4 w-4" />
+                        <Twitter className="h-4 w-4" aria-hidden="true" />
                       </a>
                     )}
                   </div>
@@ -107,10 +116,10 @@ export default function AboutTeam({ members }: AboutTeamProps) {
                     {text.bio}
                   </p>
                 </div>
-              </motion.div>
+              </motion.li>
             );
           })}
-        </div>
+        </ul>
       </div>
     </section>
   );

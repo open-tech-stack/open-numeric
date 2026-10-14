@@ -13,6 +13,9 @@ import {
   getServices,
 } from "@/lib/endpoints";
 import "../globals.css";
+import { LocalBusinessSchema } from "@/components/seo/LocalBusinessSchema";
+import { OrganizationSchema } from "@/components/seo/OrganizationSchema";
+import { WebSiteSchema } from "@/components/seo/WebSiteSchema";
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-sans" });
 
@@ -43,6 +46,11 @@ export default async function LocaleLayout({
 
   return (
     <html lang={locale} className={inter.variable} suppressHydrationWarning>
+       <head>
+        <OrganizationSchema />
+        <WebSiteSchema />
+        <LocalBusinessSchema />
+      </head>
       <body>
         <ThemeProvider>
           <NextIntlClientProvider>

@@ -30,7 +30,6 @@ export default function FilterSelect({
   const [open, setOpen] = useState(false);
   const ref = useRef<HTMLDivElement>(null);
 
-  // Ferme au clic extérieur
   useEffect(() => {
     if (!open) return;
     const onClick = (e: MouseEvent) => {
@@ -46,7 +45,6 @@ export default function FilterSelect({
 
   return (
     <div className="relative" ref={ref}>
-      {/* CONTENEUR principal (plus de <button>, un <div role="button">) */}
       <div
         role="button"
         tabIndex={0}
@@ -67,15 +65,16 @@ export default function FilterSelect({
         aria-expanded={open}
         aria-haspopup="listbox"
       >
-        {/* Zone label / tags */}
         <div className="flex-1 flex items-center gap-2 pl-3.5 pr-2 py-2 text-left min-w-0">
           {icon && (
-            <span className="flex-shrink-0 text-foreground-subtle">
+            <span
+              className="flex-shrink-0 text-foreground-subtle"
+              aria-hidden="true"
+            >
               {icon}
             </span>
           )}
 
-          {/* Label ou tags */}
           {hasSelection ? (
             <div className="flex-1 flex flex-wrap items-center gap-1 min-w-0">
               {selected.slice(0, 2).map((value) => {
@@ -88,7 +87,6 @@ export default function FilterSelect({
                     <span className="truncate max-w-[100px]">
                       {opt?.label ?? value}
                     </span>
-                    {/* Le X devient un <span role="button">, pas un <button> */}
                     <span
                       role="button"
                       tabIndex={0}
@@ -106,7 +104,7 @@ export default function FilterSelect({
                       className="flex-shrink-0 rounded-full p-0.5 hover:bg-white/20 transition-colors cursor-pointer"
                       aria-label={`Retirer ${opt?.label ?? value}`}
                     >
-                      <X className="h-2.5 w-2.5" />
+                      <X className="h-2.5 w-2.5" aria-hidden="true" />
                     </span>
                   </span>
                 );
@@ -124,7 +122,6 @@ export default function FilterSelect({
           )}
         </div>
 
-        {/* X global (reset ce filtre) — <span role="button"> */}
         {hasSelection ? (
           <span
             role="button"
@@ -143,7 +140,7 @@ export default function FilterSelect({
             className="flex-shrink-0 flex items-center px-2 text-foreground-subtle hover:text-danger transition-colors cursor-pointer"
             aria-label={`Effacer ${label}`}
           >
-            <X className="h-3.5 w-3.5" />
+            <X className="h-3.5 w-3.5" aria-hidden="true" />
           </span>
         ) : (
           <span className="flex-shrink-0 flex items-center px-2 text-foreground-subtle">
@@ -151,12 +148,12 @@ export default function FilterSelect({
               className={`h-3.5 w-3.5 transition-transform duration-200 ${
                 open ? "rotate-180" : ""
               }`}
+              aria-hidden="true"
             />
           </span>
         )}
       </div>
 
-      {/* Dropdown */}
       <AnimatePresence>
         {open && (
           <motion.div
@@ -168,7 +165,6 @@ export default function FilterSelect({
             style={{ boxShadow: "var(--dropdown-shadow)" }}
             role="listbox"
           >
-            {/* Header : titre + reset si sélections */}
             {hasSelection && (
               <div className="flex items-center justify-between px-3 py-2 border-b border-border">
                 <span className="text-[10px] uppercase tracking-wider font-bold text-foreground-subtle">
@@ -184,7 +180,6 @@ export default function FilterSelect({
               </div>
             )}
 
-            {/* Liste des options */}
             <div className="max-h-[260px] overflow-y-auto p-1.5">
               {options.map((opt) => {
                 const isSelected = selected.includes(opt.value);
@@ -207,11 +202,12 @@ export default function FilterSelect({
                           ? "bg-primary border-primary text-primary-foreground"
                           : "border-border-strong"
                       }`}
+                      aria-hidden="true"
                     >
                       {isSelected && <Check className="h-3 w-3" />}
                     </span>
                     <span className="flex-1 truncate">{opt.label}</span>
-                    <span className="flex-shrink-0 text-[10px] text-foreground-subtle">
+                    <span className="flex-shrink-0 text-[10px] text-foreground-subtle tabular-nums">
                       {opt.count}
                     </span>
                   </button>

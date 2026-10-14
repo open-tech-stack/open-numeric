@@ -14,7 +14,10 @@ export default function ContactMap({ settings }: ContactMapProps) {
   if (!settings.mapEmbedUrl) return null;
 
   return (
-    <section className="relative py-16 lg:py-20">
+    <section
+      aria-labelledby="contact-map-title"
+      className="relative py-16 lg:py-20"
+    >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 24 }}
@@ -23,7 +26,10 @@ export default function ContactMap({ settings }: ContactMapProps) {
           transition={{ duration: 0.6 }}
           className="text-center mb-10 max-w-2xl mx-auto"
         >
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight mb-4">
+          <h2
+            id="contact-map-title"
+            className="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight mb-4"
+          >
             {t("title")}{" "}
             <span className="text-gradient">{t("titleHighlight")}</span>
           </h2>
@@ -48,7 +54,7 @@ export default function ContactMap({ settings }: ContactMapProps) {
               allowFullScreen
               loading="lazy"
               referrerPolicy="no-referrer-when-downgrade"
-              title="Open Numeric — Localisation"
+              title={`Localisation d'Open Numeric — ${settings.address}`}
               className="w-full h-full grayscale-[30%] contrast-[1.05] hover:grayscale-0 transition-all duration-500"
             />
           </div>

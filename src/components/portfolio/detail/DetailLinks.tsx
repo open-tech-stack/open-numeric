@@ -38,7 +38,10 @@ export default function DetailLinks({ project }: DetailLinksProps) {
   if (!project.links || project.links.length === 0) return null;
 
   return (
-    <section className="relative py-12 lg:py-16 bg-background-alt">
+    <section
+      aria-labelledby="project-detail-links-title"
+      className="relative py-12 lg:py-16 bg-background-alt"
+    >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 24 }}
@@ -48,57 +51,70 @@ export default function DetailLinks({ project }: DetailLinksProps) {
           className="mb-8"
         >
           <div className="flex items-center gap-3">
-            <span className="inline-flex h-10 w-10 items-center justify-center rounded-xl bg-gradient-primary text-primary-foreground shadow-md">
+            <span
+              className="inline-flex h-10 w-10 items-center justify-center rounded-xl bg-gradient-primary text-primary-foreground shadow-md"
+              aria-hidden="true"
+            >
               <Link2 className="h-5 w-5" />
             </span>
-            <h2 className="text-2xl sm:text-3xl font-extrabold tracking-tight">
+            <h2
+              id="project-detail-links-title"
+              className="text-2xl sm:text-3xl font-extrabold tracking-tight"
+            >
               {t("sections.links")}
             </h2>
           </div>
         </motion.div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
+        <ul
+          role="list"
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3"
+        >
           {project.links.map((link, i) => {
             const Icon = LINK_ICONS[link.type] ?? ExternalLink;
             const isPrimary = link.type === "DEMO" || link.type === "GITHUB";
 
             return (
-              <motion.a
+              <motion.li
                 key={link.id}
-                href={link.url}
-                target="_blank"
-                rel="noopener noreferrer"
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-80px" }}
                 transition={{ duration: 0.4, delay: i * 0.06 }}
-                className={`group inline-flex items-center gap-3 px-5 py-4 rounded-2xl border transition-all duration-300 hover:-translate-y-0.5 hover:shadow-lg ${
-                  isPrimary
-                    ? "bg-gradient-primary text-primary-foreground border-transparent hover:shadow-primary/30"
-                    : "bg-surface border-border text-foreground hover:border-primary/40"
-                }`}
               >
-                <span
-                  className={`inline-flex h-10 w-10 items-center justify-center rounded-xl flex-shrink-0 transition-transform duration-300 group-hover:scale-110 ${
+                <a
+                  href={link.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={`${t(`links.${link.type}`)} — ${link.url}`}
+                  className={`group inline-flex w-full items-center gap-3 px-5 py-4 rounded-2xl border transition-all duration-300 hover:-translate-y-0.5 hover:shadow-lg ${
                     isPrimary
-                      ? "bg-white/20"
-                      : "bg-surface-hover text-primary"
+                      ? "bg-gradient-primary text-primary-foreground border-transparent hover:shadow-primary/30"
+                      : "bg-surface border-border text-foreground hover:border-primary/40"
                   }`}
                 >
-                  <Icon className="h-5 w-5" />
-                </span>
-                <span className="flex-1 text-sm font-semibold">
-                  {t(`links.${link.type}`)}
-                </span>
-                <ExternalLink
-                  className={`h-4 w-4 flex-shrink-0 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 ${
-                    isPrimary ? "opacity-80" : "text-foreground-subtle"
-                  }`}
-                />
-              </motion.a>
+                  <span
+                    className={`inline-flex h-10 w-10 items-center justify-center rounded-xl flex-shrink-0 transition-transform duration-300 group-hover:scale-110 ${
+                      isPrimary ? "bg-white/20" : "bg-surface-hover text-primary"
+                    }`}
+                    aria-hidden="true"
+                  >
+                    <Icon className="h-5 w-5" />
+                  </span>
+                  <span className="flex-1 text-sm font-semibold">
+                    {t(`links.${link.type}`)}
+                  </span>
+                  <ExternalLink
+                    className={`h-4 w-4 flex-shrink-0 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 ${
+                      isPrimary ? "opacity-80" : "text-foreground-subtle"
+                    }`}
+                    aria-hidden="true"
+                  />
+                </a>
+              </motion.li>
             );
           })}
-        </div>
+        </ul>
       </div>
     </section>
   );

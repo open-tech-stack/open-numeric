@@ -58,7 +58,6 @@ export default function PortfolioFilters({
       techs: [],
     });
 
-  /* Toggles utilitaires */
   const toggleCategory = (v: string) => {
     const value = v as ProjectCategory;
     onChange({
@@ -98,7 +97,6 @@ export default function PortfolioFilters({
     });
   };
 
-  /* Data transformée pour FilterSelect */
   const categoryOptions = data.categories.map((c) => ({
     value: c.value,
     label: tCat(c.value),
@@ -124,52 +122,61 @@ export default function PortfolioFilters({
   }));
 
   return (
-    <section className="sticky top-20 z-30 py-4 bg-navbar-bg/95 backdrop-blur-md border-b border-navbar-border">
+    <section
+      aria-label="Filtres du portfolio"
+      className="sticky top-20 z-30 py-4 bg-navbar-bg/95 backdrop-blur-md border-b border-navbar-border"
+    >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Ligne 1 : recherche + résultat + reset global */}
         <div className="flex flex-col sm:flex-row sm:items-center gap-3 mb-3">
-          {/* Recherche */}
           <div className="relative flex-1 max-w-md">
-            <Search className="absolute left-3.5 top-1/2 -translate-y-1/2 h-4 w-4 text-foreground-subtle pointer-events-none" />
+            <Search
+              className="absolute left-3.5 top-1/2 -translate-y-1/2 h-4 w-4 text-foreground-subtle pointer-events-none"
+              aria-hidden="true"
+            />
             <input
-              type="text"
+              type="search"
               value={active.search}
-              onChange={(e) =>
-                onChange({ ...active, search: e.target.value })
-              }
+              onChange={(e) => onChange({ ...active, search: e.target.value })}
               placeholder={t("searchPlaceholder")}
+              aria-label={t("searchPlaceholder")}
               className="w-full pl-10 pr-9 py-2.5 rounded-xl bg-surface border border-border text-sm text-foreground placeholder:text-foreground-subtle focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/20 transition-all"
             />
             {active.search && (
               <button
+                type="button"
                 onClick={() => onChange({ ...active, search: "" })}
                 className="absolute right-2.5 top-1/2 -translate-y-1/2 p-1 rounded-lg hover:bg-surface-hover transition-colors"
-                aria-label="Clear search"
+                aria-label="Effacer la recherche"
               >
-                <X className="h-3.5 w-3.5 text-foreground-muted" />
+                <X className="h-3.5 w-3.5 text-foreground-muted" aria-hidden="true" />
               </button>
             )}
           </div>
 
-          {/* Compteur + reset global */}
           <div className="flex items-center gap-3 sm:ml-auto">
-            <span className="text-xs font-semibold text-foreground-muted">
+            <span
+              className="text-xs font-semibold text-foreground-muted tabular-nums"
+              aria-live="polite"
+            >
               {t("results", { count: resultCount })}
             </span>
 
             {hasActive && (
               <button
+                type="button"
                 onClick={clearAll}
                 className="group inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold text-foreground-muted hover:text-danger hover:bg-danger/10 transition-colors"
               >
-                <RotateCcw className="h-3 w-3 transition-transform group-hover:-rotate-180 duration-300" />
+                <RotateCcw
+                  className="h-3 w-3 transition-transform group-hover:-rotate-180 duration-300"
+                  aria-hidden="true"
+                />
                 {t("clear")}
               </button>
             )}
           </div>
         </div>
 
-        {/* Ligne 2 : les 4 selects */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-2.5">
           <FilterSelect
             label={t("category")}

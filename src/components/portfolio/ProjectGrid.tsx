@@ -10,18 +10,15 @@ interface ProjectGridProps {
 
 export default function ProjectGrid({ projects }: ProjectGridProps) {
   return (
-    <motion.div
-      initial="hidden"
-      animate="show"
-      variants={{
-        hidden: { opacity: 0 },
-        show: { opacity: 1, transition: { staggerChildren: 0.05 } },
-      }}
+    <ul
+      role="list"
       className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 lg:gap-6"
     >
       {projects.map((project, index) => (
-        <ProjectCard key={project.id} project={project} index={index} />
+        <li key={project.id}>
+          <ProjectCard project={project} index={index} />
+        </li>
       ))}
-    </motion.div>
+    </ul>
   );
 }

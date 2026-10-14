@@ -33,7 +33,6 @@ export default function StepProject({
 
   return (
     <div className="space-y-4">
-      {/* 2 selects côte à côte : Projet | Budget */}
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
         {projectType && (
           <SelectField
@@ -61,7 +60,6 @@ export default function StepProject({
         )}
       </div>
 
-      {/* Délai seul sur sa ligne */}
       {timeline && (
         <SelectField
           field={timeline}
@@ -75,7 +73,6 @@ export default function StepProject({
         />
       )}
 
-      {/* Description en pleine largeur */}
       {description && (
         <div>
           <label
@@ -83,7 +80,11 @@ export default function StepProject({
             className="block text-sm font-semibold text-foreground mb-1.5"
           >
             {t(`${description.key}.label`)}
-            {description.required && <span className="text-danger ml-1">*</span>}
+            {description.required && (
+              <span className="text-danger ml-1" aria-hidden="true">
+                *
+              </span>
+            )}
           </label>
           <textarea
             id={description.key}
@@ -93,6 +94,7 @@ export default function StepProject({
             onChange={(e) => onChange(description.key, e.target.value)}
             placeholder={t(`${description.key}.placeholder`)}
             required={description.required}
+            aria-required={description.required}
             className={getInputClass()}
           />
         </div>
@@ -127,7 +129,11 @@ function SelectField({
         className="block text-sm font-semibold text-foreground mb-1.5"
       >
         {t(`${field.key}.label`)}
-        {field.required && <span className="text-danger ml-1">*</span>}
+        {field.required && (
+          <span className="text-danger ml-1" aria-hidden="true">
+            *
+          </span>
+        )}
       </label>
       <select
         id={field.key}
@@ -135,6 +141,7 @@ function SelectField({
         value={values[field.key]}
         onChange={(e) => onChange(field.key, e.target.value)}
         required={field.required}
+        aria-required={field.required}
         className={className}
       >
         <option value="">{t(`${field.key}.placeholder`)}</option>

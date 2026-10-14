@@ -25,15 +25,21 @@ export default function ContactHero() {
   const t = useTranslations("contact.hero");
 
   return (
-    <section className="relative pt-20 pb-20 lg:pt-28 lg:pb-24 overflow-hidden border-b border-border">
+    <section
+      aria-labelledby="contact-hero-title"
+      className="relative pt-20 pb-20 lg:pt-28 lg:pb-24 overflow-hidden border-b border-border"
+    >
       {/* Décors */}
-      <div className="absolute inset-0 -z-10 pointer-events-none">
+      <div className="absolute inset-0 -z-10 pointer-events-none" aria-hidden="true">
         <div className="absolute top-0 left-1/4 h-72 w-72 rounded-full bg-primary/15 blur-3xl" />
         <div className="absolute bottom-0 right-1/4 h-96 w-96 rounded-full bg-secondary/15 blur-3xl" />
       </div>
 
       {/* Grille blueprint */}
-      <div className="absolute inset-0 -z-10 opacity-[0.05] pointer-events-none">
+      <div
+        className="absolute inset-0 -z-10 opacity-[0.05] pointer-events-none"
+        aria-hidden="true"
+      >
         <svg className="w-full h-full" xmlns="http://www.w3.org/2000/svg">
           <defs>
             <pattern
@@ -57,10 +63,9 @@ export default function ContactHero() {
 
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
         <motion.div variants={container} initial="hidden" animate="show">
-          {/* ICÔNE ANIMÉE + AGRANDIE */}
+          {/* Icône animée */}
           <motion.div variants={item} className="inline-flex mb-8">
-            <div className="relative">
-              {/* Halos pulsants */}
+            <div className="relative" aria-hidden="true">
               <motion.div
                 animate={{ scale: [1, 1.35, 1], opacity: [0.5, 0.1, 0.5] }}
                 transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
@@ -77,7 +82,6 @@ export default function ContactHero() {
                 className="absolute inset-0 rounded-3xl bg-secondary/40 blur-3xl"
               />
 
-              {/* Cercle extérieur rotatif en pointillés */}
               <motion.div
                 animate={{ rotate: 360 }}
                 transition={{ duration: 30, repeat: Infinity, ease: "linear" }}
@@ -86,7 +90,6 @@ export default function ContactHero() {
                 <span className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 h-2.5 w-2.5 rounded-full bg-primary shadow-lg shadow-primary/50" />
               </motion.div>
 
-              {/* Cercle intermédiaire contre-rotatif */}
               <motion.div
                 animate={{ rotate: -360 }}
                 transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
@@ -95,7 +98,6 @@ export default function ContactHero() {
                 <span className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 h-1.5 w-1.5 rounded-full bg-secondary" />
               </motion.div>
 
-              {/* Icône centrale */}
               <motion.div
                 animate={{ y: [-4, 4, -4] }}
                 transition={{
@@ -111,15 +113,14 @@ export default function ContactHero() {
             </div>
           </motion.div>
 
-          {/* Label */}
           <motion.div variants={item} className="mb-4">
             <span className="text-xs uppercase tracking-[0.3em] font-semibold text-foreground-subtle">
               {t("label")}
             </span>
           </motion.div>
 
-          {/* Titre */}
           <motion.h1
+            id="contact-hero-title"
             variants={item}
             className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-black leading-[1.05] tracking-tight mb-6"
           >
@@ -127,7 +128,6 @@ export default function ContactHero() {
             <span className="text-gradient">{t("titleHighlight")}</span>
           </motion.h1>
 
-          {/* Sous-titre */}
           <motion.p
             variants={item}
             className="text-base sm:text-lg text-foreground-muted max-w-2xl mx-auto leading-relaxed"

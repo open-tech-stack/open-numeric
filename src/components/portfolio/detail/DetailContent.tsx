@@ -22,8 +22,13 @@ export default function DetailContent({ project }: DetailContentProps) {
     fallback?.description ??
     "";
 
+  if (!longDescription) return null;
+
   return (
-    <section className="relative py-12 lg:py-16">
+    <section
+      aria-labelledby="project-detail-overview-title"
+      className="relative py-12 lg:py-16"
+    >
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 24 }}
@@ -32,10 +37,16 @@ export default function DetailContent({ project }: DetailContentProps) {
           transition={{ duration: 0.6 }}
         >
           <div className="flex items-center gap-3 mb-6">
-            <span className="inline-flex h-10 w-10 items-center justify-center rounded-xl bg-gradient-primary text-primary-foreground shadow-md">
+            <span
+              className="inline-flex h-10 w-10 items-center justify-center rounded-xl bg-gradient-primary text-primary-foreground shadow-md"
+              aria-hidden="true"
+            >
               <AlignLeft className="h-5 w-5" />
             </span>
-            <h2 className="text-2xl sm:text-3xl font-extrabold tracking-tight">
+            <h2
+              id="project-detail-overview-title"
+              className="text-2xl sm:text-3xl font-extrabold tracking-tight"
+            >
               {t("sections.overview")}
             </h2>
           </div>

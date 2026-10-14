@@ -10,7 +10,11 @@ import {
   PortfolioEmpty,
   type ActiveFilters,
 } from "@/components/portfolio";
-import type { PaginatedResponse, PortfolioFilters as FiltersData, Project, ProjectCategory, ProjectScope } from "@/types";
+import type {
+  PaginatedResponse,
+  PortfolioFilters as FiltersData,
+  Project,
+} from "@/types";
 
 interface PortfolioPageClientProps {
   projects: PaginatedResponse<Project>;
@@ -18,10 +22,6 @@ interface PortfolioPageClientProps {
   initialFilters: ActiveFilters;
 }
 
-/**
- * Wrapper client de la page Portfolio.
- * Gère la synchronisation des filtres avec l'URL (searchParams).
- */
 export default function PortfolioPageClient({
   projects,
   filterData,
@@ -32,33 +32,25 @@ export default function PortfolioPageClient({
   const searchParams = useSearchParams();
   const [isPending, startTransition] = useTransition();
 
-  /* =========================================================
-     Met à jour l'URL en fonction des nouveaux filtres.
-     ========================================================= */
   const handleFiltersChange = useCallback(
     (next: ActiveFilters) => {
       const params = new URLSearchParams(searchParams.toString());
 
-      // Reset la page à 1 quand les filtres changent
       params.delete("page");
 
-      // Search
       if (next.search) params.set("search", next.search);
       else params.delete("search");
 
-      // Categories
-      if (next.categories.length) params.set("category", next.categories.join(","));
+      if (next.categories.length)
+        params.set("category", next.categories.join(","));
       else params.delete("category");
 
-      // Scopes
       if (next.scopes.length) params.set("scope", next.scopes.join(","));
       else params.delete("scope");
 
-      // Years
       if (next.years.length) params.set("year", next.years.join(","));
       else params.delete("year");
 
-      // Techs
       if (next.techs.length) params.set("tech", next.techs.join(","));
       else params.delete("tech");
 
@@ -69,9 +61,6 @@ export default function PortfolioPageClient({
     [router, pathname, searchParams],
   );
 
-  /* =========================================================
-     Change la page (pagination).
-     ========================================================= */
   const handlePageChange = useCallback(
     (page: number) => {
       const params = new URLSearchParams(searchParams.toString());
@@ -85,9 +74,6 @@ export default function PortfolioPageClient({
     [router, pathname, searchParams],
   );
 
-  /* =========================================================
-     Reset tous les filtres.
-     ========================================================= */
   const clearFilters = useCallback(() => {
     startTransition(() => {
       router.push(pathname, { scroll: false });
@@ -105,13 +91,20 @@ export default function PortfolioPageClient({
         resultCount={projects.total}
       />
 
-      <section className="relative pb-16 lg:pb-24">
+      <section
+        aria-labelledby="portfolio-grid-title"
+        className="relative pb-16 lg:pb-24"
+      >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          {/* Loader discret pendant la transition */}
+          <h2 id="portfolio-grid-title" className="sr-only">
+            Projets
+          </h2>
+
           <div
             className={`transition-opacity duration-200 ${
               isPending ? "opacity-40" : "opacity-100"
             }`}
+            aria-busy={isPending}
           >
             {projects.items.length > 0 ? (
               <ProjectGrid projects={projects.items} />

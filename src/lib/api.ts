@@ -11,7 +11,7 @@
    CONFIG
    ========================================================= */
 
-const API_URL = process.env.NEXT_PUBLIC_API_URL ?? 'http://localhost:5000';
+const API_URL = process.env.NEXT_PUBLIC_API_URL ?? 'https://open-numeric-api.opennumeric.com';
 const API_TIMEOUT = Number(process.env.NEXT_PUBLIC_API_TIMEOUT ?? 10_000);
 const DEFAULT_REVALIDATE = Number(process.env.NEXT_PUBLIC_API_REVALIDATE ?? 60);
 

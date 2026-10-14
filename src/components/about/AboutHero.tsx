@@ -21,7 +21,10 @@ export default function AboutHero() {
   const t = useTranslations("about.hero");
 
   return (
-    <section className="relative pt-20 pb-20 lg:pt-28 lg:pb-24 overflow-hidden border-b border-border">
+    <section
+      aria-labelledby="about-hero-title"
+      className="relative pt-20 pb-20 lg:pt-28 lg:pb-24 overflow-hidden border-b border-border"
+    >
       {/* Halos thémés */}
       <div className="absolute inset-0 -z-20 pointer-events-none">
         <div className="absolute -top-20 left-1/4 h-80 w-80 rounded-full bg-primary/25 blur-3xl" />
@@ -30,10 +33,25 @@ export default function AboutHero() {
 
       {/* Grille blueprint */}
       <div className="absolute inset-0 -z-10 pointer-events-none">
-        <svg className="w-full h-full opacity-25" xmlns="http://www.w3.org/2000/svg">
+        <svg
+          className="w-full h-full opacity-25"
+          xmlns="http://www.w3.org/2000/svg"
+          aria-hidden="true"
+        >
           <defs>
-            <pattern id="about-grid" width="60" height="60" patternUnits="userSpaceOnUse">
-              <path d="M 60 0 L 0 0 0 60" fill="none" stroke="currentColor" strokeWidth="1" className="text-foreground" />
+            <pattern
+              id="about-grid"
+              width="60"
+              height="60"
+              patternUnits="userSpaceOnUse"
+            >
+              <path
+                d="M 60 0 L 0 0 0 60"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="1"
+                className="text-foreground"
+              />
             </pattern>
           </defs>
           <rect width="100%" height="100%" fill="url(#about-grid)" />
@@ -50,6 +68,7 @@ export default function AboutHero() {
           </motion.div>
 
           <motion.h1
+            id="about-hero-title"
             variants={item}
             className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-black leading-[1.05] tracking-tight mb-6"
           >

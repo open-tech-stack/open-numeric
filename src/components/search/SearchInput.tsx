@@ -26,18 +26,15 @@ export default function SearchInput({ onClose }: SearchInputProps) {
   const inputRef = useRef<HTMLInputElement>(null);
   const debounceRef = useRef<NodeJS.Timeout | null>(null);
 
-  /* Focus automatique à l'ouverture */
   useEffect(() => {
     inputRef.current?.focus();
   }, []);
 
-  /* Debounce + appel API */
   useEffect(() => {
     if (debounceRef.current) clearTimeout(debounceRef.current);
 
     const trimmed = query.trim();
 
-    // Reset si vide
     if (trimmed.length < 2) {
       setResults(null);
       setError(null);
@@ -73,7 +70,6 @@ export default function SearchInput({ onClose }: SearchInputProps) {
     };
   }, [query, locale, t]);
 
-  /* Navigation clavier (Entrée = aller à la recherche) */
   const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
     if (e.key === "Enter" && query.trim().length >= 2) {
       router.push(`/search?q=${encodeURIComponent(query.trim())}`);
@@ -95,48 +91,59 @@ export default function SearchInput({ onClose }: SearchInputProps) {
 
   return (
     <>
-      {/* Champ */}
       <div className="px-5 py-4 border-b border-border">
         <div className="relative">
-          <SearchIcon className="absolute left-4 top-1/2 -translate-y-1/2 h-5 w-5 text-foreground-subtle pointer-events-none" />
+          <SearchIcon
+            className="absolute left-4 top-1/2 -translate-y-1/2 h-5 w-5 text-foreground-subtle pointer-events-none"
+            aria-hidden="true"
+          />
           <input
             ref={inputRef}
-            type="text"
+            type="search"
             value={query}
             onChange={(e) => setQuery(e.target.value)}
             onKeyDown={handleKeyDown}
             placeholder={t("placeholder")}
+            aria-label={t("placeholder")}
             className="w-full pl-12 pr-12 py-3.5 rounded-xl bg-surface border border-border text-foreground placeholder:text-foreground-subtle focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/20 transition-all"
           />
           {loading && (
-            <Loader2 className="absolute right-4 top-1/2 -translate-y-1/2 h-5 w-5 text-primary animate-spin" />
+            <Loader2
+              className="absolute right-4 top-1/2 -translate-y-1/2 h-5 w-5 text-primary animate-spin"
+              aria-hidden="true"
+            />
           )}
           {!loading && query && (
             <button
+              type="button"
               onClick={clear}
               aria-label={t("clear")}
               className="absolute right-3 top-1/2 -translate-y-1/2 p-1.5 rounded-lg text-foreground-muted hover:text-foreground hover:bg-surface-hover transition-colors"
             >
-              <X className="h-4 w-4" />
+              <X className="h-4 w-4" aria-hidden="true" />
             </button>
           )}
         </div>
 
-        {/* Compteur */}
         {showResults && results && (
-          <p className="mt-3 text-xs text-foreground-subtle">
+          <p
+            className="mt-3 text-xs text-foreground-subtle"
+            aria-live="polite"
+          >
             {t("resultsCount", { count: results.total })}
           </p>
         )}
       </div>
 
-      {/* Résultats */}
       <div className="max-h-[60vh] overflow-y-auto">
         {showHint && <SearchHint />}
         {showResults && <SearchResults response={results} onClose={onClose} />}
         {showEmpty && <SearchEmpty query={trimmed} />}
         {error && (
-          <div className="p-6 text-center text-sm text-danger">
+          <div
+            role="alert"
+            className="p-6 text-center text-sm text-danger"
+          >
             {error}
           </div>
         )}
@@ -145,9 +152,6 @@ export default function SearchInput({ onClose }: SearchInputProps) {
   );
 }
 
-/* =========================================================
-   Hint (avant la recherche)
-   ========================================================= */
 function SearchHint() {
   const t = useTranslations("search");
   return (

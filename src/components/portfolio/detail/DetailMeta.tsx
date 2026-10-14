@@ -53,9 +53,16 @@ export default function DetailMeta({ project }: DetailMetaProps) {
   }[];
 
   return (
-    <section className="relative py-8">
+    <section
+      aria-labelledby="project-detail-meta-title"
+      className="relative py-8"
+    >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3 sm:gap-4">
+        <h2 id="project-detail-meta-title" className="sr-only">
+          Informations du projet
+        </h2>
+
+        <dl className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3 sm:gap-4">
           {items.map((item, i) => {
             const Icon = item.icon;
             return (
@@ -69,19 +76,20 @@ export default function DetailMeta({ project }: DetailMetaProps) {
               >
                 <div
                   className={`inline-flex h-9 w-9 items-center justify-center rounded-xl bg-gradient-to-br ${item.accent} text-white shadow-md mb-3 transition-transform duration-300 group-hover:scale-110 group-hover:rotate-3`}
+                  aria-hidden="true"
                 >
                   <Icon className="h-4 w-4" />
                 </div>
-                <p className="text-[10px] uppercase tracking-wider font-bold text-foreground-subtle mb-1">
+                <dt className="text-[10px] uppercase tracking-wider font-bold text-foreground-subtle mb-1">
                   {item.label}
-                </p>
-                <p className="text-sm font-bold text-foreground truncate">
+                </dt>
+                <dd className="text-sm font-bold text-foreground truncate">
                   {item.value}
-                </p>
+                </dd>
               </motion.div>
             );
           })}
-        </div>
+        </dl>
       </div>
     </section>
   );

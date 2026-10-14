@@ -31,7 +31,10 @@ export default function ServiceCategorySection({
       className="space-y-10"
     >
       <div className="text-center max-w-2xl mx-auto">
-        <h2 className="text-3xl sm:text-4xl font-extrabold tracking-tight mb-3">
+        <h2
+          id="services-category-title"
+          className="text-3xl sm:text-4xl font-extrabold tracking-tight mb-3"
+        >
           <span
             className={`bg-gradient-to-r ${category.accent} bg-clip-text text-transparent`}
           >
@@ -45,17 +48,18 @@ export default function ServiceCategorySection({
         )}
       </div>
 
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+      <ul role="list" className="grid grid-cols-1 lg:grid-cols-2 gap-6">
         {category.items.map((item, i) => (
-          <ServiceCard
-            key={item.id}
-            category={category}
-            item={item}
-            service={service}
-            index={i}
-          />
+          <li key={item.id}>
+            <ServiceCard
+              category={category}
+              item={item}
+              service={service}
+              index={i}
+            />
+          </li>
         ))}
-      </div>
+      </ul>
     </motion.div>
   );
 }

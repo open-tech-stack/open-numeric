@@ -16,7 +16,10 @@ export default function SimilarProjects({ projects }: SimilarProjectsProps) {
   if (projects.length === 0) return null;
 
   return (
-    <section className="relative py-16 lg:py-20">
+    <section
+      aria-labelledby="project-detail-similar-title"
+      className="relative py-16 lg:py-20"
+    >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 24 }}
@@ -26,20 +29,31 @@ export default function SimilarProjects({ projects }: SimilarProjectsProps) {
           className="mb-10"
         >
           <div className="flex items-center gap-3">
-            <span className="inline-flex h-10 w-10 items-center justify-center rounded-xl bg-gradient-primary text-primary-foreground shadow-md">
+            <span
+              className="inline-flex h-10 w-10 items-center justify-center rounded-xl bg-gradient-primary text-primary-foreground shadow-md"
+              aria-hidden="true"
+            >
               <Layers className="h-5 w-5" />
             </span>
-            <h2 className="text-2xl sm:text-3xl font-extrabold tracking-tight">
+            <h2
+              id="project-detail-similar-title"
+              className="text-2xl sm:text-3xl font-extrabold tracking-tight"
+            >
               {t("sections.similar")}
             </h2>
           </div>
         </motion.div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 lg:gap-6">
+        <ul
+          role="list"
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 lg:gap-6"
+        >
           {projects.map((p, i) => (
-            <ProjectCard key={p.id} project={p} index={i} />
+            <li key={p.id}>
+              <ProjectCard project={p} index={i} />
+            </li>
           ))}
-        </div>
+        </ul>
       </div>
     </section>
   );

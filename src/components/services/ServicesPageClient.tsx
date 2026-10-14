@@ -14,12 +14,9 @@ import type { Service, ServiceCategory, SiteSettings } from "@/types";
 
 interface ServicesPageClientProps {
   services: Service[];
-  settings: SiteSettings;
+  settings: SiteSettings | null;
 }
 
-/**
- * Récupère le label traduit d'une catégorie pour la locale courante.
- */
 function getCategoryLabel(category: ServiceCategory, locale: string): string {
   const tr = category.translations.find((t) => t.locale === locale);
   return tr?.name ?? category.translations[0]?.name ?? category.key;
@@ -31,14 +28,12 @@ export default function ServicesPageClient({
 }: ServicesPageClientProps) {
   const locale = useLocale();
 
-  /* Service actif */
   const [activeServiceId, setActiveServiceId] = useState<string>(
     services[0]?.id ?? "",
   );
   const activeService =
     services.find((s) => s.id === activeServiceId) ?? services[0];
 
-  /* Catégorie active dans le service actif */
   const categories = activeService?.categories ?? [];
 
   const [activeCategoryKey, setActiveCategoryKey] = useState<string>(
@@ -77,9 +72,11 @@ export default function ServicesPageClient({
         onChange={handleServiceChange}
       />
 
-      {/* Sous-tabs : catégories du service actif */}
       {categories.length > 1 && (
-        <div className="sticky top-20 z-20 py-3 bg-background/80 backdrop-blur-md border-b border-border">
+        <nav
+          aria-label="Catégories du service"
+          className="sticky top-20 z-20 py-3 bg-background/80 backdrop-blur-md border-b border-border"
+        >
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="flex gap-1.5 overflow-x-auto pb-1 -mb-1 scrollbar-hide">
               {categories.map((cat) => {
@@ -87,7 +84,9 @@ export default function ServicesPageClient({
                 return (
                   <button
                     key={cat.id}
+                    type="button"
                     onClick={() => setActiveCategoryKey(cat.key)}
+                    aria-current={isActive ? "true" : undefined}
                     className={`flex-shrink-0 px-4 py-2 rounded-xl text-sm font-medium whitespace-nowrap transition-all ${
                       isActive
                         ? "bg-primary-soft text-primary"
@@ -100,10 +99,13 @@ export default function ServicesPageClient({
               })}
             </div>
           </div>
-        </div>
+        </nav>
       )}
 
-      <section className="py-16 lg:py-20">
+      <section
+        aria-labelledby="services-category-title"
+        className="py-16 lg:py-20"
+      >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <AnimatePresence mode="wait">
             {activeCategory && (

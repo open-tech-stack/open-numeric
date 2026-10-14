@@ -19,9 +19,6 @@ interface SearchResultItemProps {
   onClose: () => void;
 }
 
-/**
- * Icône + couleur par type de résultat.
- */
 const TYPE_CONFIG: Record<
   SearchResultType,
   { icon: LucideIcon; accent: string }
@@ -34,9 +31,6 @@ const TYPE_CONFIG: Record<
   nav: { icon: Compass, accent: "from-indigo-500 to-violet-500" },
 };
 
-/**
- * Label traduit par type.
- */
 function useTypeLabel() {
   const t = useTranslations("search.types");
   return (type: SearchResultType) => t(type);
@@ -48,10 +42,8 @@ export default function SearchResultItem({
 }: SearchResultItemProps) {
   const getTypeLabel = useTypeLabel();
   const config = TYPE_CONFIG[result.type];
-  const Icon = config.icon;
-
-  /* Sécurité : on ignore les types inconnus */
   if (!config) return null;
+  const Icon = config.icon;
 
   return (
     <Link
@@ -59,14 +51,13 @@ export default function SearchResultItem({
       onClick={onClose}
       className="group flex items-start gap-4 px-4 py-3 rounded-xl hover:bg-surface-hover transition-colors"
     >
-      {/* Icône colorée */}
       <div
         className={`flex-shrink-0 inline-flex h-10 w-10 items-center justify-center rounded-xl bg-gradient-to-br ${config.accent} text-white shadow-md transition-transform group-hover:scale-110`}
+        aria-hidden="true"
       >
         <Icon className="h-5 w-5" />
       </div>
 
-      {/* Contenu */}
       <div className="flex-1 min-w-0">
         <div className="flex items-center gap-2 mb-1">
           <p className="text-sm font-bold text-foreground truncate group-hover:text-primary transition-colors">
@@ -83,8 +74,10 @@ export default function SearchResultItem({
         )}
       </div>
 
-      {/* Flèche */}
-      <ArrowUpRight className="flex-shrink-0 h-4 w-4 text-foreground-subtle opacity-0 group-hover:opacity-100 transition-opacity mt-1" />
+      <ArrowUpRight
+        className="flex-shrink-0 h-4 w-4 text-foreground-subtle opacity-0 group-hover:opacity-100 transition-opacity mt-1"
+        aria-hidden="true"
+      />
     </Link>
   );
 }

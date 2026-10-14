@@ -15,14 +15,12 @@ export default function SearchResults({
   if (response.results.length === 0) return null;
 
   return (
-    <div className="p-2">
+    <ul role="list" className="p-2">
       {response.results.map((result) => (
-        <SearchResultItem
-          key={`${result.type}-${result.id}`}
-          result={result}
-          onClose={onClose}
-        />
+        <li key={`${result.type}-${result.id}`}>
+          <SearchResultItem result={result} onClose={onClose} />
+        </li>
       ))}
-    </div>
+    </ul>
   );
 }

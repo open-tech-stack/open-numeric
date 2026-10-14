@@ -15,7 +15,10 @@ export default function AboutValues() {
   const t = useTranslations("about.values");
 
   return (
-    <section className="relative py-16 lg:py-24 bg-background-alt">
+    <section
+      aria-labelledby="about-values-title"
+      className="relative py-16 lg:py-24 bg-background-alt"
+    >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 24 }}
@@ -27,17 +30,23 @@ export default function AboutValues() {
           <span className="text-xs uppercase tracking-widest font-bold text-foreground-subtle mb-3 block">
             {t("label")}
           </span>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight">
+          <h2
+            id="about-values-title"
+            className="text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight"
+          >
             {t("title")}{" "}
             <span className="text-gradient">{t("titleHighlight")}</span>
           </h2>
         </motion.div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+        <ul
+          role="list"
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5"
+        >
           {VALUES.map((v, i) => {
             const Icon = v.icon;
             return (
-              <motion.div
+              <motion.li
                 key={v.key}
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -47,10 +56,12 @@ export default function AboutValues() {
               >
                 <div
                   className={`absolute -top-16 -right-16 h-40 w-40 rounded-full bg-gradient-to-br ${v.accent} opacity-0 blur-3xl transition-opacity duration-500 group-hover:opacity-20`}
+                  aria-hidden="true"
                 />
                 <div className="relative">
                   <div
                     className={`inline-flex h-14 w-14 items-center justify-center rounded-2xl bg-gradient-to-br ${v.accent} text-white shadow-lg mb-5 transition-transform duration-300 group-hover:scale-110 group-hover:rotate-3`}
+                    aria-hidden="true"
                   >
                     <Icon className="h-6 w-6" />
                   </div>
@@ -61,10 +72,10 @@ export default function AboutValues() {
                     {t(`items.${v.key}.description`)}
                   </p>
                 </div>
-              </motion.div>
+              </motion.li>
             );
           })}
-        </div>
+        </ul>
       </div>
     </section>
   );

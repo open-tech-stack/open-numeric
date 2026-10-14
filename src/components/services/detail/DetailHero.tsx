@@ -9,7 +9,7 @@ import type { Service, SiteSettings } from "@/types";
 
 interface DetailHeroProps {
   service: Service;
-  settings: SiteSettings;
+  settings: SiteSettings | null;
 }
 
 const container = {
@@ -33,7 +33,6 @@ export default function DetailHero({ service, settings }: DetailHeroProps) {
   const t = useTranslations("serviceDetail.common");
   const locale = useLocale();
 
-  /* Récupère la traduction du service pour la locale courante */
   const tr =
     service.translations.find((x) => x.locale === locale) ??
     service.translations[0];
@@ -43,17 +42,30 @@ export default function DetailHero({ service, settings }: DetailHeroProps) {
   const heroSubtitle = tr?.heroSubtitle ?? "";
 
   return (
-    <section className="relative min-h-[85vh] lg:min-h-[90vh] w-full overflow-hidden flex items-center bg-background">
-      {/* DÉCOR DE FOND */}
-      <div className="absolute inset-0 -z-20 pointer-events-none">
+    <section
+      aria-labelledby="service-detail-hero-title"
+      className="relative min-h-[85vh] lg:min-h-[90vh] w-full overflow-hidden flex items-center bg-background"
+    >
+      {/* DECOR DE FOND */}
+      <div
+        className="absolute inset-0 -z-20 pointer-events-none"
+        aria-hidden="true"
+      >
         <div className="absolute -top-32 -left-32 h-[500px] w-[500px] rounded-full bg-primary/15 blur-3xl" />
         <div className="absolute -bottom-32 -right-32 h-[600px] w-[600px] rounded-full bg-secondary/15 blur-3xl" />
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 h-[800px] w-[800px] rounded-full bg-primary/5 blur-3xl" />
       </div>
 
       {/* GRILLE */}
-      <div className="absolute inset-0 -z-10 opacity-[0.06] pointer-events-none">
-        <svg className="w-full h-full" xmlns="http://www.w3.org/2000/svg">
+      <div
+        className="absolute inset-0 -z-10 opacity-[0.06] pointer-events-none"
+        aria-hidden="true"
+      >
+        <svg
+          className="w-full h-full"
+          xmlns="http://www.w3.org/2000/svg"
+          aria-hidden="true"
+        >
           <defs>
             <pattern
               id="service-detail-grid"
@@ -75,12 +87,15 @@ export default function DetailHero({ service, settings }: DetailHeroProps) {
       </div>
 
       {/* OVERLAY */}
-      <div className="absolute inset-0 -z-10 bg-gradient-to-r from-background via-background/60 to-transparent" />
+      <div
+        className="absolute inset-0 -z-10 bg-gradient-to-r from-background via-background/60 to-transparent"
+        aria-hidden="true"
+      />
 
-      {/* GRANDE ICÔNE ANIMÉE À DROITE */}
+      {/* GRANDE ICONE ANIMEE A DROITE */}
       <div
         className="absolute top-1/2 -translate-y-1/2 right-8 lg:right-20 xl:right-32 hidden lg:flex items-center justify-center pointer-events-none select-none"
-        aria-hidden
+        aria-hidden="true"
       >
         <motion.div
           initial={{ opacity: 0, scale: 0.5, rotate: -20 }}
@@ -181,13 +196,14 @@ export default function DetailHero({ service, settings }: DetailHeroProps) {
             className="text-foreground"
           >
             <motion.div variants={item} className="mb-6 flex items-center gap-3">
-              <span className="h-px w-12 bg-primary" />
+              <span className="h-px w-12 bg-primary" aria-hidden="true" />
               <span className="text-xs uppercase tracking-[0.25em] font-semibold text-foreground-subtle">
                 Open Numeric · Services
               </span>
             </motion.div>
 
             <motion.h1
+              id="service-detail-hero-title"
               variants={item}
               className="text-5xl sm:text-6xl lg:text-7xl xl:text-8xl font-black leading-[0.95] tracking-tight mb-8"
             >
@@ -218,13 +234,16 @@ export default function DetailHero({ service, settings }: DetailHeroProps) {
                 className="group inline-flex items-center gap-2 px-7 py-4 rounded-full font-semibold text-primary-foreground bg-gradient-primary shadow-lg glow-primary hover:shadow-xl hover:scale-[1.03] active:scale-[0.97] transition-all duration-300"
               >
                 {t("talkToExpert")}
-                <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
+                <ArrowRight
+                  className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1"
+                  aria-hidden="true"
+                />
               </Link>
               <Link
                 href="/devis"
                 className="group inline-flex items-center gap-2 px-7 py-4 rounded-full font-semibold text-foreground border border-border-strong hover:bg-surface-hover hover:border-primary hover:scale-[1.03] active:scale-[0.97] transition-all duration-300"
               >
-                <Phone className="h-4 w-4" />
+                <Phone className="h-4 w-4" aria-hidden="true" />
                 {t("requestQuote")}
               </Link>
             </motion.div>
@@ -232,7 +251,10 @@ export default function DetailHero({ service, settings }: DetailHeroProps) {
         </div>
       </div>
 
-      <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-border-strong to-transparent" />
+      <div
+        className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-border-strong to-transparent"
+        aria-hidden="true"
+      />
     </section>
   );
 }
